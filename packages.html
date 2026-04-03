@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packages | Renewed Rest Sleep Consulting</title>
+  <link rel="stylesheet" href="brand.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+  <meta name="theme-color" content="#3E6B7E">
+
+  <style>
+    main { padding-top: var(--nav-h); }
+    .page-hero { background: var(--off-white); padding: var(--sp16) 0 var(--sp12); text-align: center; border-bottom: 1px solid var(--border); }
+    .page-hero h1 { font-family: var(--serif); font-size: clamp(2rem,4vw,3rem); color: var(--navy); margin-bottom: var(--sp4); }
+    .page-hero h1 em { font-style: italic; color: var(--teal); }
+    .page-hero p { color: var(--text-mid); max-width: 540px; margin: 0 auto; font-size: 1.05rem; }
+
+    .pkg-compare { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--sp6); align-items: start; margin-bottom: var(--sp12); }
+    .pkgc { background: var(--white); border-radius: var(--r16); box-shadow: var(--sh-card); overflow: hidden; transition: all 0.2s; position: relative; }
+    .pkgc:hover { box-shadow: var(--sh-hover); transform: translateY(-3px); }
+    .pkgc.feat { border: 2px solid var(--teal); box-shadow: var(--sh-hover); transform: scale(1.03); }
+    .pkgc.feat:hover { transform: scale(1.03) translateY(-3px); }
+    .pkgc-ribbon { position: absolute; top: -1px; right: var(--sp5); background: var(--rose); color: var(--white); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 0 0 var(--r8) var(--r8); }
+    .pkgc-head { padding: var(--sp8) var(--sp6) var(--sp5); text-align: center; }
+    .pkgc-icon { font-size: 2.2rem; margin-bottom: var(--sp3); }
+    .pkgc-name { font-family: var(--serif); font-size: 1.4rem; color: var(--navy); margin-bottom: 4px; }
+    .pkgc-tag { font-size: 0.82rem; color: var(--text-light); margin-bottom: var(--sp4); }
+    .pkgc-price { font-family: var(--serif); font-size: 3rem; font-weight: 700; color: var(--teal); line-height: 1; }
+    .pkgc-price-sub { font-size: 0.78rem; color: var(--text-light); margin-top: 2px; }
+    .pkgc-div { height: 1px; background: var(--border); margin: var(--sp5) var(--sp6) 0; }
+    .pkgc-body { padding: var(--sp5) var(--sp6) var(--sp6); }
+    .pkgc-features { display: flex; flex-direction: column; gap: var(--sp3); margin-bottom: var(--sp5); }
+    .pkgc-features li { font-size: 0.9rem; color: var(--text-mid); display: flex; align-items: flex-start; gap: var(--sp2); line-height: 1.5; }
+    .pkgc-features li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .pkgc-cta { width: 100%; }
+
+    /* Table */
+    .ctable-wrap { overflow-x: auto; margin-bottom: var(--sp12); border-radius: var(--r16); box-shadow: var(--sh-card); }
+    .ctable { width: 100%; border-collapse: collapse; background: var(--white); }
+    .ctable thead tr { background: var(--navy); }
+    .ctable thead th { padding: var(--sp4) var(--sp5); text-align: center; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.85); }
+    .ctable thead th:first-child { text-align: left; }
+    .ctable thead th.tcol-feat { background: var(--teal); }
+    .ctable tbody tr { border-bottom: 1px solid var(--border); }
+    .ctable tbody tr:last-child { border-bottom: none; }
+    .ctable tbody tr:hover { background: var(--off-white); }
+    .ctable tbody td { padding: var(--sp3) var(--sp5); text-align: center; font-size: 0.9rem; color: var(--text-mid); }
+    .ctable tbody td:first-child { text-align: left; font-weight: 500; color: var(--navy); }
+    .ctable tbody td.tcol-feat { background: rgba(62,107,126,0.04); }
+    .ctable tr.cat-row td { background: var(--off-white); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); padding: var(--sp2) var(--sp5); }
+    .ck { color: var(--teal); font-weight: 700; }
+    .cx { color: var(--text-muted); }
+
+    /* Add-ons */
+    .byo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--sp5); margin-bottom: var(--sp8); }
+    .addon-card { background: var(--white); border-radius: var(--r12); padding: var(--sp6); box-shadow: var(--sh-card); cursor: pointer; transition: all 0.2s; border: 2px solid transparent; position: relative; }
+    .addon-card:hover { box-shadow: var(--sh-hover); border-color: rgba(62,107,126,0.3); }
+    .addon-card.selected { border-color: var(--teal); background: var(--teal-light); }
+    .addon-check { position: absolute; top: var(--sp3); right: var(--sp3); width: 22px; height: 22px; border-radius: var(--rpill); background: var(--teal); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; opacity: 0; transition: opacity 0.15s; }
+    .addon-card.selected .addon-check { opacity: 1; }
+    .addon-icon { font-size: 1.6rem; margin-bottom: var(--sp3); }
+    .addon-card h4 { font-family: var(--serif); font-size: 0.95rem; color: var(--navy); margin-bottom: var(--sp2); }
+    .addon-card p { font-size: 0.82rem; color: var(--text-mid); margin-bottom: var(--sp3); line-height: 1.6; }
+    .addon-price { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; color: var(--teal); }
+    .byo-total { background: var(--navy); border-radius: var(--r16); padding: var(--sp6) var(--sp8); display: flex; align-items: center; justify-content: space-between; gap: var(--sp6); flex-wrap: wrap; }
+    .byo-total-info { color: rgba(255,255,255,0.65); font-size: 0.9rem; }
+    .byo-total-info strong { color: var(--white); display: block; font-size: 1rem; margin-bottom: 2px; }
+    .byo-total-amount { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: rgba(255,255,255,0.9); }
+
+    /* Reviews */
+    .tcard { background: var(--white); border-radius: var(--r16); padding: var(--sp8); box-shadow: var(--sh-card); max-width: 660px; margin: 0 auto; text-align: center; }
+    .tcard-stars { color: var(--gold); font-size: 1rem; letter-spacing: 3px; margin-bottom: var(--sp4); }
+    .tcard-quote { font-family: var(--serif); font-size: 1.1rem; font-style: italic; color: var(--navy); line-height: 1.65; margin-bottom: var(--sp4); }
+    .tcard-author { font-weight: 600; font-size: 0.88rem; color: var(--text); }
+
+    @media (max-width: 960px) {
+      .pkg-compare { grid-template-columns: 1fr; }
+      .pkgc.feat { transform: none; }
+      .byo-grid { grid-template-columns: 1fr 1fr; }
+      .byo-total { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 640px) { .byo-grid { grid-template-columns: 1fr; } }
+@media (max-width: 700px) {
+  .pkg-compare + p + div[style*="grid-template-columns:120px 1fr"] { grid-template-columns: 1fr !important; text-align:center; }
+  .pkg-compare + p + div[style*="grid-template-columns:120px 1fr"] img { margin: 0 auto; }
+}
+  </style>
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Renewed Rest home"><span>Renewed Rest</span></a>
+    <div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="packages.html">Packages</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="contact.html" class="nav-cta-btn">Schedule a Free Call</a></div>
+    <button class="hamburger" onclick="openMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-drawer" id="drawer">
+  <button class="drawer-close" onclick="closeMenu()">✕</button>
+  <a href="index.html" onclick="closeMenu()">Home</a><a href="about.html" onclick="closeMenu()">About</a><a href="packages.html" onclick="closeMenu()">Packages</a><a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="contact.html" class="btn btn-rose btn-lg" style="margin-top:8px;" onclick="closeMenu()">Schedule a Free Call</a>
+</div>
+<div class="mobile-sticky-cta"><a href="contact.html">Schedule a Free Call →</a></div>
+<main>
+
+  <section class="page-hero">
+    <div class="eyebrow">Sleep Packages</div>
+    <h1>Every family is different.<br><em>Every plan is personalized.</em></h1>
+    <p>Choose the level of support that fits your family — or build your own. All packages include a personalized sleep plan and WhatsApp support.</p>
+  </section>
+
+  <section class="section bg-white">
+    <div class="wrap">
+      <div class="pkg-compare">
+        <div class="pkgc">
+          <div class="pkgc-head"><div class="pkgc-icon">🌱</div><div class="pkgc-name">Essentials</div><div class="pkgc-tag">The foundation for better sleep</div><div class="pkgc-price">$197</div><div class="pkgc-price-sub">one-time investment</div></div>
+          <div class="pkgc-div"></div>
+          <div class="pkgc-body">
+            <ul class="pkgc-features"><li>Personalized written sleep plan</li><li>30-min kickoff call with Emily</li><li>2 weeks WhatsApp support</li><li>Sleep log + schedule template</li><li>Sleep environment checklist</li></ul>
+            <!-- Stripe Essentials -->
+            <a href="https://buy.stripe.com/7sI8xIdIb7cN1wYcMO" target="_blank" class="btn btn-outline pkgc-cta">Get Started</a>
+          </div>
+        </div>
+        <div class="pkgc feat">
+          <div class="pkgc-ribbon">Most Popular</div>
+          <div class="pkgc-head"><div class="pkgc-icon">🌿</div><div class="pkgc-name">Silver</div><div class="pkgc-tag">More support, more confidence</div><div class="pkgc-price">$347</div><div class="pkgc-price-sub">one-time investment</div></div>
+          <div class="pkgc-div"></div>
+          <div class="pkgc-body">
+            <ul class="pkgc-features"><li>Everything in Essentials</li><li>2 follow-up calls (30 min each)</li><li>4 weeks WhatsApp support</li><li>Nap schedule optimization</li><li>Feeding & sleep connection guide</li><li>Plan revision after 2 weeks</li></ul>
+            <!-- Stripe Silver -->
+            <a href="https://buy.stripe.com/3cs01c1Zt0Op6RiaEF" target="_blank" class="btn btn-teal pkgc-cta">Get Started</a>
+          </div>
+        </div>
+        <div class="pkgc">
+          <div class="pkgc-head"><div class="pkgc-icon">✨</div><div class="pkgc-name">Gold</div><div class="pkgc-tag">Full-service, unlimited support</div><div class="pkgc-price">$597</div><div class="pkgc-price-sub">one-time investment</div></div>
+          <div class="pkgc-div"></div>
+          <div class="pkgc-body">
+            <ul class="pkgc-features"><li>Everything in Silver</li><li>Unlimited calls for 6 weeks</li><li>WhatsApp voice message access</li><li>Night weaning guidance</li><li>Toddler transition support</li><li>Priority response time</li></ul>
+            <!-- Stripe Gold -->
+            <a href="https://buy.stripe.com/7sI8xIcE72Wx1wY8ww" target="_blank" class="btn btn-outline pkgc-cta">Get Started</a>
+          </div>
+        </div>
+      </div>
+      <p style="text-align:center; color:var(--text-mid); font-size:0.92rem;">Not sure which package fits your family? <a href="contact.html" style="color:var(--teal); font-weight:600;">Book a free call to find out.</a></p>
+      <div style="max-width:780px; margin: var(--sp8) auto 0; background: var(--off-white); border-radius: var(--r16); padding: var(--sp6); display:grid; grid-template-columns:120px 1fr; gap: var(--sp5); align-items:center; box-shadow: var(--sh-card);">
+        <img src="emily-hat.webp" alt="Emily Sweetman" style="width:120px; height:120px; object-fit:cover; border-radius: var(--r12);">
+        <div>
+          <div class="eyebrow" style="margin-bottom:8px;">Work directly with Emily</div>
+          <p style="font-size:0.95rem; color:var(--text-mid); line-height:1.7; margin:0;">Every package includes a personalized plan built by Emily Sweetman, an IPSP® certified sleep consultant and mother of five. Support is thoughtful, practical, and tailored to what your family is actually comfortable with.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm bg-off-white">
+    <div class="wrap">
+      <div class="section-header center" style="margin-bottom:var(--sp8);"><div class="eyebrow">Side by side</div><h2 class="section-title" style="font-size:2rem;">What's included</h2></div>
+      <div class="ctable-wrap">
+        <table class="ctable">
+          <thead><tr><th style="width:40%; text-align:left;">Feature</th><th>Essentials<br><span style="font-weight:400;opacity:0.7;font-size:0.85em;">$197</span></th><th class="tcol-feat">Silver<br><span style="font-weight:400;opacity:0.85;font-size:0.85em;">$347</span></th><th>Gold<br><span style="font-weight:400;opacity:0.7;font-size:0.85em;">$597</span></th></tr></thead>
+          <tbody>
+            <tr class="cat-row"><td colspan="4">Core Plan</td></tr>
+            <tr><td>Personalized sleep plan</td><td><span class="ck">✓</span></td><td class="tcol-feat"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+            <tr><td>Sleep environment checklist</td><td><span class="ck">✓</span></td><td class="tcol-feat"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+            <tr><td>Age-appropriate schedule</td><td><span class="ck">✓</span></td><td class="tcol-feat"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+            <tr class="cat-row"><td colspan="4">Calls & WhatsApp Support</td></tr>
+            <tr><td>Initial 30-min kickoff call</td><td><span class="ck">✓</span></td><td class="tcol-feat"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+            <tr><td>Follow-up calls</td><td><span class="cx">—</span></td><td class="tcol-feat">2 calls</td><td>Unlimited (6 wks)</td></tr>
+            <tr><td>WhatsApp text support</td><td>2 weeks</td><td class="tcol-feat">4 weeks</td><td>6 weeks</td></tr>
+            <tr><td>WhatsApp voice messages</td><td><span class="cx">—</span></td><td class="tcol-feat"><span class="cx">—</span></td><td><span class="ck">✓</span></td></tr>
+            <tr><td>Priority response time</td><td><span class="cx">—</span></td><td class="tcol-feat"><span class="cx">—</span></td><td><span class="ck">✓</span></td></tr>
+            <tr class="cat-row"><td colspan="4">Advanced Guidance</td></tr>
+            <tr><td>Nap schedule optimization</td><td><span class="cx">—</span></td><td class="tcol-feat"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+            <tr><td>Feeding & sleep guide</td><td><span class="cx">—</span></td><td class="tcol-feat"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+            <tr><td>Plan revision at 2 weeks</td><td><span class="cx">—</span></td><td class="tcol-feat"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+            <tr><td>Night weaning guidance</td><td><span class="cx">—</span></td><td class="tcol-feat"><span class="cx">—</span></td><td><span class="ck">✓</span></td></tr>
+            <tr><td>Toddler transition support</td><td><span class="cx">—</span></td><td class="tcol-feat"><span class="cx">—</span></td><td><span class="ck">✓</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="wrap">
+      <div class="section-header center"><div class="eyebrow">Customize your plan</div><h2 class="section-title">Build Your Own</h2><p class="section-body center" style="margin:0 auto;">Add extras to any package. Click to select — your total updates instantly.</p></div>
+      <div class="byo-grid">
+        <div class="addon-card" data-price="75"><div class="addon-check">✓</div><div class="addon-icon">📞</div><h4>Extra 30-Min Call</h4><p>An additional one-on-one call with Emily for troubleshooting or a mid-plan check-in.</p><div class="addon-price">+$75</div></div>
+        <div class="addon-card" data-price="49"><div class="addon-check">✓</div><div class="addon-icon">📋</div><h4>Toddler Regression Guide</h4><p>Dedicated guide for the 18-month, 2-year, and 3-year sleep regressions with action plans.</p><div class="addon-price">+$49</div></div>
+        <div class="addon-card" data-price="99"><div class="addon-check">✓</div><div class="addon-icon">🌙</div><h4>Night Weaning Protocol</h4><p>Step-by-step gentle night weaning plan tailored to your baby's age and feeding history.</p><div class="addon-price">+$99</div></div>
+        <div class="addon-card" data-price="59"><div class="addon-check">✓</div><div class="addon-icon">✈️</div><h4>Travel Sleep Guide</h4><p>Keep sleep on track during travel, time zone changes, and holidays.</p><div class="addon-price">+$59</div></div>
+        <div class="addon-card" data-price="89"><div class="addon-check">✓</div><div class="addon-icon">👶</div><h4>Sibling Sleep Strategy</h4><p>A coordinated plan for two kids sharing a sleep schedule under one roof.</p><div class="addon-price">+$89</div></div>
+        <div class="addon-card" data-price="149"><div class="addon-check">✓</div><div class="addon-icon">🔄</div><h4>2-Week Intensive Follow-Up</h4><p>Daily WhatsApp check-ins + one extra call for maximum accountability during implementation.</p><div class="addon-price">+$149</div></div>
+      </div>
+      <div class="byo-total">
+        <div class="byo-total-info"><strong>Add-ons selected: <span id="addonCount">0</span></strong>Add to any package — discuss on your free call</div>
+        <div class="byo-total-amount" id="addonTotal">$0</div>
+        <a href="contact.html" class="btn btn-rose">Book a Call to Discuss</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-rose-light">
+    <div class="wrap">
+      <div class="section-header center"><div class="eyebrow">What parents say</div><h2 class="section-title">Real results, <em>real families</em></h2></div>
+      <div class="carousel-track" id="tCarousel">
+        <div class="carousel-inner">
+          <div class="carousel-slide"><div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-quote">"Emily was so kind, patient, and encouraging. Within a few days of adjusting his routines, he was sleeping through the night without major crying spells. I was shocked by how quickly her techniques really worked."</p><div class="tcard-author">Kathryn P.</div></div></div>
+          <div class="carousel-slide"><div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-quote">"1000% I will forever recommend Emily to others. Emily is very educated and the main thing I love and appreciated was she cares. She helps mentally as well, especially when us tired mamas are struggling!"</p><div class="tcard-author">Jessica Leary</div></div></div>
+          <div class="carousel-slide"><div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-quote">"At first I felt silly contacting Emily, being this was my third baby. But we weren't sleeping and desperate! The tips she gave me were life changing. Sleep is LIFE CHANGING."</p><div class="tcard-author">Courtney Krause</div></div></div>
+        </div>
+      </div>
+      <div class="carousel-dots" id="tDots"></div>
+    </div>
+  </section>
+
+</main>
+<footer class="footer"><div class="wrap"><div class="footer-grid">
+  <div><div class="footer-logo">Renewed Rest</div><p class="footer-tagline">Helping families find the rest they deserve.</p></div>
+  <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="packages.html">Packages</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:emily@renewed.rest">emily@renewed.rest</a></li><li><a href="contact.html">Schedule a Free Call</a></li></ul></div>
+  <div class="footer-col"><h4>Newsletter</h4><form class="footer-nl-form" onsubmit="const e=this.querySelector('input').value; const btn=this.querySelector('button'); btn.textContent='✓ Joining...'; setTimeout(()=>{window.location.href='mailto:emily@renewed.rest?subject=Newsletter Signup&body=Please add me to the newsletter: '+encodeURIComponent(e); btn.textContent='✓ Joined!';}, 150); return false;"><input type="email" placeholder="Email address" required><button type="submit">Join</button></form></div>
+</div><div class="footer-bottom"><span>© 2025 Renewed Rest LLC.</span><div class="footer-badges"><span class="footer-badge">IPSP® Certified</span><span class="footer-badge">Mother of 5</span></div></div></div></footer>
+<script src="main.js"></script>
+</body></html>

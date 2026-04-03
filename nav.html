@@ -1,0 +1,32 @@
+<!-- SHARED NAV — include at top of every page -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="moon-icon">🌙</span>
+      Renewed Rest
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#blog">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Free Sleep Call</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="openMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="packages.html" onclick="closeMenu()">Packages</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="index.html#blog" onclick="closeMenu()">Blog</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="contact.html" class="btn btn-primary btn-lg" onclick="closeMenu()">Book Free Sleep Call</a>
+</div>
+<div class="mobile-cta-bar">
+  <a href="contact.html">📞 Book Your Free Sleep Call</a>
+</div>

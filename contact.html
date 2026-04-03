@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule a Free Call | Renewed Rest</title>
+  <link rel="stylesheet" href="brand.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+  <meta name="theme-color" content="#3E6B7E">
+
+  <style>
+    main { padding-top: var(--nav-h); }
+    .contact-hero { background: var(--off-white); padding: var(--sp16) 0 var(--sp12); text-align: center; border-bottom: 1px solid var(--border); }
+    .contact-hero h1 { font-family: var(--serif); font-size: clamp(2rem,4vw,3rem); color: var(--navy); margin-bottom: var(--sp4); }
+    .contact-hero h1 em { font-style: italic; color: var(--teal); }
+    .contact-hero p { color: var(--text-mid); max-width: 520px; margin: 0 auto; font-size: 1.05rem; line-height: 1.75; }
+
+    .booking-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: var(--sp12); align-items: start; }
+    .cal-widget { background: var(--white); border-radius: var(--r16); box-shadow: var(--sh-hover); overflow: hidden; }
+    .cal-head { background: var(--teal); padding: var(--sp5) var(--sp6); display: flex; align-items: center; gap: var(--sp4); }
+    .cal-head-icon { font-size: 1.6rem; }
+    .cal-head-text h3 { font-family: var(--serif); font-size: 1rem; color: var(--white); }
+    .cal-head-text p { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+    .cal-body { padding: var(--sp10); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 420px; text-align: center; }
+    .cal-body .cal-icon { font-size: 3rem; margin-bottom: var(--sp5); }
+    .cal-body h4 { font-family: var(--serif); font-size: 1.4rem; color: var(--navy); margin-bottom: var(--sp3); }
+    .cal-body > p { color: var(--text-mid); margin-bottom: var(--sp6); max-width: 320px; }
+    .cal-meta { display: flex; gap: var(--sp5); justify-content: center; margin-bottom: var(--sp6); flex-wrap: wrap; }
+    .cal-meta-item { font-size: 0.82rem; color: var(--text-mid); font-weight: 500; display: flex; align-items: center; gap: var(--sp2); }
+    .cal-note { font-size: 0.78rem; color: var(--text-light); margin-top: var(--sp4) !important; margin-bottom: 0 !important; }
+
+    .contact-sidebar { display: flex; flex-direction: column; gap: var(--sp5); }
+    .sidebar-card { background: var(--white); border-radius: var(--r12); padding: var(--sp6); box-shadow: var(--sh-card); }
+    .sidebar-card h3 { font-family: var(--serif); font-size: 1.05rem; color: var(--navy); margin-bottom: var(--sp4); }
+    .emily-mini { display: flex; align-items: center; gap: var(--sp4); }
+    .emily-mini-photo { width: 60px; height: 60px; border-radius: var(--rpill); overflow: hidden; flex-shrink: 0; }
+    .emily-mini-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .emily-mini-text strong { display: block; color: var(--navy); font-size: 0.9rem; }
+    .emily-mini-text span { font-size: 0.8rem; color: var(--text-light); }
+    .expect-list { display: flex; flex-direction: column; gap: var(--sp3); }
+    .expect-item { display: flex; align-items: flex-start; gap: var(--sp3); font-size: 0.88rem; color: var(--text-mid); line-height: 1.55; }
+    .expect-num { width: 22px; height: 22px; border-radius: var(--rpill); background: var(--teal); color: var(--white); font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .pull-quote-card { background: var(--teal); border-radius: var(--r12); padding: var(--sp6); }
+    .pull-quote-card .pq-text { font-family: var(--serif); font-size: 1rem; font-style: italic; color: rgba(255,255,255,0.9); margin-bottom: var(--sp3); line-height: 1.6; }
+    .pull-quote-card .pq-author { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+    .faq-wrap { max-width: 740px; margin: 0 auto; }
+
+    @media (max-width: 960px) { .booking-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Renewed Rest home"><span>Renewed Rest</span></a>
+    <div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="packages.html">Packages</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="contact.html" class="nav-cta-btn">Schedule a Free Call</a></div>
+    <button class="hamburger" onclick="openMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-drawer" id="drawer">
+  <button class="drawer-close" onclick="closeMenu()">✕</button>
+  <a href="index.html" onclick="closeMenu()">Home</a><a href="about.html" onclick="closeMenu()">About</a><a href="packages.html" onclick="closeMenu()">Packages</a><a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="contact.html" class="btn btn-rose btn-lg" style="margin-top:8px;" onclick="closeMenu()">Schedule a Free Call</a>
+</div>
+<div class="mobile-sticky-cta"><a href="contact.html">Schedule a Free Call →</a></div>
+<main>
+
+  <section class="contact-hero">
+    <div class="eyebrow">Free 30-Minute Call</div>
+    <h1>Let's talk about<br><em>your baby's sleep.</em></h1>
+    <p>No pressure. No commitment. Just 30 minutes to find out if we're a good fit — and to start imagining what a full night's sleep feels like.</p>
+  </section>
+
+  <section class="section bg-off-white">
+    <div class="wrap">
+      <div class="booking-grid">
+        <div class="cal-widget">
+          <div class="cal-head">
+            <div class="cal-head-icon">📅</div>
+            <div class="cal-head-text"><h3>Free Sleep Assessment Call</h3><p>30 minutes · Video or Phone · No cost</p></div>
+          </div>
+          <div class="cal-body">
+            <div class="cal-icon">🌙</div>
+            <h4>Book Your Free Call with Emily</h4>
+            <p>Select a time that works for you. Emily will send a confirmation and a short pre-call questionnaire.</p>
+            <div class="cal-meta">
+              <div class="cal-meta-item">⏱ 30 minutes</div>
+              <div class="cal-meta-item">📹 Video or phone</div>
+              <div class="cal-meta-item">💰 Completely free</div>
+            </div>
+            
+            <a href="https://calendly.com/emily-renewed" target="_blank" class="btn btn-rose btn-lg">Open Scheduling Calendar →</a>
+            <p class="cal-note">Or email: <a href="mailto:emily@renewed.rest" style="color:var(--teal);">emily@renewed.rest</a></p>
+          </div>
+        </div>
+        <div class="contact-sidebar">
+          <div class="sidebar-card">
+            <div class="emily-mini">
+              <div class="emily-mini-photo"><img src="emily-denim.jpg" alt="Emily"></div>
+              <div class="emily-mini-text"><strong>Emily Sweetman</strong><span>IPSP® Certified · Mother of Five</span></div>
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <h3>What to expect on the call</h3>
+            <div class="expect-list">
+              <div class="expect-item"><span class="expect-num">1</span>Tell Emily about your baby's current sleep patterns and biggest struggles</div>
+              <div class="expect-item"><span class="expect-num">2</span>Emily asks a few questions to understand your family's goals and comfort level</div>
+              <div class="expect-item"><span class="expect-num">3</span>You'll get a clear sense of which package fits your situation</div>
+              <div class="expect-item"><span class="expect-num">4</span>Zero pressure to book — this call is genuinely free, no strings attached</div>
+            </div>
+          </div>
+          <div class="pull-quote-card">
+            <p class="pq-text">"I almost didn't book the free call because I figured it was just a sales pitch. It wasn't. Emily spent 30 minutes genuinely helping me understand my baby's sleep."</p>
+            <div class="pq-author">— Rachel M., mom to Oliver, 6 months</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="wrap">
+      <div class="section-header center"><div class="eyebrow">Common questions</div><h2 class="section-title">You might be wondering…</h2></div>
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <button class="faq-q">Is sleep training harmful to my baby?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Research consistently shows that sleep training, done thoughtfully and age-appropriately, does not harm babies emotionally or psychologically. Well-rested babies tend to be happier and better able to regulate their emotions. Emily uses methods you're comfortable with — gentle, structured, or somewhere in between. No judgment, ever.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What age can we start sleep training?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Emily works with families from the newborn stage through toddlerhood. Sleep training can begin as early as 3 months, when babies have the developmental readiness to start learning independent sleep. For newborns (0–3 months), the focus is sleep education and healthy foundations. Emily will assess your baby's specific age and stage on your free call.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What sleep training methods do you use?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Emily uses a range of evidence-based methods — from gradual approaches like fading and check-and-console, to more direct methods for families who prefer faster results. Importantly, she works with methods you're comfortable with. Your plan will be built around what works for your baby's temperament and your family's values.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How long does it take to see results?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Most families see significant improvement within 3–7 nights of starting a consistent plan. Some see results in 2–3 nights; others take 2 weeks. The key variable is consistency — and that's exactly what Emily's WhatsApp support is designed to help you maintain through the tough nights.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What if the plan isn't working?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Sleep plans sometimes need adjusting — and that's completely normal. Emily's packages include follow-up support specifically for this reason. If something isn't clicking, she'll review your sleep logs, ask questions, and revise the plan. You're not alone in this process.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-off-white" style="text-align:center;">
+    <div class="wrap">
+      <div class="eyebrow">Still on the fence?</div>
+      <h2 class="section-title">The call is free.<br><em>The rest could change everything.</em></h2>
+      <p style="color:var(--text-mid); max-width:460px; margin:0 auto var(--sp8);">Thousands of parents have started exactly where you are right now — exhausted, skeptical, and desperate for something to work. This is where it starts.</p>
+      <!-- REPLACE_ME: swap href with your Calendly URL -->
+      <a href="https://calendly.com/emily-renewed" target="_blank" class="btn btn-rose btn-lg">Book My Free Sleep Call</a>
+    </div>
+  </section>
+
+</main>
+<footer class="footer"><div class="wrap"><div class="footer-grid">
+  <div><div class="footer-logo">Renewed Rest</div><p class="footer-tagline">Helping families find the rest they deserve.</p></div>
+  <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="packages.html">Packages</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:emily@renewed.rest">emily@renewed.rest</a></li><li><a href="contact.html">Schedule a Free Call</a></li></ul></div>
+  <div class="footer-col"><h4>Newsletter</h4><form class="footer-nl-form" onsubmit="const e=this.querySelector('input').value; const btn=this.querySelector('button'); btn.textContent='✓ Joining...'; setTimeout(()=>{window.location.href='mailto:emily@renewed.rest?subject=Newsletter Signup&body=Please add me to the newsletter: '+encodeURIComponent(e); btn.textContent='✓ Joined!';}, 150); return false;"><input type="email" placeholder="Email address" required><button type="submit">Join</button></form></div>
+</div><div class="footer-bottom"><span>© 2025 Renewed Rest LLC.</span><div class="footer-badges"><span class="footer-badge">IPSP® Certified</span><span class="footer-badge">Mother of 5</span></div></div></div></footer>
+<script src="main.js"></script>
+</body></html>

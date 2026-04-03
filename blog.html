@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Renewed Rest Sleep Consulting</title>
+  <link rel="stylesheet" href="brand.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+  <meta name="theme-color" content="#3E6B7E">
+
+  <style>
+    main { padding-top: var(--nav-h); }
+    .page-hero { background: var(--off-white); padding: var(--sp16) 0 var(--sp12); text-align: center; border-bottom: 1px solid var(--border); }
+    .page-hero h1 { font-family: var(--serif); font-size: clamp(2rem,4vw,3rem); color: var(--navy); margin-bottom: var(--sp4); }
+    .page-hero h1 em { font-style: italic; color: var(--teal); }
+    .page-hero p { color: var(--text-mid); max-width: 520px; margin: 0 auto; font-size: 1.05rem; }
+
+    /* Blog index grid */
+    .blog-index { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--sp6); }
+    .bcard { background: var(--white); border-radius: var(--r16); overflow: hidden; box-shadow: var(--sh-card); transition: all 0.2s; }
+    .bcard:hover { box-shadow: var(--sh-hover); transform: translateY(-2px); }
+    .bcard-img { height: 200px; overflow: hidden; background: var(--off-white); }
+    .bcard-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .bcard:hover .bcard-img img { transform: scale(1.04); }
+    .bcard-body { padding: var(--sp6); }
+    .bcard-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); margin-bottom: var(--sp2); }
+    .bcard-body h3 { font-family: var(--serif); font-size: 1.1rem; color: var(--navy); margin-bottom: var(--sp3); line-height: 1.35; }
+    .bcard-body p { font-size: 0.88rem; color: var(--text-mid); margin-bottom: var(--sp4); line-height: 1.65; }
+    .bcard-read { font-size: 0.85rem; font-weight: 600; color: var(--teal); }
+    .bcard-read:hover { text-decoration: underline; }
+
+    /* Individual post */
+    .post { display: none; max-width: 760px; margin: 0 auto; }
+    .post.active { display: block; }
+    .post-back { display: inline-flex; align-items: center; gap: var(--sp2); font-size: 0.85rem; font-weight: 600; color: var(--teal); margin-bottom: var(--sp8); cursor: pointer; }
+    .post-back:hover { text-decoration: underline; }
+    .post-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); margin-bottom: var(--sp3); }
+    .post h1 { font-family: var(--serif); font-size: clamp(1.8rem,3vw,2.6rem); color: var(--navy); line-height: 1.2; margin-bottom: var(--sp6); }
+    .post-hero-img { border-radius: var(--r16); overflow: hidden; margin-bottom: var(--sp8); }
+    .post-hero-img img { width: 100%; height: 360px; object-fit: cover; }
+    .post-body h2 { font-family: var(--serif); font-size: 1.5rem; color: var(--navy); margin: var(--sp8) 0 var(--sp4); }
+    .post-body h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: var(--sp6) 0 var(--sp3); }
+    .post-body p { font-size: 1rem; color: var(--text-mid); line-height: 1.8; margin-bottom: var(--sp5); }
+    .post-body ul, .post-body ol { margin: 0 0 var(--sp5) var(--sp6); }
+    .post-body li { font-size: 1rem; color: var(--text-mid); line-height: 1.75; margin-bottom: var(--sp2); }
+    .post-cta { background: var(--teal-light); border-radius: var(--r16); padding: var(--sp8); text-align: center; margin-top: var(--sp10); }
+    .post-cta h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--navy); margin-bottom: var(--sp3); }
+    .post-cta p { color: var(--text-mid); margin-bottom: var(--sp5); }
+
+    @media (max-width: 960px) { .blog-index { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .post-hero-img img { height: 220px; } }
+  </style>
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Renewed Rest home"><span>Renewed Rest</span></a>
+    <div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="packages.html">Packages</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="contact.html" class="nav-cta-btn">Schedule a Free Call</a></div>
+    <button class="hamburger" onclick="openMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-drawer" id="drawer">
+  <button class="drawer-close" onclick="closeMenu()">✕</button>
+  <a href="index.html" onclick="closeMenu()">Home</a><a href="about.html" onclick="closeMenu()">About</a><a href="packages.html" onclick="closeMenu()">Packages</a><a href="blog.html" onclick="closeMenu()">Blog</a><a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="contact.html" class="btn btn-rose btn-lg" style="margin-top:8px;" onclick="closeMenu()">Schedule a Free Call</a>
+</div>
+<div class="mobile-sticky-cta"><a href="contact.html">Schedule a Free Call →</a></div>
+<main>
+
+  <!-- BLOG INDEX -->
+  <div id="blogIndex">
+    <section class="page-hero">
+      <div class="eyebrow">From the Blog</div>
+      <h1>Sleep tips for <em>real parents</em></h1>
+      <p>Evidence-based insights, gentle encouragement, and practical advice from Emily Sweetman.</p>
+    </section>
+    <section class="section bg-white">
+      <div class="wrap">
+        <div class="blog-index">
+          <div class="bcard" onclick="showPost('false-starts')">
+            <div class="bcard-img"><img src="https://images.unsplash.com/photo-1566004100631-35d015d6a491?w=600&q=80&fit=crop" alt="Sleeping baby"></div>
+            <div class="bcard-body"><div class="bcard-tag">Sleep Training</div><h3>False Starts: What Are They and How Do I Stop Them?</h3><p>Your baby falls asleep beautifully — then wakes up 30 minutes later. Here's exactly why it happens and how to fix it.</p><span class="bcard-read">Read More →</span></div>
+          </div>
+          <div class="bcard" onclick="showPost('sleep-props')">
+            <div class="bcard-img"><img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&q=80&fit=crop" alt="Nursery"></div>
+            <div class="bcard-body"><div class="bcard-tag">Sleep Environment</div><h3>The Top Five Sleep Props</h3><p>A sleep prop is anything your child relies on to fall asleep. Here's what to know — and what to do about it.</p><span class="bcard-read">Read More →</span></div>
+          </div>
+          <div class="bcard" onclick="showPost('co-sleeping')">
+            <div class="bcard-img"><img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=600&q=80&fit=crop" alt="Mother and baby"></div>
+            <div class="bcard-body"><div class="bcard-tag">Sleep Habits</div><h3>Co-Sleeping: Sleep with Parents or Independently?</h3><p>As a sleep consultant, I help you navigate a path that fosters healthy, independent sleep habits in a loving way.</p><span class="bcard-read">Read More →</span></div>
+          </div>
+          <div class="bcard" onclick="showPost('not-just-babies')">
+            <div class="bcard-img"><img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&q=80&fit=crop" alt="Family"></div>
+            <div class="bcard-body"><div class="bcard-tag">Mindset</div><h3>Sleep Training Isn't Just for Babies</h3><p>Studies show 20–30% of children experience sleep problems. Sleep struggles don't stop in infancy.</p><span class="bcard-read">Read More →</span></div>
+          </div>
+          <div class="bcard" onclick="showPost('five-ss')">
+            <div class="bcard-img"><img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&q=80&fit=crop" alt="Newborn baby"></div>
+            <div class="bcard-body"><div class="bcard-tag">Newborns</div><h3>The 5 S's</h3><p>Dr. Harvey Karp's 5 S's method mimics the womb environment to trigger a baby's calming reflex.</p><span class="bcard-read">Read More →</span></div>
+          </div>
+          <div class="bcard" onclick="showPost('why-sleep-train')">
+            <div class="bcard-img"><img src="https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=600&q=80&fit=crop" alt="Happy baby"></div>
+            <div class="bcard-body"><div class="bcard-tag">Research</div><h3>Why Sleep Train?</h3><p>Research demonstrates the significant benefits of sleep training for both infants and their families.</p><span class="bcard-read">Read More →</span></div>
+          </div>
+          <div class="bcard" onclick="showPost('stay-calm')">
+            <div class="bcard-img"><img src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?w=600&q=80&fit=crop" alt="Calm parent with baby"></div>
+            <div class="bcard-body"><div class="bcard-tag">Parenting</div><h3>7 Reasons To Stay Calm When Babies Cry</h3><p>A powerful resource on why staying calm when your baby cries is one of the most important things you can do.</p><span class="bcard-read">Read More →</span></div>
+          </div>
+          <div class="bcard" onclick="showPost('favorites')">
+            <div class="bcard-img"><img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&q=80&fit=crop" alt="Baby products"></div>
+            <div class="bcard-body"><div class="bcard-tag">Favorites</div><h3>My Favorites for Mama and Baby</h3><p>Emily's tried-and-true product picks after five kids — from diapers to monitors to must-have mama gear.</p><span class="bcard-read">Read More →</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- INDIVIDUAL POSTS -->
+  <section class="section bg-white" id="postView" style="display:none;">
+    <div class="wrap">
+
+      <!-- FALSE STARTS -->
+      <article class="post" id="post-false-starts">
+        <div class="post-back" onclick="showIndex()">← Back to Blog</div>
+        <div class="post-tag">Sleep Training</div>
+        <h1>False Starts: What Are They and How Do I Stop Them?</h1>
+        <div class="post-hero-img"><img src="https://images.unsplash.com/photo-1566004100631-35d015d6a491?w=900&q=80&fit=crop" alt="Sleeping baby"></div>
+        <div class="post-body">
+          <h2>Does your baby wake up within an hour after falling asleep at bedtime?</h2>
+          <p>If so, you may be dealing with what's known as a "false start" — when a baby appears to fall asleep at bedtime, only to wake up crying 30–45 minutes later, often seeming wide awake and ready to start the day all over again.</p>
+          <p>False starts are one of the most frustrating sleep challenges parents face. You've done the whole routine — bath, feed, lullabies, darkness — and just when you thought you were free... the crying starts again.</p>
+          <h2>The Good News?</h2>
+          <p>False starts are extremely common and very fixable. They're usually a sign that something in the sleep environment, schedule, or sleep associations needs to be adjusted. Common causes include:</p>
+          <ul>
+            <li>Bedtime being too late (overtiredness causes a cortisol spike that makes it hard to stay asleep)</li>
+            <li>Bedtime being too early (baby isn't tired enough yet)</li>
+            <li>Sleep associations — baby needs a prop (rocking, feeding, pacifier) to fall back asleep</li>
+            <li>An environment issue: too much light, noise, or temperature fluctuation</li>
+          </ul>
+          <p>The fix usually involves tweaking the schedule by 15–30 minutes in either direction, strengthening independent sleep skills, and ensuring the sleep environment is optimized for staying asleep — not just falling asleep.</p>
+          <h2>Want to learn more?</h2>
+          <p>Every baby is different, and so is every false start. If you're struggling with this, a personalized sleep plan can identify the specific cause for your baby and give you a targeted fix — usually within a few nights.</p>
+        </div>
+        <div class="post-cta"><h3>Ready to fix it for good?</h3><p>Book a free 30-minute call and let's figure out exactly what's causing your baby's false starts.</p><a href="contact.html" class="btn btn-rose">Book My Free Call</a></div>
+      </article>
+
+      <!-- SLEEP PROPS -->
+      <article class="post" id="post-sleep-props">
+        <div class="post-back" onclick="showIndex()">← Back to Blog</div>
+        <div class="post-tag">Sleep Environment</div>
+        <h1>The Top Five Sleep Props</h1>
+        <div class="post-hero-img"><img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=900&q=80&fit=crop" alt="Nursery"></div>
+        <div class="post-body">
+          <h3>What is a Sleep Prop?</h3>
+          <p>A sleep prop is anything your child (or even you) rely on to fall asleep. This could be something you need to settle into sleep at bedtime or to return to sleep if you wake up during the night. As adults, we usually don't have many major sleep props — but we may have small preferences, like the firmness of our pillow or needing to sleep with one foot sticking out.</p>
+          <h3>Common Sleep Props for Babies and Toddlers</h3>
+          <p>Babies and toddlers, however, are still learning how to sleep on their own. They often rely on sleep props like pacifiers, being fed, rocking, or being snuggled to fall asleep. While these props are not inherently bad, when a child becomes overly dependent on them, it can make falling asleep — and staying asleep — much harder.</p>
+          <p>If they can't fall asleep without their prop, they're likely to stay awake even when exhausted. And if they wake up during the night, they'll want that same prop to get back to sleep.</p>
+          <h3>So, What Can You Do?</h3>
+          <p>Whether your baby is still very young or approaching toddlerhood, there are things you can do to help them sleep more independently without over-relying on sleep props. Start by identifying the main sleep prop your child depends on. For many babies, it's often a pacifier, feeding, or rocking. Then, come up with a plan to gradually reduce or eliminate the need for that prop.</p>
+          <p>The key here is consistency. Children thrive on routine and knowing what to expect. Stick with your plan as best as you can.</p>
+          <h3>What to Expect?</h3>
+          <p>Expect some resistance in the first few nights. There might be tears (from both you and your little one). But remember, this is an important step in teaching your child to sleep independently — a life skill that will serve them well as they grow. Stick with it, and they'll thank you later!</p>
+        </div>
+        <div class="post-cta"><h3>Not sure which prop is the problem?</h3><p>Emily can help you identify exactly what's keeping your baby from sleeping independently — and build a gentle plan to fix it.</p><a href="contact.html" class="btn btn-rose">Book My Free Call</a></div>
+      </article>
+
+      <!-- CO-SLEEPING -->
+      <article class="post" id="post-co-sleeping">
+        <div class="post-back" onclick="showIndex()">← Back to Blog</div>
+        <div class="post-tag">Sleep Habits</div>
+        <h1>Co-Sleeping: Sleep with Parents or Independently?</h1>
+        <div class="post-hero-img"><img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=900&q=80&fit=crop" alt="Mother and baby"></div>
+        <div class="post-body">
+          <p>As a parent, it's only natural to want to be close to your baby. Co-sleeping can feel like a comforting way to bond and ensure your little one feels safe and secure. However, as a pediatric sleep consultant, I'm here to help you navigate a different path — one that fosters healthy, independent sleep habits for your child in a loving and caring way.</p>
+          <h2>Promotes Healthy Sleep Habits</h2>
+          <p>Babies naturally wake several times during the night. When they're accustomed to sleeping independently, they develop the ability to self-soothe and fall back asleep without external help. This is an essential life skill that supports better rest now and healthy sleep patterns in the future.</p>
+          <p>In contrast, co-sleeping can make it harder for babies to learn how to self-regulate their sleep. They may come to rely on external factors — like a parent's presence or movement — to drift back to sleep. Teaching independent sleep empowers your baby to navigate these natural nighttime awakenings on their own, leading to longer, more restorative sleep for everyone.</p>
+          <h2>Supports Emotional Development</h2>
+          <p>Helping your baby transition to independent sleep doesn't mean you're abandoning them. On the contrary, you're teaching them to feel secure in their own space and to trust that you'll always respond when they truly need you. These early lessons in independence build confidence and resilience, which are critical to emotional development.</p>
+          <p>Some parents worry that independent sleep might weaken the parent-child bond, but the opposite is often true. A well-rested child — and a well-rested parent — is better equipped to enjoy quality time together during the day.</p>
+          <h2>Encourages Parent Wellness</h2>
+          <p>Parenting is demanding, and sleep deprivation can take a serious toll on your mental, emotional, and physical health. Co-sleeping often leads to fragmented sleep for parents, as babies' movements, sounds, or sleep cycles disrupt their own. Encouraging your baby to sleep in their own crib can help you reclaim restful sleep and reduce the stress and fatigue that come with disrupted nights.</p>
+          <p>When parents are well-rested, they're more patient, present, and emotionally available to their children. Prioritizing your own wellness isn't selfish — it's essential for being the best parent you can be.</p>
+          <p>It is also showing care for your partner by prioritizing time with them apart from your baby. Your baby will grow up and start their own life one day, but the relationship with your partner will remain. Don't forget to make time for each other.</p>
+        </div>
+        <div class="post-cta"><h3>Ready to make the transition?</h3><p>Emily will help you create a gentle, personalized plan to transition your baby to independent sleep — at a pace that works for everyone.</p><a href="contact.html" class="btn btn-rose">Book My Free Call</a></div>
+      </article>
+
+      <!-- NOT JUST BABIES -->
+      <article class="post" id="post-not-just-babies">
+        <div class="post-back" onclick="showIndex()">← Back to Blog</div>
+        <div class="post-tag">Mindset</div>
+        <h1>Sleep Training Isn't Just for Babies</h1>
+        <div class="post-hero-img"><img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=900&q=80&fit=crop" alt="Family"></div>
+        <div class="post-body">
+          <p>When we hear "sleep training," most of us picture tiny babies learning to sleep through the night. It is true that sleep training is commonly associated with infants, particularly between the ages of 3 to 6 months, as this period is often recommended for initiating sleep training methods. But sleep troubles aren't just for the littlest members of the family — they can follow children into their preschool and school years.</p>
+          <p>In fact, studies show that 20–30% of children experience sleep problems at some point, ranging from difficulty falling asleep to waking frequently at night. Sometimes, these issues stem from unresolved sleep challenges in toddlerhood. Other times, new problems emerge as a child's imagination expands, bringing along vivid dreams or fears.</p>
+          <p>The truth is, sleep struggles aren't just a childhood thing. Roughly 50–70 million adults in the United States alone deal with sleep disorders. No matter your age, sleep is essential. It's during sleep that our bodies grow, heal, recharge, and solidify memories.</p>
+          <p>So, let's change the way we think about sleep training. It's not just for babies — it's for anyone who needs a little help to unlock the restorative power of sleep. After all, we all deserve to wake up refreshed and ready for the day ahead. Everyone deserves the gift of good sleep.</p>
+        </div>
+        <div class="post-cta"><h3>It's never too late to sleep better.</h3><p>Whether your child is 4 months or 4 years, Emily has a plan that works.</p><a href="contact.html" class="btn btn-rose">Book My Free Call</a></div>
+      </article>
+
+      <!-- 5 S'S -->
+      <article class="post" id="post-five-ss">
+        <div class="post-back" onclick="showIndex()">← Back to Blog</div>
+        <div class="post-tag">Newborns</div>
+        <h1>The 5 S's</h1>
+        <div class="post-hero-img"><img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=900&q=80&fit=crop" alt="Newborn baby"></div>
+        <div class="post-body">
+          <p>The 5 S's are a method for soothing crying babies, developed by pediatrician Dr. Harvey Karp. The 5 S's mimic the environment of their mother's womb, making babies feel very calm and safe. The calming reflex only works when it's triggered the right way — so using these techniques in the right order and combination is key.</p>
+          <h2>The 5 S's:</h2>
+          <ol>
+            <li><strong>Swaddle</strong> — Wrapping your baby snugly mimics the secure feeling of the womb and helps prevent the startle reflex from waking them.</li>
+            <li><strong>Side or Stomach position</strong> — Holding baby on their side or stomach (while awake and supervised) can trigger the calming reflex. Always put baby on their back to sleep.</li>
+            <li><strong>Shush</strong> — A loud "shhhh" sound mimics the constant whooshing sounds baby heard in the womb. White noise machines work great for this.</li>
+            <li><strong>Swing</strong> — Gentle, rhythmic motion mimics the movement baby felt in the womb. Small, fast jiggles (head supported) can be especially effective.</li>
+            <li><strong>Suck</strong> — Sucking on a pacifier or finger activates the calming reflex and helps babies self-soothe.</li>
+          </ol>
+          <p>The 5 S's work best when used together, especially in the early weeks. As your baby grows, they'll need fewer of these tools and will start developing their own self-soothing abilities.</p>
+        </div>
+        <div class="post-cta"><h3>Have a newborn?</h3><p>Emily specializes in newborn sleep education — building healthy foundations from day one.</p><a href="contact.html" class="btn btn-rose">Book My Free Call</a></div>
+      </article>
+
+      <!-- WHY SLEEP TRAIN -->
+      <article class="post" id="post-why-sleep-train">
+        <div class="post-back" onclick="showIndex()">← Back to Blog</div>
+        <div class="post-tag">Research</div>
+        <h1>Why Sleep Train?</h1>
+        <div class="post-hero-img"><img src="https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=900&q=80&fit=crop" alt="Happy baby"></div>
+        <div class="post-body">
+          <p>Sleep training might be a controversial topic among new parents, but research continues to demonstrate its significant benefits for both infants and their families. As parents navigate the challenging early months of parenthood, understanding the long-term implications of sleep habits can help inform their decisions.</p>
+          <h2>The Long-Term Impact of Early Sleep Patterns</h2>
+          <p>Research has revealed a compelling connection between early sleep habits and long-term sleep outcomes. Studies indicate that when sleep difficulties aren't addressed in infancy, they don't simply resolve on their own — they can persist for up to three years or even longer. More concerning is the evidence showing that children who experienced sleep problems before six months of age were more likely to continue having sleep difficulties at ages five and ten.</p>
+          <h2>Why Sleep Matters</h2>
+          <p>The importance of quality sleep extends far beyond just getting through the night. Sleep plays a crucial role in:</p>
+          <ul>
+            <li>Cognitive development and learning</li>
+            <li>Physical growth (growth hormone is primarily released during sleep)</li>
+            <li>Emotional regulation and behavior</li>
+            <li>Overall well-being of both infant and parents</li>
+            <li>Family dynamics and relationships</li>
+          </ul>
+          <h2>The Dual Benefits of Sleep Training</h2>
+          <p>Sleep training has emerged as an evidence-based approach that offers advantages for both babies and their caregivers. Research has demonstrated that effective sleep training:</p>
+          <ul>
+            <li>Improves infant sleep patterns and duration</li>
+            <li>Enhances maternal well-being and mental health</li>
+            <li>Reduces the risk of postnatal depression</li>
+            <li>Improves the overall quality of life for the entire family</li>
+          </ul>
+          <p>Everyone deserves the gift of good sleep. Exhaustion shouldn't be a rite of passage or a badge parents feel forced to wear. Real rest is possible for every family.</p>
+        </div>
+        <div class="post-cta"><h3>Ready to get started?</h3><p>Book a free call and let Emily show you what's possible for your family.</p><a href="contact.html" class="btn btn-rose">Book My Free Call</a></div>
+      </article>
+
+      <!-- STAY CALM -->
+      <article class="post" id="post-stay-calm">
+        <div class="post-back" onclick="showIndex()">← Back to Blog</div>
+        <div class="post-tag">Parenting</div>
+        <h1>7 Reasons To Stay Calm When Babies Cry</h1>
+        <div class="post-hero-img"><img src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?w=900&q=80&fit=crop" alt="Calm parent with baby"></div>
+        <div class="post-body">
+          <p>This post is inspired by an incredible resource from Janet Lansbury, a widely respected parenting educator. It speaks to something every parent feels deeply: the instinct to immediately stop our baby from crying, no matter what.</p>
+          <p>The truth is, most parents are not the ones who ignore their babies. Most of us shush, rock, jiggle, use electric swings, washing machines, pacifiers, drive all over the neighborhood, nurse babies for hours on end — anything to avoid even a moment of our baby's discomfort.</p>
+          <p>But here's what's worth knowing: staying calm when your baby cries is one of the most powerful things you can do for them. Here are seven reasons why:</p>
+          <ol>
+            <li><strong>Your calm is contagious.</strong> Babies are incredibly attuned to their caregivers' emotional states. When you stay calm, your nervous system helps regulate theirs.</li>
+            <li><strong>Crying is communication.</strong> Babies have no other way to express hunger, tiredness, discomfort, or overstimulation. It's not a problem to be stopped — it's a message to be understood.</li>
+            <li><strong>You can't always fix it immediately.</strong> And that's okay. Learning that their needs will be met — even if not instantly — builds trust and security.</li>
+            <li><strong>Panic escalates the situation.</strong> When we rush in frantically, babies sense our anxiety and often cry harder.</li>
+            <li><strong>Calm presence teaches self-regulation.</strong> Over time, babies who are met with calm, consistent responses develop better emotional regulation skills themselves.</li>
+            <li><strong>It protects your mental health.</strong> Treating every cry as an emergency is exhausting and unsustainable. Staying grounded helps you parent from a better place.</li>
+            <li><strong>You are enough.</strong> Your steady, loving presence — even without a perfect fix — is exactly what your baby needs most.</li>
+          </ol>
+        </div>
+        <div class="post-cta"><h3>Struggling with the emotional side of sleep training?</h3><p>Emily supports parents through the hard nights — not just with plans, but with real encouragement.</p><a href="contact.html" class="btn btn-rose">Book My Free Call</a></div>
+      </article>
+
+      <!-- FAVORITES -->
+      <article class="post" id="post-favorites">
+        <div class="post-back" onclick="showIndex()">← Back to Blog</div>
+        <div class="post-tag">Favorites</div>
+        <h1>My Favorites for Mama and Baby</h1>
+        <div class="post-hero-img"><img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=900&q=80&fit=crop" alt="Baby products"></div>
+        <div class="post-body">
+          <p>After five kids, I've tried a lot of products. Here are the ones I actually keep coming back to — the ones that made my life easier, my babies more comfortable, and our nights more manageable.</p>
+          <h2>15 Favorites for Baby</h2>
+          <h3>Pajamas</h3>
+          <p>Though I don't have a specific link here, I highly recommend for all mamas of new babies: get PJs that zip from the bottom up! This makes diaper changes, especially in the night, SO much easier. Trust me, you won't regret it.</p>
+          <h3>Diapers</h3>
+          <p>When it comes to diapers, every mama has an opinion — but in my experience, Pampers or Huggies were my favorite for little babies all the way through size 3. They just held up SO well to blowouts. After size 3, it didn't seem to matter as much which brand I used.</p>
+          <h3>Wipes</h3>
+          <p>A couple of my babies had some skin issues, so I switched to Water Wipes for years and then eventually Pampers Sensitive Wipes. I love both because they're strong, effective, and fragrance-free. Huggies wipes always drove me crazy because they rip to shreds so easily!</p>
+          <h2>15 Favorites for Mama</h2>
+          <h3>Baby Monitors</h3>
+          <p>I used the Nanit Monitor for my last two babies and absolutely loved it, even without the subscription. But recently my husband discovered a company called Harbor — it's an even better product, no subscription, and a better overall price. If we were not already moving out of the baby stage, I would have hands-down switched over to this product. Both cameras can still be used at your house even when you don't need them for your kids anymore.</p>
+          <p><em>Want my full list? Book a free call and I'm happy to share more recommendations tailored to your baby's age and needs!</em></p>
+        </div>
+        <div class="post-cta"><h3>Want personalized product recommendations?</h3><p>Every baby is different. Let's talk about what will actually work for yours.</p><a href="contact.html" class="btn btn-rose">Book My Free Call</a></div>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+<footer class="footer"><div class="wrap"><div class="footer-grid">
+  <div><div class="footer-logo">Renewed Rest</div><p class="footer-tagline">Helping families find the rest they deserve.</p></div>
+  <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="packages.html">Packages</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:emily@renewed.rest">emily@renewed.rest</a></li><li><a href="contact.html">Schedule a Free Call</a></li></ul></div>
+  <div class="footer-col"><h4>Newsletter</h4><form class="footer-nl-form" onsubmit="const e=this.querySelector('input').value; const btn=this.querySelector('button'); btn.textContent='✓ Joining...'; setTimeout(()=>{window.location.href='mailto:emily@renewed.rest?subject=Newsletter Signup&body=Please add me to the newsletter: '+encodeURIComponent(e); btn.textContent='✓ Joined!';}, 150); return false;"><input type="email" placeholder="Email address" required><button type="submit">Join</button></form></div>
+</div><div class="footer-bottom"><span>© 2025 Renewed Rest LLC.</span><div class="footer-badges"><span class="footer-badge">IPSP® Certified</span><span class="footer-badge">Mother of 5</span></div></div></div></footer>
+
+<script src="main.js"></script>
+<script>
+// Blog post routing
+function showPost(slug) {
+  document.getElementById('blogIndex').style.display = 'none';
+  document.getElementById('postView').style.display = 'block';
+  document.querySelectorAll('.post').forEach(p => p.classList.remove('active'));
+  const post = document.getElementById('post-' + slug);
+  if (post) { post.classList.add('active'); window.scrollTo(0,0); }
+  // Update URL hash for deep linking
+  history.pushState(null, '', '#' + slug);
+}
+function showIndex() {
+  document.getElementById('blogIndex').style.display = 'block';
+  document.getElementById('postView').style.display = 'none';
+  document.querySelectorAll('.post').forEach(p => p.classList.remove('active'));
+  history.pushState(null, '', 'blog.html');
+  window.scrollTo(0,0);
+}
+// Handle direct hash links (e.g. blog.html#false-starts)
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash.replace('#','');
+  if (hash) showPost(hash);
+});
+</script>
+</body></html>
