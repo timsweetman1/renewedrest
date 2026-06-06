@@ -84,7 +84,9 @@
     .guide-mockup h4 { font-family: var(--serif); font-size: 0.95rem; color: var(--navy); margin-bottom: var(--sp2); line-height: 1.4; }
     .guide-mockup p { font-size: 0.72rem; color: var(--text-light); }
     .guide-right { background: var(--white); padding: var(--sp10); display: flex; flex-direction: column; justify-content: center; }
-    .guide-benefits { margin-bottom: var(--sp6); display: flex; flex-direction: column; gap: var(--sp3); }
+    .guide-benefits { margin-bottom: var(--sp6); display: flex; flex-direction: column; gap: var(--sp3); list-style: none; padding: 0; }
+    .guide-benefits li { display: flex; align-items: flex-start; gap: var(--sp2); font-size: 0.95rem; color: var(--text-mid); line-height: 1.5; }
+    .guide-benefits li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
     .guide-benefit { display: flex; align-items: flex-start; gap: var(--sp3); font-size: 0.92rem; color: var(--text-mid); }
     .guide-benefit::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
     .guide-form { display: flex; flex-direction: column; gap: var(--sp3); }
