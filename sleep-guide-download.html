@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sleep Skill Building: A Complete Parent's Guide | Renewed Rest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; padding: 0; }
+
+    :root {
+      --white:      #FFFFFF;
+      --off-white:  #F7F5F2;
+      --teal:       #3E6B7E;
+      --teal-dark:  #2E5060;
+      --teal-light: #EBF2F5;
+      --rose:       #C9967A;
+      --rose-light: #F5EDE7;
+      --navy:       #1C2B3A;
+      --text-mid:   #4A5568;
+      --text-light: #718096;
+      --border:     #E8E4DF;
+      --gold:       #F4B942;
+      --serif:  'Lora', Georgia, serif;
+      --sans:   'DM Sans', system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--navy);
+      background: var(--off-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── COVER PAGE ── */
+    .cover {
+      min-height: 100vh;
+      background: linear-gradient(150deg, var(--navy) 0%, #243B4E 50%, var(--teal-dark) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -60px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+    }
+    .cover-inner { position: relative; z-index: 1; max-width: 700px; }
+    .cover-moon { font-size: 4rem; margin-bottom: 32px; display: block; }
+    .cover-eyebrow {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.7);
+      border-radius: 999px;
+      padding: 6px 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .cover h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .cover h1 em { font-style: italic; color: #A8D4E0; }
+    .cover-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+    .cover-divider {
+      width: 60px; height: 2px;
+      background: rgba(255,255,255,0.2);
+      margin: 0 auto 32px;
+    }
+    .cover-author {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+    }
+    .cover-cred {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .cover-topics {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 48px;
+    }
+    .cover-topic {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.65);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    /* ── PRINT BUTTON ── */
+    .print-bar {
+      background: var(--teal);
+      padding: 14px 24px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .print-bar p { font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+    .print-btn {
+      background: var(--white);
+      color: var(--teal-dark);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 9px 24px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .print-btn:hover { background: var(--off-white); }
+
+    /* ── GUIDE BODY ── */
+    .guide-body { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+
+    /* TOC */
+    .toc-section {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 48px;
+      margin: 48px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+    }
+    .toc-section h2 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+    }
+    .toc-list { display: flex; flex-direction: column; gap: 4px; }
+    .toc-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--off-white);
+    }
+    .toc-item:last-child { border-bottom: none; }
+    .toc-left { display: flex; align-items: baseline; gap: 16px; }
+    .toc-num { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); min-width: 70px; }
+    .toc-name { font-family: var(--serif); font-size: 1rem; color: var(--navy); }
+    .toc-dots { flex: 1; height: 1px; background: var(--border); margin: 0 8px; position: relative; top: -4px; }
+
+    /* INTRO */
+    .intro-card {
+      background: var(--rose-light);
+      border-left: 4px solid var(--rose);
+      border-radius: 0 16px 16px 0;
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+    .intro-card p { font-size: 1rem; color: var(--text-mid); line-height: 1.85; }
+    .intro-card p + p { margin-top: 16px; }
+
+    /* CHAPTERS */
+    .chapter { margin: 64px 0; }
+    .chapter-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--border);
+    }
+    .chapter-num-badge {
+      background: var(--teal);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .chapter h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    /* Chapter intro */
+    .ch-intro {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--teal-dark);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      padding-left: 20px;
+      border-left: 3px solid var(--teal-light);
+    }
+
+    p { color: var(--text-mid); margin-bottom: 18px; font-size: 0.97rem; line-height: 1.8; }
+    p:last-child { margin-bottom: 0; }
+
+    h3 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin: 36px 0 14px;
+    }
+    h4 {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 24px 0 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* Callout boxes */
+    .callout {
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin: 32px 0;
+    }
+    .callout-teal { background: var(--teal-light); border-left: 4px solid var(--teal); }
+    .callout-rose { background: var(--rose-light); border-left: 4px solid var(--rose); }
+    .callout-navy { background: #EEF1F4; border-left: 4px solid var(--navy); }
+    .callout-label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .callout-rose .callout-label { color: var(--rose); }
+    .callout-navy .callout-label { color: var(--navy); }
+    .callout p { margin-bottom: 0; }
+    .callout p + p { margin-top: 10px; }
+
+    /* Wake window table */
+    .ww-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+      margin: 32px 0;
+    }
+    .ww-table thead tr { background: var(--navy); }
+    .ww-table thead th {
+      padding: 14px 20px;
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+    }
+    .ww-table tbody tr { border-bottom: 1px solid var(--border); background: var(--white); }
+    .ww-table tbody tr:last-child { border-bottom: none; }
+    .ww-table tbody tr:hover { background: var(--off-white); }
+    .ww-table tbody td { padding: 14px 20px; font-size: 0.9rem; color: var(--text-mid); vertical-align: top; }
+    .ww-table tbody td:first-child { font-weight: 700; color: var(--navy); white-space: nowrap; }
+    .ww-table .ww-windows { font-weight: 700; color: var(--teal); }
+    .ww-table .ww-naps { color: var(--text-mid); }
+    .age-badge {
+      display: inline-block;
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* Quick Check table */
+    .qc-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+      margin: 28px 0;
+    }
+    .qc-table thead tr { background: var(--teal); }
+    .qc-table thead th {
+      padding: 12px 18px;
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+    }
+    .qc-table tbody tr { border-bottom: 1px solid var(--border); background: var(--white); }
+    .qc-table tbody tr:last-child { border-bottom: none; }
+    .qc-table tbody td { padding: 12px 18px; font-size: 0.9rem; color: var(--text-mid); }
+    .qc-table tbody td:first-child { font-weight: 700; color: var(--navy); }
+
+    /* Bulleted lists */
+    .guide-list { margin: 18px 0 24px; display: flex; flex-direction: column; gap: 10px; }
+    .guide-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .guide-list li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .guide-list.rose li::before { content: '→'; color: var(--rose); }
+    .guide-list.numbered { counter-reset: list-num; }
+    .guide-list.numbered li { counter-increment: list-num; }
+    .guide-list.numbered li::before {
+      content: counter(list-num);
+      background: var(--teal);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      min-width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      text-align: center;
+      padding: 40px 32px;
+      margin: 40px 0;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+    }
+    .pull-quote blockquote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--navy);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .pull-quote cite { font-size: 0.82rem; color: var(--text-light); font-style: normal; }
+
+    /* Sleep log */
+    .sleep-log {
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .sleep-log-header {
+      background: var(--navy);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sleep-log-header h3 { color: var(--white); font-family: var(--serif); font-size: 1rem; margin: 0; }
+    .sleep-log-header span { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+    .sleep-log-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    .slg-head {
+      background: var(--off-white);
+      padding: 10px 14px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .slg-head:last-child { border-right: none; }
+    .slg-cell {
+      padding: 14px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-light);
+      min-height: 50px;
+    }
+    .slg-cell:last-child { border-right: none; }
+    .slg-cell.day-label {
+      font-weight: 700;
+      color: var(--teal);
+      background: rgba(62,107,126,0.04);
+    }
+    .sleep-log-row:last-child .slg-cell { border-bottom: none; }
+    .sleep-log-row { display: contents; }
+
+    /* 7-day plan */
+    .day-plan {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .day-plan-head {
+      background: var(--teal);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .day-badge {
+      background: rgba(255,255,255,0.15);
+      border-radius: 999px;
+      padding: 4px 14px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+    }
+    .day-plan-head h4 { color: var(--white); font-family: var(--serif); font-size: 1rem; font-weight: 400; font-style: italic; margin: 0; }
+    .day-plan-body { padding: 20px 24px; }
+    .day-plan-body p { margin-bottom: 10px; font-size: 0.92rem; }
+    .day-plan-body p:last-child { margin-bottom: 0; }
+    .day-plan-body strong { color: var(--navy); font-weight: 700; }
+
+    /* Page break hints for print */
+    @media print {
+      .print-bar { display: none; }
+      .cover { page-break-after: always; min-height: auto; padding: 80px 40px; }
+      .toc-section { page-break-after: always; }
+      .chapter { page-break-before: always; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .guide-body { padding: 0 16px 60px; }
+      .toc-section { padding: 28px 24px; }
+      .chapter-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .callout { padding: 20px 22px; }
+      .ww-table thead th, .ww-table tbody td { padding: 10px 12px; font-size: 0.82rem; }
+      .sleep-log-grid { grid-template-columns: 1fr 1fr 1fr; }
+      .slg-head:nth-child(4), .slg-head:nth-child(5),
+      .slg-cell:nth-child(4), .slg-cell:nth-child(5) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PRINT BAR -->
+<div class="print-bar">
+  <p>Save or print this guide using your browser's print function.</p>
+  <button class="print-btn" onclick="window.print()">Save / Print Guide</button>
+</div>
+
+<!-- COVER PAGE -->
+<section class="cover">
+  <div class="cover-inner">
+    <span class="cover-moon">🌙</span>
+    <div class="cover-eyebrow">Renewed Rest · Digital Guide</div>
+    <h1>Sleep Skill Building:<br><em>A Complete Parent's Guide</em></h1>
+    <p class="cover-subtitle">Wake Windows · Sleep Props · Healthy Habits · The Quick Check Method</p>
+    <div class="cover-divider"></div>
+    <div class="cover-author">By Emily Sweetman</div>
+    <div class="cover-cred">IPSP® Certified Sleep Consultant · Mother of Five</div>
+    <div class="cover-topics">
+      <span class="cover-topic">Ages 3–18 Months</span>
+      <span class="cover-topic">40+ Pages</span>
+      <span class="cover-topic">Printable Sleep Log Included</span>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDE BODY -->
+<div class="guide-body">
+
+  <!-- A NOTE FROM EMILY -->
+  <div class="intro-card">
+    <p>If you're reading this, you're probably exhausted. Maybe you've been up three, four, five times a night. Maybe your baby has never slept more than two hours in a row. Maybe bedtime has become the hardest part of your day — and you've started to wonder if something is wrong with you, or your baby, or both.</p>
+    <p>Nothing is wrong with you. Nothing is wrong with your baby. Sleep is a skill — and like every skill, it has to be learned. That's what this guide is about: not "training" your baby in the way a coach trains an athlete, but building something together. Patiently. With your baby.</p>
+    <p>I'm Emily. I'm an IPSP® certified sleep consultant, and I'm a mother of five. I have sat in the same exhausted fog you're sitting in. I have paced the hallway at 2 a.m. more times than I can count. And I have seen, over and over again — with my own children and with hundreds of families I've worked with — that sleep can get better. It will get better. This guide is my way of walking alongside you while it does.</p>
+    <p style="color:var(--teal-dark); font-family:'Lora',Georgia,serif; font-style:italic; margin-top:12px;">— Emily</p>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc-section">
+    <h2>Table of Contents</h2>
+    <div class="toc-list">
+      <div class="toc-item">
+        <div class="toc-left">
+          <span class="toc-num">Chapter 1</span>
+          <span class="toc-name">What Sleep Skill Building Really Means</span>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-left">
+          <span class="toc-num">Chapter 2</span>
+          <span class="toc-name">Wake Windows: The Secret to Timing Sleep Right</span>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-left">
+          <span class="toc-num">Chapter 3</span>
+          <span class="toc-name">Sleep Props: What They Are and What to Do About Them</span>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-left">
+          <span class="toc-num">Chapter 4</span>
+          <span class="toc-name">Healthy Sleep Habits for Parents</span>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-left">
+          <span class="toc-num">Chapter 5</span>
+          <span class="toc-name">The Quick Check Method, Step by Step</span>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-left">
+          <span class="toc-num">Chapter 6</span>
+          <span class="toc-name">Your 7-Day Sleep Skill Building Plan</span>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-left">
+          <span class="toc-num">Appendix</span>
+          <span class="toc-name">Printable Sleep Log</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────── -->
+  <!-- CHAPTER 1 -->
+  <!-- ───────────────────────────────── -->
+  <div class="chapter">
+    <div class="chapter-header">
+      <span class="chapter-num-badge">Chapter One</span>
+      <h2>What Sleep Skill Building Really Means</h2>
+    </div>
+
+    <p class="ch-intro">Sleep is not something that happens to your baby. It's something your baby learns to do — and you can help.</p>
+
+    <p>When most people hear the phrase "sleep training," they picture a baby crying alone in a dark room while a parent sits outside counting minutes on the clock, trying not to go in. That image — whatever shaped it — is not what we're talking about here.</p>
+
+    <p>Sleep Skill Building is exactly what it sounds like. Your baby is learning a skill. Just like learning to roll over, to pull up to stand, to wave goodbye, or to hold a spoon — sleep is a developmental milestone that babies practice and get better at over time. It doesn't come automatically for every baby. Some need more support to find it than others. And that's okay.</p>
+
+    <h3>Why Some Babies Struggle to Sleep</h3>
+
+    <p>Newborns sleep in short, fragmented cycles — and that's completely normal. Their sleep cycles are shorter than ours (roughly 40–50 minutes), they spend more time in light sleep, and they naturally rouse between cycles. In the earliest weeks, most babies cannot link sleep cycles independently — they wake up between cycles and need help getting back down.</p>
+
+    <p>As babies grow, they become <em>capable</em> of linking cycles on their own. The question is whether they've had the opportunity to practice. Many babies — especially those who are rocked, nursed, or held to sleep every time — never develop the chance to figure out how to settle themselves. When they wake between sleep cycles (which they will, every single night, multiple times), they don't know how to go back to sleep without the same conditions they fell asleep in. So they cry. And the cycle continues.</p>
+
+    <div class="callout callout-teal">
+      <div class="callout-label">Key Idea</div>
+      <p>Babies who wake frequently at night are not broken. They are doing exactly what they were designed to do — they're just still relying on external help to get back to sleep. Sleep Skill Building is the process of gently shifting that responsibility.</p>
+    </div>
+
+    <h3>What "Independent Sleep" Actually Means</h3>
+
+    <p>Independent sleep does not mean your baby sleeps alone without comfort or connection. It means your baby has the ability to fall asleep on their own — and go back to sleep on their own when they wake between sleep cycles — without needing you to be physically present or actively doing something to make it happen.</p>
+
+    <p>The goal is not a baby who never needs you. The goal is a baby who can settle themselves — so that the nights that do require you are genuine needs, not habit-driven waking.</p>
+
+    <h3>What This Approach Is Not</h3>
+
+    <ul class="guide-list rose">
+      <li>It is not "letting your baby cry it out" indefinitely. This guide uses the Quick Check method, which keeps you actively involved throughout the process.</li>
+      <li>It is not a rigid, one-size-fits-all program. Your baby is unique. This guide gives you a framework — not a script.</li>
+      <li>It is not harmful. Decades of research consistently show that sleep training methods — including those involving some crying — do not cause lasting emotional harm to babies.</li>
+      <li>It is not a betrayal of your instincts or your bond. Teaching your baby to sleep is one of the most loving, lasting gifts you can give them.</li>
+    </ul>
+
+    <div class="pull-quote">
+      <blockquote>"The goal isn't to stop responding to your baby. It's to respond to their real needs — not just their learned ones."</blockquote>
+      <cite>— Emily Sweetman</cite>
+    </div>
+
+    <h3>A Word on Readiness</h3>
+
+    <p>Most babies are developmentally ready to begin building sleep skills between 3–4 months of age (adjusted age for premature babies). Before that window, the focus should be on establishing healthy sleep foundations rather than independent sleep. If your baby is younger than 3 months, Chapter 4 — Healthy Sleep Habits — is a great place to focus your energy right now.</p>
+
+    <p>If your baby is older than 18 months, the principles here still apply, but the behavioral piece becomes more complex. A 1:1 consultation may serve you better at that stage. Reach out anytime — I'm happy to help.</p>
+  </div>
+
+  <!-- ───────────────────────────────── -->
+  <!-- CHAPTER 2 -->
+  <!-- ───────────────────────────────── -->
+  <div class="chapter">
+    <div class="chapter-header">
+      <span class="chapter-num-badge">Chapter Two</span>
+      <h2>Wake Windows: The Secret to Timing Sleep Right</h2>
+    </div>
+
+    <p class="ch-intro">More than almost anything else, timing determines whether your baby's sleep attempt will succeed or struggle.</p>
+
+    <p>A wake window is the period of time your baby can comfortably stay awake between sleeps. Every baby has a biological window of opportunity — a stretch of time after which they are ready to sleep again. Put a baby down before that window closes and they're not tired enough to settle. Wait too long past that window and they become overtired — and overtired babies paradoxically fight sleep the hardest.</p>
+
+    <p>Getting wake windows right is one of the most impactful things you can do for your baby's sleep — and it costs nothing.</p>
+
+    <h3>Wake Windows by Age</h3>
+
+    <p>These windows are averages. Your baby may run slightly shorter or longer — that's normal. Watch your baby's sleepy cues alongside the clock, and you'll find the sweet spot.</p>
+
+    <table class="ww-table">
+      <thead>
+        <tr>
+          <th>Age</th>
+          <th>Wake Window</th>
+          <th>Naps Per Day</th>
+          <th>Total Sleep (24 hrs)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="age-badge">0–6 wks</span></td>
+          <td class="ww-windows">45–60 min</td>
+          <td class="ww-naps">4–6 naps</td>
+          <td>14–17 hours</td>
+        </tr>
+        <tr>
+          <td><span class="age-badge">6–12 wks</span></td>
+          <td class="ww-windows">60–75 min</td>
+          <td class="ww-naps">4–5 naps</td>
+          <td>14–16 hours</td>
+        </tr>
+        <tr>
+          <td><span class="age-badge">3 months</span></td>
+          <td class="ww-windows">75–90 min</td>
+          <td class="ww-naps">3–4 naps</td>
+          <td>14–16 hours</td>
+        </tr>
+        <tr>
+          <td><span class="age-badge">4 months</span></td>
+          <td class="ww-windows">1.5–2 hours</td>
+          <td class="ww-naps">3–4 naps</td>
+          <td>14–15 hours</td>
+        </tr>
+        <tr>
+          <td><span class="age-badge">5–6 months</span></td>
+          <td class="ww-windows">2–2.5 hours</td>
+          <td class="ww-naps">3 naps</td>
+          <td>13–15 hours</td>
+        </tr>
+        <tr>
+          <td><span class="age-badge">7–8 months</span></td>
+          <td class="ww-windows">2.5–3 hours</td>
+          <td class="ww-naps">2–3 naps</td>
+          <td>13–14 hours</td>
+        </tr>
+        <tr>
+          <td><span class="age-badge">9–11 months</span></td>
+          <td class="ww-windows">3–3.5 hours</td>
+          <td class="ww-naps">2 naps</td>
+          <td>12–14 hours</td>
+        </tr>
+        <tr>
+          <td><span class="age-badge">12 months</span></td>
+          <td class="ww-windows">3.5–4 hours</td>
+          <td class="ww-naps">1–2 naps</td>
+          <td>12–14 hours</td>
+        </tr>
+        <tr>
+          <td><span class="age-badge">15–18 months</span></td>
+          <td class="ww-windows">4–5 hours</td>
+          <td class="ww-naps">1 nap</td>
+          <td>11–14 hours</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Sleepy Cues: What to Watch For</h3>
+
+    <p>The clock is a guide — your baby's behavior is the real signal. These cues tell you your baby is approaching the end of their wake window:</p>
+
+    <ul class="guide-list">
+      <li>Yawning (one or two yawns is a strong signal; frantic repeated yawning may mean you've waited too long)</li>
+      <li>Eye rubbing or pulling at ears</li>
+      <li>Glazed, unfocused eyes or staring into the distance</li>
+      <li>Slowing down or losing interest in play</li>
+      <li>Reduced smiling or social engagement</li>
+      <li>Fussiness that seems to appear "out of nowhere"</li>
+    </ul>
+
+    <div class="callout callout-navy">
+      <div class="callout-label">Watch Out For</div>
+      <p><strong>The second wind.</strong> If you miss the initial sleepy window, your baby may get a burst of renewed energy — a "second wind." This is not a sign they aren't tired. It's a sign their body has released cortisol to compensate. A baby in second wind will have a much harder time falling asleep and staying asleep. When in doubt, err on the side of an earlier bedtime.</p>
+    </div>
+
+    <h3>The Last Wake Window of the Day</h3>
+
+    <p>The wake window before bedtime is usually the most important and the longest. As your baby gets older, that final window stretches significantly. A common mistake is putting babies to bed too early in the evening — especially after a late afternoon nap. If bedtime is a battle every single night, check whether the last wake window is long enough.</p>
+
+    <p>As a general rule: bedtime is almost always more successful between 7:00 and 8:00 PM for babies over 4 months, following a full wake window from the last nap of the day.</p>
+  </div>
+
+  <!-- ───────────────────────────────── -->
+  <!-- CHAPTER 3 -->
+  <!-- ───────────────────────────────── -->
+  <div class="chapter">
+    <div class="chapter-header">
+      <span class="chapter-num-badge">Chapter Three</span>
+      <h2>Sleep Props: What They Are and What to Do About Them</h2>
+    </div>
+
+    <p class="ch-intro">A sleep prop isn't a villain. It's just something that has become necessary — and understanding that is the first step to gently changing it.</p>
+
+    <p>A sleep prop is any external condition that your baby requires to fall asleep and that they cannot reproduce on their own during the night. When your baby wakes between sleep cycles — which happens multiple times every night — they look for the same conditions that were present when they first fell asleep. If those conditions are missing, they cry for help restoring them.</p>
+
+    <h3>Common Sleep Props</h3>
+
+    <ul class="guide-list">
+      <li><strong>Nursing or bottle-feeding to sleep</strong> — One of the most powerful and common sleep associations. Your baby genuinely falls asleep while eating, and their brain learns that eating = sleeping.</li>
+      <li><strong>Rocking, bouncing, or motion</strong> — Babies love motion. Car rides, stroller walks, and bouncing on a yoga ball are remarkably effective at inducing sleep — which means they can become relied upon.</li>
+      <li><strong>Being held</strong> — Contact naps and falling asleep in a parent's arms are beautiful. They become a prop when they're the only way a baby can fall asleep.</li>
+      <li><strong>Pacifier</strong> — A pacifier is a passive prop: your baby can't put it back in their mouth independently, so when it falls out mid-sleep, they wake and cry for you to replace it.</li>
+      <li><strong>White noise</strong> — This one is interesting. White noise can actually be a helpful tool for sleep — but if it requires someone to turn it on or adjust it mid-night, it becomes a prop. A consistent, automatic machine is not a problem.</li>
+    </ul>
+
+    <div class="callout callout-rose">
+      <div class="callout-label">Important</div>
+      <p>None of these things are wrong or harmful to your baby. They are responses to your baby's needs, and many of them are genuinely beautiful parts of early parenthood. This is not about guilt. It's about choice — and understanding which props are making nights harder than they need to be.</p>
+    </div>
+
+    <h3>How to Tell if a Prop Is a Problem</h3>
+
+    <p>Ask yourself this question: <em>If this condition disappears at 2 AM, will my baby wake up and cry?</em></p>
+
+    <p>If the answer is yes — that's a prop that's likely driving night waking. The goal of sleep skill building is to help your baby fall asleep without conditions they can't recreate independently, so that when they wake naturally between sleep cycles, they can settle back down on their own.</p>
+
+    <h3>Adjusting Sleep Props Gently</h3>
+
+    <p>You don't have to eliminate props abruptly. Gradual fading is a valid approach for many families:</p>
+
+    <ul class="guide-list numbered">
+      <li><strong>Nursing to drowsy, not fully asleep.</strong> Instead of nursing until your baby is completely out, nurse until they're drowsy but still a little awake — then put them down. They finish the job of falling asleep on their own. Over several days, you can gradually put them down a little more awake each time.</li>
+      <li><strong>Rocking to drowsy.</strong> Same principle. Rock until they're calm and sleepy, not unconscious. Lay them down while they still have some awareness of the transition.</li>
+      <li><strong>Chair method for props.</strong> If you've been holding your baby to sleep, start the process of sitting nearby while they fall asleep, then gradually increase the distance each night until you're outside the room.</li>
+      <li><strong>Pacifier management.</strong> For babies over 6 months who have motor control, practice placing the pacifier in their hand during the day so they can begin to associate it with finding it themselves. Many families find that moving the pacifier toward the "lovey" stage — where it becomes a comfort object they can locate — reduces the dependency significantly.</li>
+    </ul>
+
+    <div class="callout callout-teal">
+      <div class="callout-label">Good to Know</div>
+      <p>Whatever approach you take, consistency matters more than speed. Gradual fading works — but it requires you to follow through with the same approach every single sleep for at least 1–2 weeks. Inconsistency teaches your baby that escalating protest will eventually bring the prop back.</p>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────── -->
+  <!-- CHAPTER 4 -->
+  <!-- ───────────────────────────────── -->
+  <div class="chapter">
+    <div class="chapter-header">
+      <span class="chapter-num-badge">Chapter Four</span>
+      <h2>Healthy Sleep Habits for Parents</h2>
+    </div>
+
+    <p class="ch-intro">Before any method, before any technique, the foundation you build matters most. And much of it is in your hands.</p>
+
+    <p>The environment you create, the routines you establish, and the responses you give shape your baby's sleep more than any single approach. These habits don't require anything dramatic — most are simple, free, and can begin tonight.</p>
+
+    <h3>1. Build a Consistent Bedtime Routine</h3>
+
+    <p>A predictable sequence of events before sleep is one of the most evidence-backed tools available to parents. A good bedtime routine signals your baby's brain that sleep is coming — and gives them a sense of security and calm before the transition.</p>
+
+    <p>An effective routine is 20–40 minutes long and includes 3–5 consistent steps in the same order, every night. It might look like:</p>
+
+    <ul class="guide-list">
+      <li>Bath (3–4 nights a week, or a warm washcloth the other nights)</li>
+      <li>Massage or lotion — slow, calm, loving touch</li>
+      <li>Clean diaper and sleep sack or pajamas</li>
+      <li>Feed (if feeding is part of your routine — moved to before the final step)</li>
+      <li>One or two books, sung song, or quiet connection time</li>
+      <li>Into the crib, with a brief, consistent phrase: "I love you. It's time to sleep. Goodnight."</li>
+    </ul>
+
+    <div class="callout callout-teal">
+      <div class="callout-label">Pro Tip</div>
+      <p>Move feeding to the beginning or middle of the routine — not the end. This breaks the feed-to-sleep association and gives your baby a chance to be put down while still a little awake. Even if you're not actively sleep training yet, this one shift makes an enormous difference over time.</p>
+    </div>
+
+    <h3>2. Create an Optimal Sleep Environment</h3>
+
+    <p>Your baby's sleep space should be a cue for rest. These are the elements that matter most:</p>
+
+    <ul class="guide-list">
+      <li><strong>Darkness.</strong> As dark as you can make it. Blackout curtains are one of the best investments you can make. Light signals the brain to stay awake — and early morning light is a primary driver of early rising.</li>
+      <li><strong>White noise.</strong> A continuous, consistent sound machine set at around 65–70 dB (roughly the level of a shower running). It masks household sounds, extends naps, and becomes a powerful sleep cue. Keep it running all night and through naps.</li>
+      <li><strong>Cool temperature.</strong> The ideal sleep temperature for babies is between 68–72°F. Overheating is associated with disrupted sleep and is a safety risk.</li>
+      <li><strong>Safe sleep space.</strong> Firm, flat mattress. Nothing in the crib. Always on their back until they can roll independently. Follow your pediatrician's current safe sleep guidelines.</li>
+    </ul>
+
+    <h3>3. Watch Your Own Response Patterns</h3>
+
+    <p>This is the one parents often don't expect to hear — but it's important. The speed and consistency of your response to your baby's nighttime sounds shapes what your baby learns about sleep.</p>
+
+    <p>Rushing in at the first sound — before your baby is even fully awake — can interrupt a natural sleep cycle transition that your baby might have resolved on their own in 30–60 seconds. A brief pause to observe — not to ignore, but to assess — can make a meaningful difference.</p>
+
+    <p>This isn't about being less loving. It's about giving your baby a moment to find their way, before assuming they need you to do it for them.</p>
+
+    <h3>4. Protect Naps — But Don't Over-Engineer Them</h3>
+
+    <p>Naps and night sleep are deeply connected. Chronically undertired or overtired babies sleep worse at night. A good nap schedule — appropriate to your baby's age and wake windows — supports better nighttime sleep.</p>
+
+    <p>That said, naps at this age are often unpredictable, and that's okay. Focus on the nap schedule as a guide, not a rigid rule. The most important nap is the first one of the day — getting that one right tends to stabilize the rest of the day.</p>
+
+    <h3>5. Build Your Own Consistency and Confidence</h3>
+
+    <p>Your baby reads you. Your nervousness, your hesitation, your inconsistency — they pick up on all of it. One of the most powerful things you can do is commit to a plan, follow through with it, and project calm confidence even on the hard nights.</p>
+
+    <p>It gets harder before it gets easier. Night two and three of any new approach are almost always more difficult than night one. That is not a sign the approach isn't working. It is a predictable pattern of change. Hold steady.</p>
+  </div>
+
+  <!-- ───────────────────────────────── -->
+  <!-- CHAPTER 5 -->
+  <!-- ───────────────────────────────── -->
+  <div class="chapter">
+    <div class="chapter-header">
+      <span class="chapter-num-badge">Chapter Five</span>
+      <h2>The Quick Check Method, Step by Step</h2>
+    </div>
+
+    <p class="ch-intro">The Quick Check method keeps you in the picture. Your baby is never alone in the dark, and you are never in the dark about how they're doing.</p>
+
+    <p>Quick Checks are timed, structured check-ins during periods when your baby is crying and working on settling. The premise is simple: you give your baby a window of time to practice settling on their own — but at regular intervals, you go in to let them know you're there. You offer a small amount of comfort, then step back out and give them another opportunity to settle.</p>
+
+    <p>This approach balances two things your baby needs simultaneously: <em>space to practice</em> and <em>the security of knowing you're close.</em></p>
+
+    <h3>Why Quick Checks Work</h3>
+
+    <p>When a baby is learning to settle, they are not suffering — they are working. The crying is communication: <em>I don't know how to do this yet, and I want help.</em> Quick Checks acknowledge that communication without taking over the task entirely. You come in, you say: <em>I hear you. I'm here. I love you.</em> And then you give them the space to finish the work themselves.</p>
+
+    <p>Over several nights, your baby builds the neurological pathways to settle — and the checks become shorter and less frequent because they need them less.</p>
+
+    <h3>Before You Begin: The Setup</h3>
+
+    <ul class="guide-list">
+      <li>Your baby is fed, changed, and has gone through their full bedtime routine.</li>
+      <li>You have put your baby down in their crib drowsy but awake — or awake and calm.</li>
+      <li>The room is dark, the white noise is on, and the environment is set for sleep.</li>
+      <li>You have decided in advance what your interval schedule will be for the night.</li>
+    </ul>
+
+    <h3>The Interval Schedule</h3>
+
+    <p>Start with shorter intervals early in the process — especially in the first few nights. As you and your baby settle into the method, you can extend them. Here are two approaches:</p>
+
+    <table class="qc-table">
+      <thead>
+        <tr>
+          <th>Check Number</th>
+          <th>Gentler Start (min)</th>
+          <th>Progressing Nights (min)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Check 1</td><td>3 minutes</td><td>5 minutes</td></tr>
+        <tr><td>Check 2</td><td>5 minutes</td><td>10 minutes</td></tr>
+        <tr><td>Check 3</td><td>8 minutes</td><td>15 minutes</td></tr>
+        <tr><td>Check 4+</td><td>10 minutes (hold)</td><td>15–20 minutes (hold)</td></tr>
+      </tbody>
+    </table>
+
+    <p>Intervals are counted from when you <em>leave</em> the room, not from when crying starts. If your baby pauses crying and then starts again, the timer continues — don't reset it.</p>
+
+    <h3>What to Do During a Quick Check</h3>
+
+    <ul class="guide-list numbered">
+      <li><strong>Enter calmly.</strong> Walk in without turning on the lights. Speak in a quiet, reassuring voice before you reach the crib: "I'm here. You're okay."</li>
+      <li><strong>Keep it brief — 60 seconds or less.</strong> The check is reassurance, not a sleep aid. Going in for longer can actually increase frustration and reset the settling process.</li>
+      <li><strong>Use your voice and gentle touch.</strong> Pat their chest or back, use your words. "You're safe. Mama loves you. It's time to sleep." Keep it short, keep it calm, keep it consistent.</li>
+      <li><strong>Do not pick up your baby</strong> unless there is a genuine need — illness, diaper, vomiting. Picking up resets the settling process and can prolong the learning curve significantly.</li>
+      <li><strong>Leave while they're still awake.</strong> It can feel counterintuitive to leave when they're still upset — but that's the point. They need the opportunity to finish settling on their own. You've done your part: you've checked in, you've offered comfort, you've confirmed they're safe and loved.</li>
+    </ul>
+
+    <div class="callout callout-rose">
+      <div class="callout-label">For You, Not Just for Baby</div>
+      <p>Quick Checks are partly for your baby's reassurance — and partly for yours. Knowing you will go in gives you something to hold onto during the hard minutes. You don't have to listen and do nothing. You're on a schedule. You're in control of this process. That reframe makes an enormous difference for parents who struggled with other approaches.</p>
+    </div>
+
+    <h3>What to Expect Night by Night</h3>
+
+    <ul class="guide-list">
+      <li><strong>Night 1:</strong> Often the longest night. Some babies take 45–90 minutes to fall asleep. This is normal. Do not abandon the plan on night one.</li>
+      <li><strong>Night 2–3:</strong> Frequently the hardest. Babies often protest more on night 2 and 3 before things improve — this is called an "extinction burst" and is a predictable pattern of any learned behavior change. Hold the line.</li>
+      <li><strong>Night 4–5:</strong> Most families see meaningful improvement here. Settling time shortens, checks become less necessary.</li>
+      <li><strong>Night 6–7:</strong> Many babies are falling asleep within 5–20 minutes by this point. Night wakings are reducing or gone.</li>
+    </ul>
+
+    <h3>Night Wakings: Applying Quick Checks After Bedtime</h3>
+
+    <p>When your baby wakes after an initial period of sleep, the same approach applies. First, give your baby a brief pause — 3–5 minutes of observation — to see if they can resettle on their own before you begin the check schedule. Many babies at this stage will resettle within a few minutes if given the chance.</p>
+
+    <p>If they don't resettle, begin your interval schedule again from Check 1. You do not need to start from a longer interval just because it's the middle of the night — starting shorter and building up respects your baby's state and yours.</p>
+
+    <div class="callout callout-teal">
+      <div class="callout-label">When to Feed at Night</div>
+      <p>Night feeding decisions depend on your baby's age and weight. For babies under 6 months, or babies under 14–15 pounds, nighttime feeds are developmentally appropriate and should be honored. Feed your baby when it is genuinely a feed — then begin checks again after the feed if they don't fall back asleep on their own. As your baby gets older and gains weight, your pediatrician can advise on when night feeds are no longer nutritionally necessary.</p>
+    </div>
+
+    <h3>When Not to Do Quick Checks</h3>
+
+    <ul class="guide-list rose">
+      <li>When your baby is ill. Rest, comfort, and extra parental presence are appropriate during illness. Pause the process and return when your baby is healthy for at least 2–3 days.</li>
+      <li>During sleep regressions tied to major developmental leaps — if your baby has been sleeping well and suddenly regresses, give it a week of extra support before returning to the plan.</li>
+      <li>If your baby is not developmentally ready. Talk to your pediatrician if you have concerns about readiness.</li>
+    </ul>
+  </div>
+
+  <!-- ───────────────────────────────── -->
+  <!-- CHAPTER 6 -->
+  <!-- ───────────────────────────────── -->
+  <div class="chapter">
+    <div class="chapter-header">
+      <span class="chapter-num-badge">Chapter Six</span>
+      <h2>Your 7-Day Sleep Skill Building Plan</h2>
+    </div>
+
+    <p class="ch-intro">Everything in one place. A day-by-day framework to bring it all together with clarity and confidence.</p>
+
+    <p>Before you begin Day 1, spend a day or two in "prep mode." Review the wake window chart for your baby's age, identify the sleep props you'll be adjusting, and confirm your sleep environment is optimized. The more prepared you are before night one, the better equipped you'll be to follow through.</p>
+
+    <div class="callout callout-navy">
+      <div class="callout-label">Before You Start</div>
+      <p>Choose a stretch of 7–10 days where you don't have major travel, illness recovery, or disruptions scheduled. You don't need perfect conditions — but having some stability around the plan gives it the best chance of success.</p>
+    </div>
+
+    <div class="day-plan">
+      <div class="day-plan-head">
+        <span class="day-badge">Day 1–2</span>
+        <h4>Environment + Routine, Optimized</h4>
+      </div>
+      <div class="day-plan-body">
+        <p><strong>Daytime:</strong> Implement wake windows for your baby's age. Track awake times, watch for sleepy cues, and practice putting your baby down "drowsy but awake" for at least one nap — even if it doesn't result in independent sleep yet. The practice matters.</p>
+        <p><strong>Bedtime:</strong> Run a full, calm, consistent bedtime routine ending with your baby going into the crib awake (or at least partially awake). Begin the Quick Check schedule at your chosen starting intervals. Log what happens — time asleep, number of checks, total settling time.</p>
+        <p><strong>Night wakings:</strong> Pause 3–5 minutes before intervening. If they don't resettle, use your check schedule. Honor any genuine night feeds.</p>
+      </div>
+    </div>
+
+    <div class="day-plan">
+      <div class="day-plan-head">
+        <span class="day-badge">Day 3–4</span>
+        <h4>Hold Steady Through the Hard Part</h4>
+      </div>
+      <div class="day-plan-body">
+        <p><strong>Expect more protest.</strong> Days 2–3 are often the hardest — this is the predictable extinction burst. Do not change your approach mid-stream. Staying consistent is the most important thing you can do right now.</p>
+        <p><strong>Daytime:</strong> Continue wake windows. Aim to offer at least one nap in the crib at an appropriate time. If naps remain difficult, prioritize getting the night right first — naps usually follow.</p>
+        <p><strong>Bedtime:</strong> Extend your intervals slightly (add 2 minutes to each). Many families find the checks become shorter and less frequent even on these harder nights.</p>
+        <p><strong>You:</strong> Take care of yourself. Have a partner, friend, or family member on standby if you need it. Remember: this is temporary. The difficulty of this period is a sign that change is happening.</p>
+      </div>
+    </div>
+
+    <div class="day-plan">
+      <div class="day-plan-head">
+        <span class="day-badge">Day 5–6</span>
+        <h4>Seeing Progress</h4>
+      </div>
+      <div class="day-plan-body">
+        <p><strong>Most families notice meaningful improvement by night 4 or 5.</strong> Settling time shortens. The number of checks needed at bedtime decreases. Night wakings reduce in frequency or duration.</p>
+        <p><strong>Daytime:</strong> If naps are still a struggle, this is a good time to apply the check method to the first nap of the day. Give the nap a 45-minute window — if your baby doesn't fall asleep within that window, try again at the next appropriate wake window and keep the day moving.</p>
+        <p><strong>Bedtime:</strong> Continue your interval schedule. It's okay to extend intervals further as your baby shows they can handle longer windows between checks.</p>
+      </div>
+    </div>
+
+    <div class="day-plan">
+      <div class="day-plan-head">
+        <span class="day-badge">Day 7+</span>
+        <h4>Building the New Normal</h4>
+      </div>
+      <div class="day-plan-body">
+        <p><strong>By night 7, most babies are falling asleep independently within 5–25 minutes.</strong> Many families see zero or one night wake by this point, with the baby resettling quickly or on their own.</p>
+        <p><strong>Continue your routine without variation.</strong> Consistency is what makes this permanent. The routine, the environment, the approach — keep it all in place.</p>
+        <p><strong>Naps:</strong> If you haven't started the check method for naps, now is a natural time to try. Naps respond more slowly than bedtime — expect another week of improvement before naps are consistent.</p>
+        <p><strong>Celebrate.</strong> Seriously. What you've done this week is not small. You've given your baby one of the most foundational life skills they'll ever have. You did that. Together.</p>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>"Every night you stayed consistent, you were saying something to your baby: I believe in you. I trust you. I know you can do this. And they heard you."</blockquote>
+      <cite>— Emily Sweetman</cite>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────── -->
+  <!-- APPENDIX: SLEEP LOG -->
+  <!-- ───────────────────────────────── -->
+  <div class="chapter">
+    <div class="chapter-header">
+      <span class="chapter-num-badge">Appendix</span>
+      <h2>Printable Sleep Log</h2>
+    </div>
+
+    <p>Use this log to track your baby's sleep during the 7-day plan. Patterns become visible quickly when you write them down — and watching the numbers improve is one of the most motivating parts of the process.</p>
+
+    <div class="sleep-log">
+      <div class="sleep-log-header">
+        <h3>Weekly Sleep Tracker</h3>
+        <span>Baby's name: _______________  Age: ___________</span>
+      </div>
+      <div class="sleep-log-grid">
+        <div class="slg-head">Day</div>
+        <div class="slg-head">Bedtime</div>
+        <div class="slg-head"># of Checks</div>
+        <div class="slg-head">Settle Time</div>
+        <div class="slg-head">Night Wakes</div>
+
+        <div class="sleep-log-row">
+          <div class="slg-cell day-label">Day 1</div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+        </div>
+        <div class="sleep-log-row">
+          <div class="slg-cell day-label">Day 2</div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+        </div>
+        <div class="sleep-log-row">
+          <div class="slg-cell day-label">Day 3</div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+        </div>
+        <div class="sleep-log-row">
+          <div class="slg-cell day-label">Day 4</div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+        </div>
+        <div class="sleep-log-row">
+          <div class="slg-cell day-label">Day 5</div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+        </div>
+        <div class="sleep-log-row">
+          <div class="slg-cell day-label">Day 6</div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+        </div>
+        <div class="sleep-log-row">
+          <div class="slg-cell day-label">Day 7</div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top:24px;">Nap log — track nap start time, method used, and duration each day. Look for patterns: which wake windows led to the best naps? Which nap durations correlated with better nights?</p>
+
+    <div class="sleep-log">
+      <div class="sleep-log-header">
+        <h3>Daily Nap Tracker</h3>
+        <span>Note wake window lengths and any observations</span>
+      </div>
+      <div class="sleep-log-grid">
+        <div class="slg-head">Day</div>
+        <div class="slg-head">Nap 1 Time</div>
+        <div class="slg-head">Duration</div>
+        <div class="slg-head">Nap 2 Time</div>
+        <div class="slg-head">Duration</div>
+
+        <div class="sleep-log-row">
+          <div class="slg-cell day-label">Day 1</div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+        </div>
+        <div class="sleep-log-row">
+          <div class="slg-cell day-label">Day 2</div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+        </div>
+        <div class="sleep-log-row">
+          <div class="slg-cell day-label">Day 3</div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+        </div>
+        <div class="sleep-log-row">
+          <div class="slg-cell day-label">Day 4</div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+        </div>
+        <div class="sleep-log-row">
+          <div class="slg-cell day-label">Day 5</div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+        </div>
+        <div class="sleep-log-row">
+          <div class="slg-cell day-label">Day 6</div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+        </div>
+        <div class="sleep-log-row">
+          <div class="slg-cell day-label">Day 7</div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+          <div class="slg-cell"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING NOTE -->
+  <div class="intro-card" style="margin-top:64px; border-color:var(--teal);">
+    <p style="font-family:'Lora',Georgia,serif; font-size:1.05rem; font-style:italic; color:var(--teal-dark);">A note before you close this guide:</p>
+    <p>Sleep Skill Building is not a linear process. There will be nights that feel like a setback. Growth spurts, teething, travel, illness — life will interrupt the plan. That's okay. You can always return to it. The skills your baby is building don't disappear. They may need refreshing, but the foundation is there.</p>
+    <p>If you're struggling — if the plan doesn't seem to be working, if something feels off, if you just need someone in your corner — please reach out. My 1:1 packages are built for exactly this, and I'd love to work alongside you. And if you purchased this guide within the last 30 days, your $27 applies as a credit toward any package.</p>
+    <p>You are doing an incredible thing for your family. Keep going.</p>
+    <p style="color:var(--teal-dark); font-family:'Lora',Georgia,serif; font-style:italic; margin-top:12px;">— Emily · <a href="https://renewedrest.com" style="color:var(--teal);">renewedrest.com</a></p>
+  </div>
+
+</div>
+
+<script>
+  // Smooth scroll from print bar
+</script>
+</body>
+</html>
