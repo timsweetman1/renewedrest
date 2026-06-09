@@ -41,7 +41,7 @@
     /* ── COVER PAGE ── */
     .cover {
       min-height: 100vh;
-      background: linear-gradient(150deg, #3B2F2A 0%, #5C4033 45%, #7A5C45 100%);
+      background: linear-gradient(160deg, #F0E8DC 0%, #E8D9C4 50%, #DDD0BA 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -71,8 +71,8 @@
     .cover-moon { font-size: 4rem; margin-bottom: 32px; display: block; }
     .cover-eyebrow {
       display: inline-block;
-      border: 1px solid rgba(255,255,255,0.25);
-      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(90,60,40,0.25);
+      color: rgba(90,60,40,0.65);
       border-radius: 999px;
       padding: 6px 20px;
       font-size: 0.72rem;
@@ -84,31 +84,31 @@
     .cover h1 {
       font-family: var(--serif);
       font-size: clamp(2.4rem, 5vw, 3.8rem);
-      color: var(--white);
+      color: #3B2A1E;
       line-height: 1.1;
       margin-bottom: 16px;
     }
-    .cover h1 em { font-style: italic; color: #E8C9A8; }
+    .cover h1 em { font-style: italic; color: #7A5C45; }
     .cover-subtitle {
       font-size: 1.1rem;
-      color: rgba(255,255,255,0.65);
+      color: rgba(60,40,25,0.6);
       margin-bottom: 48px;
       line-height: 1.7;
     }
     .cover-divider {
       width: 60px; height: 2px;
-      background: rgba(255,255,255,0.2);
+      background: rgba(90,60,40,0.2);
       margin: 0 auto 32px;
     }
     .cover-author {
       font-family: var(--serif);
       font-size: 1rem;
-      color: rgba(255,255,255,0.6);
+      color: rgba(60,40,25,0.7);
       margin-bottom: 8px;
     }
     .cover-cred {
       font-size: 0.78rem;
-      color: rgba(255,255,255,0.4);
+      color: rgba(60,40,25,0.5);
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
@@ -120,9 +120,9 @@
       margin-top: 48px;
     }
     .cover-topic {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.14);
-      color: rgba(255,255,255,0.65);
+      background: rgba(90,60,40,0.08);
+      border: 1px solid rgba(90,60,40,0.18);
+      color: rgba(60,40,25,0.65);
       border-radius: 999px;
       padding: 6px 16px;
       font-size: 0.78rem;
@@ -198,6 +198,29 @@
     }
     .intro-card p { font-size: 1rem; color: var(--text-mid); line-height: 1.85; }
     .intro-card p + p { margin-top: 16px; }
+
+    /* Full-page note from Emily */
+    .note-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px;
+      background: var(--rose-light);
+      border-left: 6px solid var(--rose);
+      margin: 0 -24px;
+      page-break-after: always;
+    }
+    .note-page-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 32px;
+    }
+    .note-page p { font-size: 1.05rem; color: var(--text-mid); line-height: 1.9; margin-bottom: 20px; }
+    .note-page p:last-child { margin-bottom: 0; }
 
     /* CHAPTERS */
     .chapter { margin: 64px 0; }
@@ -548,13 +571,11 @@
   <div class="cover-inner">
     <div class="cover-eyebrow">Renewed Rest · Digital Guide</div>
     <h1>Sleep Skill Building:<br><em>A Complete Parent's Guide</em></h1>
-    <p class="cover-subtitle">Wake Windows · Sleep Props · Healthy Habits · The Quick Check Method</p>
     <div class="cover-divider"></div>
     <div class="cover-author">By Emily Sweetman</div>
     <div class="cover-cred">IPSP® Certified Sleep Consultant · Mother of Five</div>
     <div class="cover-topics">
       <span class="cover-topic">Ages 3–18 Months</span>
-      <span class="cover-topic">40+ Pages</span>
       <span class="cover-topic">Printable Sleep Log Included</span>
     </div>
   </div>
@@ -563,16 +584,17 @@
 <!-- GUIDE BODY -->
 <div class="guide-body">
 
-  <!-- A NOTE FROM EMILY -->
-  <div class="intro-card">
+  <!-- A NOTE FROM EMILY — full page -->
+  <div class="note-page">
+    <div class="note-page-label">A Note from Emily</div>
     <p>If you're reading this, you're probably exhausted. Maybe you've been up three, four, five times a night. Maybe your baby has never slept more than two hours in a row. Maybe bedtime has become the hardest part of your day — and you've started to wonder if something is wrong with you, or your baby, or both.</p>
     <p>Nothing is wrong with you. Nothing is wrong with your baby. Sleep is a skill — and like every skill, it has to be learned. That's what this guide is about: not "training" your baby in the way a coach trains an athlete, but building something together. Patiently. With your baby.</p>
     <p>I'm Emily. I'm an IPSP® certified sleep consultant, and I'm a mother of five. I have sat in the same exhausted fog you're sitting in. I have paced the hallway at 2 a.m. more times than I can count. And I have seen, over and over again — with my own children and with the many families I've had the privilege of walking alongside — that sleep can get better. It will get better. This guide is my way of walking alongside you while it does.</p>
-    <p style="color:var(--teal-dark); font-family:'Lora',Georgia,serif; font-style:italic; margin-top:12px;">— Emily</p>
+    <p style="color:var(--teal-dark); font-family:'Lora',Georgia,serif; font-style:italic; margin-top:8px;">— Emily</p>
   </div>
 
-  <!-- TABLE OF CONTENTS -->
-  <div class="toc-section">
+  <!-- TABLE OF CONTENTS — page 3 -->
+  <div class="toc-section" style="page-break-before: always;">
     <h2>Table of Contents</h2>
     <div class="toc-list">
       <div class="toc-item">
