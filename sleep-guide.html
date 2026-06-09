@@ -115,39 +115,22 @@
       position: relative;
     }
     .mockup-cover {
-      background: linear-gradient(145deg, var(--teal) 0%, var(--teal-dark) 100%);
+      background: #F5EDE7;
       border-radius: var(--r16);
       padding: var(--sp10) var(--sp8);
       margin-bottom: var(--sp6);
       position: relative;
       overflow: hidden;
     }
-    .mockup-cover::before {
-      content: '';
-      position: absolute;
-      top: -20px; right: -20px;
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.06);
-    }
-    .mockup-cover::after {
-      content: '';
-      position: absolute;
-      bottom: -30px; left: -30px;
-      width: 160px; height: 160px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-    }
-    .mc-moon { font-size: 3rem; margin-bottom: var(--sp4); display: block; }
+    .mc-moon { display: none; }
     .mc-title {
       font-family: var(--serif);
       font-size: 1.35rem;
-      color: var(--white);
+      color: var(--navy);
       line-height: 1.3;
       margin-bottom: var(--sp3);
     }
-    .mc-sub { font-size: 0.78rem; color: rgba(255,255,255,0.7); letter-spacing: 0.06em; text-transform: uppercase; }
-    .mc-author { font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-top: var(--sp4); }
+    .mc-author { font-size: 0.82rem; color: var(--teal); margin-top: var(--sp4); }
     .mockup-pages { display: flex; justify-content: center; gap: var(--sp3); }
     .mockup-page-chip {
       background: var(--off-white);
