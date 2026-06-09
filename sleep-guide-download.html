@@ -306,6 +306,7 @@
     .ww-table tbody td:first-child { font-weight: 700; color: var(--navy); white-space: nowrap; }
     .ww-table .ww-windows { font-weight: 700; color: var(--teal); }
     .ww-table .ww-naps { color: var(--text-mid); }
+    .ww-note-row td { background: #F7F2ED; font-size: 0.85rem; color: var(--text-mid); text-align: center; padding: 12px 20px; font-style: italic; }
     .age-badge {
       display: inline-block;
       background: var(--teal-light);
@@ -479,6 +480,39 @@
     .day-plan-body p { margin-bottom: 10px; font-size: 0.92rem; }
     .day-plan-body p:last-child { margin-bottom: 0; }
     .day-plan-body strong { color: var(--navy); font-weight: 700; }
+
+    /* Hunger vs Comfort chart */
+    .hunger-comfort { margin: 36px 0; }
+    .hc-title { font-family: var(--serif); font-size: 1.4rem; color: var(--navy); margin-bottom: 14px; }
+    .hc-intro { font-size: 0.93rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 20px; }
+    .hc-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+    }
+    .hc-head {
+      padding: 14px 20px;
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    .hc-left-head { background: #EBF2F5; color: var(--teal-dark); border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
+    .hc-right-head { background: var(--rose-light); color: #8B5E4A; border-bottom: 1px solid var(--border); }
+    .hc-cell {
+      padding: 16px 20px;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      vertical-align: top;
+    }
+    .hc-table .hc-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .hc-left { background: var(--white); color: var(--text-mid); border-right: 1px solid var(--border); }
+    .hc-right { background: #FDFAF8; color: var(--text-mid); }
 
     /* Page break hints for print */
     @media print {
@@ -661,65 +695,120 @@
       <thead>
         <tr>
           <th>Age</th>
-          <th>Wake Window</th>
-          <th>Naps Per Day</th>
-          <th>Total Sleep (24 hrs)</th>
+          <th>Wake Time Length</th>
+          <th>Naps</th>
+          <th>Max Day Sleep</th>
+          <th>Total Sleep (Naps + Night)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><span class="age-badge">0–6 wks</span></td>
-          <td class="ww-windows">45–60 min</td>
-          <td class="ww-naps">4–6 naps</td>
-          <td>14–17 hours</td>
+          <td><span class="age-badge">1 Month</span></td>
+          <td class="ww-windows">1 Hour</td>
+          <td class="ww-naps">4+ Naps</td>
+          <td>5–6 Hours</td>
+          <td>14–17 Hours</td>
         </tr>
         <tr>
-          <td><span class="age-badge">6–12 wks</span></td>
-          <td class="ww-windows">60–75 min</td>
-          <td class="ww-naps">4–5 naps</td>
-          <td>14–16 hours</td>
+          <td><span class="age-badge">2 Months</span></td>
+          <td class="ww-windows">1.25 Hours</td>
+          <td class="ww-naps">4+ Naps</td>
+          <td>5 Hours</td>
+          <td>14–17 Hours</td>
         </tr>
         <tr>
-          <td><span class="age-badge">3 months</span></td>
-          <td class="ww-windows">75–90 min</td>
-          <td class="ww-naps">3–4 naps</td>
-          <td>14–16 hours</td>
+          <td><span class="age-badge">3 Months</span></td>
+          <td class="ww-windows">1.5 Hours</td>
+          <td class="ww-naps">4 Naps</td>
+          <td>4 Hours</td>
+          <td>14–17 Hours</td>
         </tr>
         <tr>
-          <td><span class="age-badge">4 months</span></td>
-          <td class="ww-windows">1.5–2 hours</td>
-          <td class="ww-naps">3–4 naps</td>
-          <td>14–15 hours</td>
+          <td><span class="age-badge">4 Months</span></td>
+          <td class="ww-windows">2 Hours</td>
+          <td class="ww-naps">3–4 Naps</td>
+          <td>4 Hours</td>
+          <td>12–15 Hours</td>
         </tr>
         <tr>
-          <td><span class="age-badge">5–6 months</span></td>
-          <td class="ww-windows">2–2.5 hours</td>
-          <td class="ww-naps">3 naps</td>
-          <td>13–15 hours</td>
+          <td><span class="age-badge">5 Months</span></td>
+          <td class="ww-windows">2.25 Hours</td>
+          <td class="ww-naps">3 Naps</td>
+          <td>3.5–4 Hours</td>
+          <td>12–15 Hours</td>
         </tr>
         <tr>
-          <td><span class="age-badge">7–8 months</span></td>
-          <td class="ww-windows">2.5–3 hours</td>
-          <td class="ww-naps">2–3 naps</td>
-          <td>13–14 hours</td>
+          <td><span class="age-badge">6 Months</span></td>
+          <td class="ww-windows">2.5 Hours</td>
+          <td class="ww-naps">2–3 Naps</td>
+          <td>3.5 Hours</td>
+          <td>12–15 Hours</td>
         </tr>
         <tr>
-          <td><span class="age-badge">9–11 months</span></td>
-          <td class="ww-windows">3–3.5 hours</td>
-          <td class="ww-naps">2 naps</td>
-          <td>12–14 hours</td>
+          <td><span class="age-badge">7 Months</span></td>
+          <td class="ww-windows">2.75 Hours</td>
+          <td class="ww-naps">2–3 Naps</td>
+          <td>3–3.5 Hours</td>
+          <td>12–15 Hours</td>
         </tr>
         <tr>
-          <td><span class="age-badge">12 months</span></td>
-          <td class="ww-windows">3.5–4 hours</td>
-          <td class="ww-naps">1–2 naps</td>
-          <td>12–14 hours</td>
+          <td><span class="age-badge">8 Months</span></td>
+          <td class="ww-windows">3 Hours</td>
+          <td class="ww-naps">2–3 Naps</td>
+          <td>3 Hours</td>
+          <td>12–15 Hours</td>
         </tr>
         <tr>
-          <td><span class="age-badge">15–18 months</span></td>
-          <td class="ww-windows">4–5 hours</td>
-          <td class="ww-naps">1 nap</td>
-          <td>11–14 hours</td>
+          <td><span class="age-badge">9 Months</span></td>
+          <td class="ww-windows">3–3.5 Hours</td>
+          <td class="ww-naps">2 Naps</td>
+          <td>3 Hours</td>
+          <td>12–15 Hours</td>
+        </tr>
+        <tr>
+          <td><span class="age-badge">10 Months</span></td>
+          <td class="ww-windows">3.5–4 Hours</td>
+          <td class="ww-naps">2 Naps</td>
+          <td>2.5 Hours</td>
+          <td>12–15 Hours</td>
+        </tr>
+        <tr>
+          <td><span class="age-badge">11 Months</span></td>
+          <td class="ww-windows">4–5 Hours</td>
+          <td class="ww-naps">1–2 Naps</td>
+          <td>2.5–3 Hours</td>
+          <td>12–15 Hours</td>
+        </tr>
+        <tr>
+          <td><span class="age-badge">12–18 Months</span></td>
+          <td class="ww-windows">4–5 Hours</td>
+          <td class="ww-naps">2 Naps</td>
+          <td>2 Hours</td>
+          <td>11–14 Hours</td>
+        </tr>
+        <tr>
+          <td><span class="age-badge">12–18 Months</span></td>
+          <td class="ww-windows">4.5–6 Hours</td>
+          <td class="ww-naps">1 Nap</td>
+          <td>3 Hours</td>
+          <td>11–14 Hours</td>
+        </tr>
+        <tr>
+          <td><span class="age-badge">18 Months</span></td>
+          <td class="ww-windows">5–7 Hours</td>
+          <td class="ww-naps">1 Nap</td>
+          <td>3 Hours</td>
+          <td>11–14 Hours</td>
+        </tr>
+        <tr>
+          <td><span class="age-badge">22 Mos–3 Yrs</span></td>
+          <td class="ww-windows">5–7 Hours</td>
+          <td class="ww-naps">1 Nap</td>
+          <td>2–3 Hours</td>
+          <td>11–14 Hours</td>
+        </tr>
+        <tr class="ww-note-row">
+          <td colspan="5"><em>(Average 2.5 Yrs)</em> — Might need less day sleep or may be ready to drop the nap completely.</td>
         </tr>
       </tbody>
     </table>
@@ -988,6 +1077,23 @@
     <div class="callout callout-teal">
       <div class="callout-label">When to Feed at Night</div>
       <p>Babies 3 months and younger typically need multiple feeds throughout the night — this is completely developmentally appropriate and those feeds should always be honored. After 3–4 months, many babies no longer require nighttime feeds, though every baby is different. If your baby is experiencing any weight concerns, a nighttime feed is often still very much needed regardless of age. Parents and pediatricians know their child best — always talk to your pediatrician to decide what is right for your baby. A comfort vs. hunger chart is included in this guide to help you read your baby's nighttime cues.</p>
+    </div>
+
+    <div class="hunger-comfort">
+      <h3 class="hc-title">Hunger or Comfort?</h3>
+      <p class="hc-intro">The most common question from parents is: <em>"How do I know if my baby is really hungry or not?"</em> The chart below will help guide you. On the left are signs that your baby may be waking due to hunger. On the right are clues that your baby is most likely using a feeding for comfort to go back to sleep. These are not definite signs, and every baby is different — however, these cues have been accurate for the majority of the babies I have worked with.</p>
+      <div class="hc-table">
+        <div class="hc-head hc-left-head">🍼 Hunger</div>
+        <div class="hc-head hc-right-head">🤍 Comfort</div>
+        <div class="hc-cell hc-left">Your baby falls back asleep after a feeding, completely on his/her own, and after being laid down wide awake.</div>
+        <div class="hc-cell hc-right">Your baby continues to cry after a feeding or requires much more comforting to fall back asleep.</div>
+        <div class="hc-cell hc-left">Your baby eats a large amount, remains awake during the feeding, and falls asleep knowing he/she has left your arms and you have left the room.</div>
+        <div class="hc-cell hc-right">Your baby only suckles a little and falls right back asleep. Sometimes cries immediately when you lay him/her down and wants to suckle a little more.</div>
+        <div class="hc-cell hc-left">Your baby wants to feed after a very long stretch. The length of this sleep stretch is usually described by parents as "the longest my baby has ever slept."</div>
+        <div class="hc-cell hc-right">Your baby wants to feed frequently (i.e. every couple of hours).</div>
+        <div class="hc-cell hc-left">Your baby only requires one feeding during the night, and it's usually not until the morning hours. Baby also falls back asleep after feeding completely on his/her own.</div>
+        <div class="hc-cell hc-right">Your baby requires many feedings and has to be asleep when laid back down.</div>
+      </div>
     </div>
 
     <h3>When Not to Do Quick Checks</h3>
