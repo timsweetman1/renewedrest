@@ -68,7 +68,7 @@
       border-radius: 50%;
       background: rgba(255,255,255,0.03);
     }
-    .cover-inner { position: relative; z-index: 1; max-width: 700px; }
+    .cover-inner { position: relative; z-index: 1; max-width: 560px; width: 100%; }
     .cover-moon { font-size: 4rem; margin-bottom: 32px; display: block; }
     .cover-eyebrow {
       display: inline-block;
@@ -156,15 +156,16 @@
     .print-btn:hover { background: var(--off-white); }
 
     /* ── GUIDE BODY ── */
-    .guide-body { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+    .guide-body { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; overflow: hidden; }
 
     /* TOC */
     .toc-section {
       background: var(--white);
       border-radius: 20px;
       padding: 48px;
-      margin: 48px 0;
+      margin: 48px auto;
       box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+      max-width: 600px;
     }
     .toc-section h2 {
       font-family: var(--serif);
