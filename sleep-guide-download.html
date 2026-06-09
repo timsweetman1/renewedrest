@@ -209,7 +209,6 @@
       background: var(--rose-light);
       border-left: 6px solid var(--rose);
       margin: 0 -24px;
-      page-break-after: always;
     }
     .note-page-label {
       font-size: 0.72rem;
@@ -537,12 +536,11 @@
     .hc-left { background: var(--white); color: var(--text-mid); border-right: 1px solid var(--border); }
     .hc-right { background: #FDFAF8; color: var(--text-mid); }
 
-    /* Page break hints for print */
+    /* Print styles */
     @media print {
       .print-bar { display: none; }
       .cover { page-break-after: always; min-height: auto; padding: 80px 40px; }
-      .toc-section { page-break-after: always; }
-      .chapter { page-break-before: always; }
+      .note-page { page-break-after: always; }
     }
 
     /* RESPONSIVE */
@@ -594,7 +592,7 @@
   </div>
 
   <!-- TABLE OF CONTENTS — page 3 -->
-  <div class="toc-section" style="page-break-before: always;">
+  <div class="toc-section">
     <h2>Table of Contents</h2>
     <div class="toc-list">
       <div class="toc-item">
