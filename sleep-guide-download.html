@@ -41,7 +41,7 @@
     /* ── COVER PAGE ── */
     .cover {
       min-height: 100vh;
-      background: linear-gradient(150deg, var(--navy) 0%, #243B4E 50%, var(--teal-dark) 100%);
+      background: linear-gradient(150deg, #3B2F2A 0%, #5C4033 45%, #7A5C45 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -88,7 +88,7 @@
       line-height: 1.1;
       margin-bottom: 16px;
     }
-    .cover h1 em { font-style: italic; color: #A8D4E0; }
+    .cover h1 em { font-style: italic; color: #E8C9A8; }
     .cover-subtitle {
       font-size: 1.1rem;
       color: rgba(255,255,255,0.65);
@@ -340,6 +340,13 @@
     .qc-table tbody td { padding: 12px 18px; font-size: 0.9rem; color: var(--text-mid); }
     .qc-table tbody td:first-child { font-weight: 700; color: var(--navy); }
 
+    /* Two-column prop/step list */
+    .prop-list { display: flex; flex-direction: column; gap: 0; margin: 18px 0 24px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .prop-item { display: grid; grid-template-columns: 220px 1fr; border-bottom: 1px solid var(--border); }
+    .prop-item:last-child { border-bottom: none; }
+    .prop-name { font-weight: 700; font-size: 0.92rem; color: var(--navy); padding: 14px 18px; background: var(--off-white); border-right: 1px solid var(--border); display: flex; align-items: center; }
+    .prop-desc { font-size: 0.92rem; color: var(--text-mid); padding: 14px 18px; line-height: 1.65; }
+
     /* Bulleted lists */
     .guide-list { margin: 18px 0 24px; display: flex; flex-direction: column; gap: 10px; }
     .guide-list li {
@@ -505,7 +512,6 @@
 <!-- COVER PAGE -->
 <section class="cover">
   <div class="cover-inner">
-    <span class="cover-moon">🌙</span>
     <div class="cover-eyebrow">Renewed Rest · Digital Guide</div>
     <h1>Sleep Skill Building:<br><em>A Complete Parent's Guide</em></h1>
     <p class="cover-subtitle">Wake Windows · Sleep Props · Healthy Habits · The Quick Check Method</p>
@@ -527,7 +533,7 @@
   <div class="intro-card">
     <p>If you're reading this, you're probably exhausted. Maybe you've been up three, four, five times a night. Maybe your baby has never slept more than two hours in a row. Maybe bedtime has become the hardest part of your day — and you've started to wonder if something is wrong with you, or your baby, or both.</p>
     <p>Nothing is wrong with you. Nothing is wrong with your baby. Sleep is a skill — and like every skill, it has to be learned. That's what this guide is about: not "training" your baby in the way a coach trains an athlete, but building something together. Patiently. With your baby.</p>
-    <p>I'm Emily. I'm an IPSP® certified sleep consultant, and I'm a mother of five. I have sat in the same exhausted fog you're sitting in. I have paced the hallway at 2 a.m. more times than I can count. And I have seen, over and over again — with my own children and with hundreds of families I've worked with — that sleep can get better. It will get better. This guide is my way of walking alongside you while it does.</p>
+    <p>I'm Emily. I'm an IPSP® certified sleep consultant, and I'm a mother of five. I have sat in the same exhausted fog you're sitting in. I have paced the hallway at 2 a.m. more times than I can count. And I have seen, over and over again — with my own children and with the many families I've had the privilege of walking alongside — that sleep can get better. It will get better. This guide is my way of walking alongside you while it does.</p>
     <p style="color:var(--teal-dark); font-family:'Lora',Georgia,serif; font-style:italic; margin-top:12px;">— Emily</p>
   </div>
 
@@ -623,7 +629,6 @@
 
     <div class="pull-quote">
       <blockquote>"The goal isn't to stop responding to your baby. It's to respond to their real needs — not just their learned ones."</blockquote>
-      <cite>— Emily Sweetman</cite>
     </div>
 
     <h3>A Word on Readiness</h3>
@@ -759,13 +764,24 @@
 
     <h3>Common Sleep Props</h3>
 
-    <ul class="guide-list">
-      <li><strong>Nursing or bottle-feeding to sleep</strong> — One of the most powerful and common sleep associations. Your baby genuinely falls asleep while eating, and their brain learns that eating = sleeping.</li>
-      <li><strong>Rocking, bouncing, or motion</strong> — Babies love motion. Car rides, stroller walks, and bouncing on a yoga ball are remarkably effective at inducing sleep — which means they can become relied upon.</li>
-      <li><strong>Being held</strong> — Contact naps and falling asleep in a parent's arms are beautiful. They become a prop when they're the only way a baby can fall asleep.</li>
-      <li><strong>Pacifier</strong> — A pacifier is a passive prop: your baby can't put it back in their mouth independently, so when it falls out mid-sleep, they wake and cry for you to replace it.</li>
-      <li><strong>White noise</strong> — This one is interesting. White noise can actually be a helpful tool for sleep — but if it requires someone to turn it on or adjust it mid-night, it becomes a prop. A consistent, automatic machine is not a problem.</li>
-    </ul>
+    <div class="prop-list">
+      <div class="prop-item">
+        <div class="prop-name">Nursing or bottle-feeding to sleep</div>
+        <div class="prop-desc">One of the most powerful and common sleep associations. Your baby genuinely falls asleep while eating, and their brain learns that eating = sleeping.</div>
+      </div>
+      <div class="prop-item">
+        <div class="prop-name">Rocking, bouncing, or motion</div>
+        <div class="prop-desc">Babies love motion. Car rides, stroller walks, and bouncing on a yoga ball are remarkably effective at inducing sleep — which means they can become relied upon.</div>
+      </div>
+      <div class="prop-item">
+        <div class="prop-name">Being held</div>
+        <div class="prop-desc">Contact naps and falling asleep in a parent's arms are beautiful. They become a prop when they're the only way a baby can fall asleep.</div>
+      </div>
+      <div class="prop-item">
+        <div class="prop-name">Pacifier</div>
+        <div class="prop-desc">A pacifier is a passive prop: your baby can't put it back in their mouth independently, so when it falls out mid-sleep, they wake and cry for you to replace it.</div>
+      </div>
+    </div>
 
     <div class="callout callout-rose">
       <div class="callout-label">Important</div>
@@ -783,8 +799,8 @@
     <p>You don't have to eliminate props abruptly. Gradual fading is a valid approach for many families:</p>
 
     <ul class="guide-list numbered">
-      <li><strong>Nursing to drowsy, not fully asleep.</strong> Instead of nursing until your baby is completely out, nurse until they're drowsy but still a little awake — then put them down. They finish the job of falling asleep on their own. Over several days, you can gradually put them down a little more awake each time.</li>
-      <li><strong>Rocking to drowsy.</strong> Same principle. Rock until they're calm and sleepy, not unconscious. Lay them down while they still have some awareness of the transition.</li>
+      <li><strong>Ending the nursing feed before baby falls asleep.</strong> Instead of nursing until your baby is completely out, nurse until they are calm and showing signs of sleepiness — but their eyes are still open and they are still aware. "Drowsy" does not mean eyes are closing; that is actually the first stage of sleep, and that window has passed. You are looking for a baby who is relaxed, milk-drunk, and clearly ready for sleep — but still awake and present. Put them down in that state and let them finish the job on their own. Over several days, you can gradually end the feed a little earlier each time.</li>
+      <li><strong>Ending the rocking session before baby falls asleep.</strong> Same principle. Rock until they are calm, settled, and ready for sleep — eyes open, body relaxed. Lay them down while they still have awareness of the transition. If their eyes are closing or closing and reopening heavily, you have gone a little too long.</li>
       <li><strong>Chair method for props.</strong> If you've been holding your baby to sleep, start the process of sitting nearby while they fall asleep, then gradually increase the distance each night until you're outside the room.</li>
       <li><strong>Pacifier management.</strong> For babies over 6 months who have motor control, practice placing the pacifier in their hand during the day so they can begin to associate it with finding it themselves. Many families find that moving the pacifier toward the "lovey" stage — where it becomes a comfort object they can locate — reduces the dependency significantly.</li>
     </ul>
@@ -815,17 +831,16 @@
     <p>An effective routine is 20–40 minutes long and includes 3–5 consistent steps in the same order, every night. It might look like:</p>
 
     <ul class="guide-list">
-      <li>Bath (3–4 nights a week, or a warm washcloth the other nights)</li>
+      <li>Feed — always at the beginning of the routine, not the end. This separates eating from falling asleep and is one of the most important habit shifts you can make.</li>
       <li>Massage or lotion — slow, calm, loving touch</li>
       <li>Clean diaper and sleep sack or pajamas</li>
-      <li>Feed (if feeding is part of your routine — moved to before the final step)</li>
-      <li>One or two books, sung song, or quiet connection time</li>
+      <li>One or two books, a sung song, or quiet connection time</li>
       <li>Into the crib, with a brief, consistent phrase: "I love you. It's time to sleep. Goodnight."</li>
     </ul>
 
     <div class="callout callout-teal">
-      <div class="callout-label">Pro Tip</div>
-      <p>Move feeding to the beginning or middle of the routine — not the end. This breaks the feed-to-sleep association and gives your baby a chance to be put down while still a little awake. Even if you're not actively sleep training yet, this one shift makes an enormous difference over time.</p>
+      <div class="callout-label">Why Feed First</div>
+      <p>Feeding at the beginning of the routine — rather than right before sleep — breaks the feed-to-sleep association. When the last thing your baby experiences before the crib is a book or a song instead of nursing or a bottle, they learn to fall asleep without food as the trigger. This single shift makes an enormous difference over time, even before any other changes are made.</p>
     </div>
 
     <h3>2. Create an Optimal Sleep Environment</h3>
@@ -885,42 +900,70 @@
 
     <ul class="guide-list">
       <li>Your baby is fed, changed, and has gone through their full bedtime routine.</li>
-      <li>You have put your baby down in their crib drowsy but awake — or awake and calm.</li>
-      <li>The room is dark, the white noise is on, and the environment is set for sleep.</li>
-      <li>You have decided in advance what your interval schedule will be for the night.</li>
+      <li>You have put your baby down in their crib ready for sleep but with eyes wide open. "Drowsy" in this context means your baby is relaxed, calm, and clearly tired — not that their eyes are heavy or closing. Eyes starting to close means your baby is already entering the first stage of sleep and the independent settling window has been missed. You are looking for a baby who is ready but still awake and present.</li>
+      <li>The room is dark and the environment is set for sleep.</li>
+      <li>You have decided in advance which interval option you will use for the night.</li>
     </ul>
 
     <h3>The Interval Schedule</h3>
 
-    <p>Start with shorter intervals early in the process — especially in the first few nights. As you and your baby settle into the method, you can extend them. Here are two approaches:</p>
+    <p>There are two options for structuring your checks. Choose the one that feels right for your family and stick with it consistently.</p>
 
-    <table class="qc-table">
+    <div class="callout callout-teal" style="margin-bottom:16px;">
+      <div class="callout-label">Option 1 — Consistent Timer</div>
+      <p>Set a single timer for <strong>10 minutes</strong> and use that same interval every time, every check, every night. Simple, predictable, and easy to follow when you're exhausted. Many families do best with this approach because there is no decision-making in the moment.</p>
+    </div>
+
+    <div class="callout callout-navy">
+      <div class="callout-label">Option 2 — Graduated Intervals</div>
+      <p>Begin with shorter intervals and gradually increase them over the course of a night and across nights. This can ease you and your baby into the process more gently.</p>
+    </div>
+
+    <table class="qc-table" style="margin-top:16px;">
       <thead>
         <tr>
           <th>Check Number</th>
-          <th>Gentler Start (min)</th>
-          <th>Progressing Nights (min)</th>
+          <th>Night 1–2 (min)</th>
+          <th>Night 3+ (min)</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Check 1</td><td>3 minutes</td><td>5 minutes</td></tr>
-        <tr><td>Check 2</td><td>5 minutes</td><td>10 minutes</td></tr>
-        <tr><td>Check 3</td><td>8 minutes</td><td>15 minutes</td></tr>
-        <tr><td>Check 4+</td><td>10 minutes (hold)</td><td>15–20 minutes (hold)</td></tr>
+        <tr><td>Check 1</td><td>5 minutes</td><td>7 minutes</td></tr>
+        <tr><td>Check 2</td><td>8 minutes</td><td>10 minutes</td></tr>
+        <tr><td>Check 3</td><td>10 minutes</td><td>12 minutes</td></tr>
+        <tr><td>Check 4+</td><td>10 minutes (hold)</td><td>15 minutes (hold)</td></tr>
       </tbody>
     </table>
 
-    <p>Intervals are counted from when you <em>leave</em> the room, not from when crying starts. If your baby pauses crying and then starts again, the timer continues — don't reset it.</p>
+    <div class="callout callout-rose" style="margin-top:20px;">
+      <div class="callout-label">How to Time the Intervals</div>
+      <p><strong>Timers start when your baby starts crying</strong> — not when you leave the room. If your baby stops crying before the timer goes off, that is self-soothing — a success. Stop the timer. If they start crying again, start a fresh timer from the beginning. The only exception is if your baby has significant separation anxiety; in that case, starting the timer from when you exit the room may feel more manageable for both of you.</p>
+    </div>
 
     <h3>What to Do During a Quick Check</h3>
 
-    <ul class="guide-list numbered">
-      <li><strong>Enter calmly.</strong> Walk in without turning on the lights. Speak in a quiet, reassuring voice before you reach the crib: "I'm here. You're okay."</li>
-      <li><strong>Keep it brief — 60 seconds or less.</strong> The check is reassurance, not a sleep aid. Going in for longer can actually increase frustration and reset the settling process.</li>
-      <li><strong>Use your voice and gentle touch.</strong> Pat their chest or back, use your words. "You're safe. Mama loves you. It's time to sleep." Keep it short, keep it calm, keep it consistent.</li>
-      <li><strong>Do not pick up your baby</strong> unless there is a genuine need — illness, diaper, vomiting. Picking up resets the settling process and can prolong the learning curve significantly.</li>
-      <li><strong>Leave while they're still awake.</strong> It can feel counterintuitive to leave when they're still upset — but that's the point. They need the opportunity to finish settling on their own. You've done your part: you've checked in, you've offered comfort, you've confirmed they're safe and loved.</li>
-    </ul>
+    <div class="prop-list">
+      <div class="prop-item">
+        <div class="prop-name">1. Enter calmly</div>
+        <div class="prop-desc">Walk in without turning on the lights. Speak in a quiet, reassuring voice before you reach the crib: "I'm here. You're okay."</div>
+      </div>
+      <div class="prop-item">
+        <div class="prop-name">2. Keep it brief</div>
+        <div class="prop-desc">60 seconds or less. The check is reassurance, not a sleep aid. Going in for longer can increase frustration and reset the settling process.</div>
+      </div>
+      <div class="prop-item">
+        <div class="prop-name">3. Voice and gentle touch</div>
+        <div class="prop-desc">Pat their chest or back, use your words. "You're safe. Mama loves you. It's time to sleep." Short, calm, consistent.</div>
+      </div>
+      <div class="prop-item">
+        <div class="prop-name">4. Do not pick up</div>
+        <div class="prop-desc">Unless there is a genuine need — illness, diaper, vomiting. Picking up resets the settling process and can prolong the learning curve significantly.</div>
+      </div>
+      <div class="prop-item">
+        <div class="prop-name">5. Leave while still awake</div>
+        <div class="prop-desc">It can feel counterintuitive to leave when they're still upset — but that's the point. They need the opportunity to finish settling on their own. You've checked in, offered comfort, and confirmed they're safe and loved. That is enough.</div>
+      </div>
+    </div>
 
     <div class="callout callout-rose">
       <div class="callout-label">For You, Not Just for Baby</div>
@@ -940,18 +983,18 @@
 
     <p>When your baby wakes after an initial period of sleep, the same approach applies. First, give your baby a brief pause — 3–5 minutes of observation — to see if they can resettle on their own before you begin the check schedule. Many babies at this stage will resettle within a few minutes if given the chance.</p>
 
-    <p>If they don't resettle, begin your interval schedule again from Check 1. You do not need to start from a longer interval just because it's the middle of the night — starting shorter and building up respects your baby's state and yours.</p>
+    <p>If they don't resettle on their own, begin your interval checks using whichever option you have chosen.</p>
 
     <div class="callout callout-teal">
       <div class="callout-label">When to Feed at Night</div>
-      <p>Night feeding decisions depend on your baby's age and weight. For babies under 6 months, or babies under 14–15 pounds, nighttime feeds are developmentally appropriate and should be honored. Feed your baby when it is genuinely a feed — then begin checks again after the feed if they don't fall back asleep on their own. As your baby gets older and gains weight, your pediatrician can advise on when night feeds are no longer nutritionally necessary.</p>
+      <p>Babies 3 months and younger typically need multiple feeds throughout the night — this is completely developmentally appropriate and those feeds should always be honored. After 3–4 months, many babies no longer require nighttime feeds, though every baby is different. If your baby is experiencing any weight concerns, a nighttime feed is often still very much needed regardless of age. Parents and pediatricians know their child best — always talk to your pediatrician to decide what is right for your baby. A comfort vs. hunger chart is included in this guide to help you read your baby's nighttime cues.</p>
     </div>
 
     <h3>When Not to Do Quick Checks</h3>
 
     <ul class="guide-list rose">
-      <li>When your baby is ill. Rest, comfort, and extra parental presence are appropriate during illness. Pause the process and return when your baby is healthy for at least 2–3 days.</li>
-      <li>During sleep regressions tied to major developmental leaps — if your baby has been sleeping well and suddenly regresses, give it a week of extra support before returning to the plan.</li>
+      <li>When your baby is ill. Rest, comfort, and extra parental presence are appropriate during illness — and it is okay to pause the process. That said, try your best to maintain your good sleep habits even during sick days. Bad habits are very commonly created during illness and teething because it is so hard to hear a sick baby cry. But if you do not want to rock your baby to sleep, co-sleep, or introduce other props you have been working to move away from, try not to start them now. A little extra comfort and presence can be offered in ways that don't create new sleep dependencies.</li>
+      <li>During sleep regressions tied to major developmental leaps — if your baby has been sleeping well and suddenly regresses, give it a week of extra support before returning to the plan. It is worth noting that many babies who have built strong sleep skills handle regressions significantly better than those who haven't. Good sleep habits built ahead of time are your best defense against regressions derailing things for long.</li>
       <li>If your baby is not developmentally ready. Talk to your pediatrician if you have concerns about readiness.</li>
     </ul>
   </div>
@@ -980,7 +1023,7 @@
         <h4>Environment + Routine, Optimized</h4>
       </div>
       <div class="day-plan-body">
-        <p><strong>Daytime:</strong> Implement wake windows for your baby's age. Track awake times, watch for sleepy cues, and practice putting your baby down "drowsy but awake" for at least one nap — even if it doesn't result in independent sleep yet. The practice matters.</p>
+        <p><strong>Daytime:</strong> Implement wake windows for your baby's age. Track awake times, watch for sleepy cues, and practice putting your baby down ready for sleep but with eyes still open for at least one nap — even if it doesn't result in independent sleep yet. The practice matters.</p>
         <p><strong>Bedtime:</strong> Run a full, calm, consistent bedtime routine ending with your baby going into the crib awake (or at least partially awake). Begin the Quick Check schedule at your chosen starting intervals. Log what happens — time asleep, number of checks, total settling time.</p>
         <p><strong>Night wakings:</strong> Pause 3–5 minutes before intervening. If they don't resettle, use your check schedule. Honor any genuine night feeds.</p>
       </div>
@@ -994,7 +1037,7 @@
       <div class="day-plan-body">
         <p><strong>Expect more protest.</strong> Days 2–3 are often the hardest — this is the predictable extinction burst. Do not change your approach mid-stream. Staying consistent is the most important thing you can do right now.</p>
         <p><strong>Daytime:</strong> Continue wake windows. Aim to offer at least one nap in the crib at an appropriate time. If naps remain difficult, prioritize getting the night right first — naps usually follow.</p>
-        <p><strong>Bedtime:</strong> Extend your intervals slightly (add 2 minutes to each). Many families find the checks become shorter and less frequent even on these harder nights.</p>
+        <p><strong>Bedtime:</strong> Hold steady with the interval schedule you have chosen. Many families find the checks become shorter and less frequent even on these harder nights.</p>
         <p><strong>You:</strong> Take care of yourself. Have a partner, friend, or family member on standby if you need it. Remember: this is temporary. The difficulty of this period is a sign that change is happening.</p>
       </div>
     </div>
@@ -1017,7 +1060,7 @@
         <h4>Building the New Normal</h4>
       </div>
       <div class="day-plan-body">
-        <p><strong>By night 7, most babies are falling asleep independently within 5–25 minutes.</strong> Many families see zero or one night wake by this point, with the baby resettling quickly or on their own.</p>
+        <p><strong>By night 7, many babies are falling asleep independently within 5–25 minutes.</strong> Many families see zero or one night wake by this point, with the baby resettling quickly or on their own. If your baby is not there yet, that is okay — some babies simply need more time to adjust, and that is completely normal. It may also be worth revisiting your wake windows and daily schedule to make sure the timing is working in your favor. Progress is not always linear, and a few extra days of consistency almost always brings things together.</p>
         <p><strong>Continue your routine without variation.</strong> Consistency is what makes this permanent. The routine, the environment, the approach — keep it all in place.</p>
         <p><strong>Naps:</strong> If you haven't started the check method for naps, now is a natural time to try. Naps respond more slowly than bedtime — expect another week of improvement before naps are consistent.</p>
         <p><strong>Celebrate.</strong> Seriously. What you've done this week is not small. You've given your baby one of the most foundational life skills they'll ever have. You did that. Together.</p>
@@ -1026,7 +1069,6 @@
 
     <div class="pull-quote">
       <blockquote>"Every night you stayed consistent, you were saying something to your baby: I believe in you. I trust you. I know you can do this. And they heard you."</blockquote>
-      <cite>— Emily Sweetman</cite>
     </div>
   </div>
 
