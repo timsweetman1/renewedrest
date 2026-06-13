@@ -280,6 +280,7 @@ p { color: var(--text-mid); }
   .nav-links { display: none; }
   .hamburger { display: flex; }
   .mobile-sticky-cta { display: block; }
+  .nav-logo img { height: 48px; }
 }
 @media (max-width: 640px) {
   .footer-grid { grid-template-columns: 1fr; }
