@@ -95,7 +95,7 @@ p { color: var(--text-mid); }
   color: var(--navy); display: flex; align-items: center; gap: var(--sp2);
   letter-spacing: -0.01em;
 }
-.nav-logo img { height: 80px; width: auto; filter: brightness(1.1) contrast(5); }
+.nav-logo img { height: 80px; width: auto; }
 .nav-links {
   display: flex; align-items: center; gap: var(--sp6);
 }
@@ -283,7 +283,7 @@ p { color: var(--text-mid); }
   .nav-links { display: none; }
   .hamburger { display: flex; }
   .mobile-sticky-cta { display: block; }
-  .nav-logo img { height: 64px; filter: brightness(1.1) contrast(5); mix-blend-mode: multiply; }
+  .nav-logo img { height: 64px; }
 }
 @media (max-width: 640px) {
   .footer-grid { grid-template-columns: 1fr; }
