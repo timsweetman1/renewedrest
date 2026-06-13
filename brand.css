@@ -50,7 +50,7 @@ ul { list-style: none; }
 
   /* Layout */
   --max: 1120px;
-  --nav-h: 74px;
+  --nav-h: 90px;
 }
 
 /* ── BASE ── */
@@ -92,7 +92,7 @@ p { color: var(--text-mid); }
   color: var(--navy); display: flex; align-items: center; gap: var(--sp2);
   letter-spacing: -0.01em;
 }
-.nav-logo img { height: 36px; width: auto; }
+.nav-logo img { height: 62px; width: auto; mix-blend-mode: multiply; }
 .nav-links {
   display: flex; align-items: center; gap: var(--sp6);
 }
