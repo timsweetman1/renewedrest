@@ -92,7 +92,7 @@ p { color: var(--text-mid); }
   color: var(--navy); display: flex; align-items: center; gap: var(--sp2);
   letter-spacing: -0.01em;
 }
-.nav-logo img { height: 62px; width: auto; mix-blend-mode: multiply; }
+.nav-logo img { height: 68px; width: auto; filter: saturate(0) brightness(1.15) contrast(4.5); }
 .nav-links {
   display: flex; align-items: center; gap: var(--sp6);
 }
