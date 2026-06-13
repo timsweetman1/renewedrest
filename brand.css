@@ -61,6 +61,7 @@ body {
   color: var(--text);
   background: var(--white);
   -webkit-font-smoothing: antialiased;
+  color-scheme: light;
 }
 h1,h2,h3 { font-family: var(--serif); line-height: 1.2; color: var(--navy); }
 h4,h5,h6 { font-family: var(--sans); font-weight: 600; color: var(--navy); }
