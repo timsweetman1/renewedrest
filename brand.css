@@ -81,6 +81,8 @@ p { color: var(--text-mid); }
   border-bottom: 1px solid var(--border);
   display: flex; align-items: center;
   transition: box-shadow 0.2s;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 .nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
 .nav-inner {
