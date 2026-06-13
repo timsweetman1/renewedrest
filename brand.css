@@ -76,7 +76,7 @@ p { color: var(--text-mid); }
 /* ── STICKY NAV ── */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  height: var(--nav-h); background: var(--white);
+  height: var(--nav-h); background: #ffffff !important;
   border-bottom: 1px solid var(--border);
   display: flex; align-items: center;
   transition: box-shadow 0.2s;
