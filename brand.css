@@ -116,22 +116,23 @@ p { color: var(--text-mid); }
 }
 .hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.2s; }
 .mobile-drawer {
-  display: none; position: fixed; inset: 0; background: var(--white);
-  z-index: 2000; flex-direction: column; align-items: center;
-  justify-content: flex-start; gap: var(--sp6);
-  overflow-y: auto; padding: 80px var(--sp6) var(--sp8);
+  display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
+  background: var(--white); z-index: 1500;
+  flex-direction: column; align-items: stretch;
+  border-top: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+  overflow-y: auto; max-height: calc(100vh - var(--nav-h));
 }
 .mobile-drawer.open { display: flex; }
-.drawer-close {
-  position: fixed; top: var(--sp6); right: var(--sp6);
-  background: none; border: none; font-size: 1.8rem;
-  cursor: pointer; color: var(--navy); line-height: 1; z-index: 2001;
-}
+.drawer-close { display: none; }
 .mobile-drawer a {
-  font-family: var(--serif); font-size: 1.6rem; color: var(--navy);
-  font-weight: 600; transition: color 0.15s;
+  font-family: var(--sans); font-size: 1rem; color: var(--navy);
+  font-weight: 500; padding: 16px var(--sp6);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s, color 0.15s;
 }
-.mobile-drawer a:hover { color: var(--rose); }
+.mobile-drawer a:hover { background: var(--off-white); color: var(--teal); }
+.mobile-drawer a.btn { margin: var(--sp4) var(--sp6) var(--sp6); border-bottom: none; text-align: center; }
 .mobile-sticky-cta {
   display: none; position: fixed; bottom: 0; left: 0; right: 0;
   z-index: 900; background: var(--rose); padding: 14px var(--sp6);
@@ -276,11 +277,9 @@ p { color: var(--text-mid); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
-  .nav-logo {
-  justify-content: center;
-  font-family: var(--serif); font-size: 1.3rem; font-weight: 600;
-  color: var(--navy); display: flex; align-items: center; gap: var(--sp2);
-  letter-spacing: -0.01em;
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .mobile-sticky-cta { display: block; }
 }
 @media (max-width: 640px) {
   .footer-grid { grid-template-columns: 1fr; }

@@ -6,8 +6,18 @@ window.addEventListener('scroll', () => {
 });
 
 // Mobile menu
-function openMenu()  { document.getElementById('drawer').classList.add('open'); document.body.style.overflow='hidden'; }
-function closeMenu() { document.getElementById('drawer').classList.remove('open'); document.body.style.overflow=''; }
+function openMenu()  { document.getElementById('drawer').classList.add('open'); }
+function closeMenu() { document.getElementById('drawer').classList.remove('open'); }
+function toggleMenu() {
+  const drawer = document.getElementById('drawer');
+  drawer.classList.contains('open') ? closeMenu() : openMenu();
+}
+// Close drawer when tapping outside
+document.addEventListener('click', e => {
+  const drawer = document.getElementById('drawer');
+  if (!drawer) return;
+  if (drawer.classList.contains('open') && !drawer.contains(e.target) && !e.target.closest('.hamburger')) closeMenu();
+});
 
 // Testimonial carousel
 function initCarousel(trackId, dotsId) {
