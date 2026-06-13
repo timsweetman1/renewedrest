@@ -1,15 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 44" width="200" height="44">
-  <!-- Floral sprig left -->
+  <!-- Sketched flower -->
   <g stroke="#2D3E50" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14 36 Q16 28 17 20"/>
-    <path d="M15.5 30 Q11 26 8 24"/>
-    <path d="M16.5 25 Q21 21 23 18"/>
-    <path d="M8 24 Q6 21 9 20 Q10 23 8 24Z" fill="#2D3E50" opacity="0.2" stroke-width="0.7"/>
-    <path d="M23 18 Q25 15 28 17 Q25 19 23 18Z" fill="#2D3E50" opacity="0.2" stroke-width="0.7"/>
-    <path d="M17 20 Q15 16 18 14 Q19 17 17 20Z" fill="#2D3E50" opacity="0.2" stroke-width="0.7"/>
-    <path d="M17 20 Q20 16 22 14 Q19 17 17 20Z" fill="#2D3E50" opacity="0.2" stroke-width="0.7"/>
-    <circle cx="17.5" cy="12.5" r="2" stroke-width="0.9"/>
-    <circle cx="17.5" cy="12.5" r="0.7" fill="#2D3E50" opacity="0.5"/>
+    <!-- petals -->
+    <path d="M17 22 Q14 18 17 14 Q20 18 17 22Z"/>
+    <path d="M17 22 Q21 19 25 21 Q21 25 17 22Z"/>
+    <path d="M17 22 Q20 26 17 30 Q14 26 17 22Z"/>
+    <path d="M17 22 Q13 25 9 23 Q13 19 17 22Z"/>
+    <!-- diagonal petals -->
+    <path d="M17 22 Q13 18 14 14 Q18 16 17 22Z"/>
+    <path d="M17 22 Q21 18 25 15 Q24 20 17 22Z"/>
+    <path d="M17 22 Q21 26 24 29 Q20 28 17 22Z"/>
+    <path d="M17 22 Q13 26 10 29 Q10 24 17 22Z"/>
+    <!-- center circle -->
+    <circle cx="17" cy="22" r="3" stroke-width="1"/>
+    <circle cx="17" cy="22" r="1.2" fill="#2D3E50" opacity="0.35" stroke="none"/>
+    <!-- small stem -->
+    <path d="M17 30 Q17 34 16 36"/>
+    <!-- two tiny leaves on stem -->
+    <path d="M16.5 33 Q13 32 13 30 Q15.5 31 16.5 33Z"/>
+    <path d="M16 35 Q19 33 20 31 Q18 33 16 35Z"/>
   </g>
 
   <!-- Main brand name -->
