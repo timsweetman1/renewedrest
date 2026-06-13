@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 44" width="200" height="44">
+  <!-- Floral sprig left -->
+  <g stroke="#2D3E50" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 36 Q16 28 17 20"/>
+    <path d="M15.5 30 Q11 26 8 24"/>
+    <path d="M16.5 25 Q21 21 23 18"/>
+    <path d="M8 24 Q6 21 9 20 Q10 23 8 24Z" fill="#2D3E50" opacity="0.2" stroke-width="0.7"/>
+    <path d="M23 18 Q25 15 28 17 Q25 19 23 18Z" fill="#2D3E50" opacity="0.2" stroke-width="0.7"/>
+    <path d="M17 20 Q15 16 18 14 Q19 17 17 20Z" fill="#2D3E50" opacity="0.2" stroke-width="0.7"/>
+    <path d="M17 20 Q20 16 22 14 Q19 17 17 20Z" fill="#2D3E50" opacity="0.2" stroke-width="0.7"/>
+    <circle cx="17.5" cy="12.5" r="2" stroke-width="0.9"/>
+    <circle cx="17.5" cy="12.5" r="0.7" fill="#2D3E50" opacity="0.5"/>
+  </g>
+
+  <!-- Main brand name -->
+  <text x="34" y="20" font-family="Georgia,'Times New Roman',serif" font-size="14.5" font-weight="700" letter-spacing="2" fill="#1a2b3c">RENEWED REST</text>
+
+  <!-- Rose divider line -->
+  <line x1="34" y1="25" x2="196" y2="25" stroke="#C9967A" stroke-width="0.7" opacity="0.8"/>
+
+  <!-- Tagline -->
+  <text x="34" y="36" font-family="Georgia,'Times New Roman',serif" font-size="7.5" letter-spacing="2.2" fill="#6B7A8D">SLEEP CONSULTING</text>
+</svg>
