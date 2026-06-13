@@ -118,16 +118,17 @@ p { color: var(--text-mid); }
 .mobile-drawer {
   display: none; position: fixed; inset: 0; background: var(--white);
   z-index: 2000; flex-direction: column; align-items: center;
-  justify-content: center; gap: var(--sp8);
+  justify-content: flex-start; gap: var(--sp6);
+  overflow-y: auto; padding: 80px var(--sp6) var(--sp8);
 }
 .mobile-drawer.open { display: flex; }
 .drawer-close {
-  position: absolute; top: var(--sp6); right: var(--sp6);
+  position: fixed; top: var(--sp6); right: var(--sp6);
   background: none; border: none; font-size: 1.8rem;
-  cursor: pointer; color: var(--navy); line-height: 1;
+  cursor: pointer; color: var(--navy); line-height: 1; z-index: 2001;
 }
 .mobile-drawer a {
-  font-family: var(--serif); font-size: 1.8rem; color: var(--navy);
+  font-family: var(--serif); font-size: 1.6rem; color: var(--navy);
   font-weight: 600; transition: color 0.15s;
 }
 .mobile-drawer a:hover { color: var(--rose); }
