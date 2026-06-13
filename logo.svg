@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 215 46" width="215" height="46">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 46" width="240" height="46">
   <g fill="white" stroke="#2D3E50" stroke-linecap="round" stroke-linejoin="round">
 
     <!-- Stem -->
@@ -30,9 +30,9 @@
   </g>
 
   <!-- Brand name -->
-  <text x="42" y="20" font-family="Georgia,'Times New Roman',serif" font-size="14.5" font-weight="700" letter-spacing="2" fill="#1a2b3c">RENEWED REST</text>
+  <text x="42" y="20" font-family="Georgia,'Times New Roman',serif" font-size="17" font-weight="700" letter-spacing="2" fill="#1a2b3c">RENEWED REST</text>
   <!-- Divider -->
-  <line x1="42" y1="25" x2="211" y2="25" stroke="#C9967A" stroke-width="0.7" opacity="0.8"/>
+  <line x1="42" y1="26" x2="236" y2="26" stroke="#C9967A" stroke-width="0.7" opacity="0.8"/>
   <!-- Subtext -->
-  <text x="42" y="36" font-family="Georgia,'Times New Roman',serif" font-size="7.5" letter-spacing="2.2" fill="#6B7A8D">SLEEP CONSULTING</text>
+  <text x="42" y="37" font-family="Georgia,'Times New Roman',serif" font-size="9" letter-spacing="2.5" fill="#6B7A8D">SLEEP CONSULTING</text>
 </svg>
