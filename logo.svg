@@ -1,32 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 44" width="200" height="44">
-  <!-- Sketched flower -->
-  <g stroke="#2D3E50" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <!-- petals -->
-    <path d="M17 22 Q14 18 17 14 Q20 18 17 22Z"/>
-    <path d="M17 22 Q21 19 25 21 Q21 25 17 22Z"/>
-    <path d="M17 22 Q20 26 17 30 Q14 26 17 22Z"/>
-    <path d="M17 22 Q13 25 9 23 Q13 19 17 22Z"/>
-    <!-- diagonal petals -->
-    <path d="M17 22 Q13 18 14 14 Q18 16 17 22Z"/>
-    <path d="M17 22 Q21 18 25 15 Q24 20 17 22Z"/>
-    <path d="M17 22 Q21 26 24 29 Q20 28 17 22Z"/>
-    <path d="M17 22 Q13 26 10 29 Q10 24 17 22Z"/>
-    <!-- center circle -->
-    <circle cx="17" cy="22" r="3" stroke-width="1"/>
-    <circle cx="17" cy="22" r="1.2" fill="#2D3E50" opacity="0.35" stroke="none"/>
-    <!-- small stem -->
-    <path d="M17 30 Q17 34 16 36"/>
-    <!-- two tiny leaves on stem -->
-    <path d="M16.5 33 Q13 32 13 30 Q15.5 31 16.5 33Z"/>
-    <path d="M16 35 Q19 33 20 31 Q18 33 16 35Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 44" width="210" height="44">
+  <!-- Sketched flower matching brand style -->
+  <g stroke="#2D3E50" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- stem from bottom-left -->
+    <path d="M6 42 Q10 36 14 30 Q16 26 18 22"/>
+
+    <!-- large rounded petals -->
+    <!-- bottom-left petal -->
+    <path d="M18 22 Q10 28 8 34 Q14 30 18 22Z"/>
+    <!-- left petal -->
+    <path d="M18 22 Q8 20 6 14 Q12 18 18 22Z"/>
+    <!-- top-left petal -->
+    <path d="M18 22 Q12 14 14 7 Q18 13 18 22Z"/>
+    <!-- top petal -->
+    <path d="M18 22 Q20 12 26 9 Q24 16 18 22Z"/>
+    <!-- top-right petal -->
+    <path d="M18 22 Q26 14 32 15 Q27 20 18 22Z"/>
+    <!-- right petal -->
+    <path d="M18 22 Q28 22 31 28 Q25 26 18 22Z"/>
+    <!-- bottom-right petal -->
+    <path d="M18 22 Q24 30 22 36 Q18 30 18 22Z"/>
+
+    <!-- petal detail lines (veins) -->
+    <path d="M18 22 Q11 26 9 32" stroke-width="0.6" opacity="0.6"/>
+    <path d="M18 22 Q9 18 8 13" stroke-width="0.6" opacity="0.6"/>
+    <path d="M18 22 Q14 13 15 8" stroke-width="0.6" opacity="0.6"/>
+    <path d="M18 22 Q21 13 26 10" stroke-width="0.6" opacity="0.6"/>
+    <path d="M18 22 Q27 16 31 16" stroke-width="0.6" opacity="0.6"/>
+    <path d="M18 22 Q27 24 30 28" stroke-width="0.6" opacity="0.6"/>
+
+    <!-- center bud/circle -->
+    <circle cx="18" cy="22" r="3.5" stroke-width="1.2"/>
+    <!-- small inner bud detail -->
+    <path d="M16 21 Q18 18 20 21 Q18 24 16 21Z" stroke-width="0.8"/>
   </g>
 
   <!-- Main brand name -->
-  <text x="34" y="20" font-family="Georgia,'Times New Roman',serif" font-size="14.5" font-weight="700" letter-spacing="2" fill="#1a2b3c">RENEWED REST</text>
+  <text x="40" y="20" font-family="Georgia,'Times New Roman',serif" font-size="14.5" font-weight="700" letter-spacing="2" fill="#1a2b3c">RENEWED REST</text>
 
   <!-- Rose divider line -->
-  <line x1="34" y1="25" x2="196" y2="25" stroke="#C9967A" stroke-width="0.7" opacity="0.8"/>
+  <line x1="40" y1="25" x2="206" y2="25" stroke="#C9967A" stroke-width="0.7" opacity="0.8"/>
 
-  <!-- Tagline -->
-  <text x="34" y="36" font-family="Georgia,'Times New Roman',serif" font-size="7.5" letter-spacing="2.2" fill="#6B7A8D">SLEEP CONSULTING</text>
+  <!-- Subtext -->
+  <text x="40" y="36" font-family="Georgia,'Times New Roman',serif" font-size="7.5" letter-spacing="2.2" fill="#6B7A8D">SLEEP CONSULTING</text>
 </svg>
