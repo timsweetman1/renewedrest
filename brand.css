@@ -283,7 +283,7 @@ p { color: var(--text-mid); }
   .nav-links { display: none; }
   .hamburger { display: flex; }
   .mobile-sticky-cta { display: block; }
-  .nav-logo img { height: 64px; filter: brightness(1.1) contrast(5); }
+  .nav-logo img { height: 64px; filter: brightness(1.1) contrast(5); mix-blend-mode: multiply; }
 }
 @media (max-width: 640px) {
   .footer-grid { grid-template-columns: 1fr; }
