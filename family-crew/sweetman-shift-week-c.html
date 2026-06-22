@@ -43,6 +43,7 @@
   td.time-col { font-size: 13px; font-weight: 600; color: #222; width: 70px; }
   .task-note { font-size: 11.5px; color: #888; font-style: italic; display: block; margin-top: 2px; }
   .task-extra { font-size: 12px; color: #c8102e; font-style: italic; display: block; margin-top: 2px; }
+  .task-extra .star { color: #f5a623; font-style: normal; }
   td.done-col { text-align: center; width: 50px; }
   .checkbox { width: 16px; height: 16px; border: 1.5px solid #bbb; border-radius: 3px; display: inline-block; }
   .highlight-row td { background: #fff8f8; }
@@ -98,7 +99,7 @@
       <tr class="section-row"><td colspan="4">Breakfast &amp; Kitchen Reset — 8:30 AM</td></tr>
       <tr><td>8:30</td><td><span class="chip all">All crew</span></td><td>Breakfast together</td><td class="done-col"><div class="checkbox"></div></td></tr>
       <tr><td>9:00</td><td><span class="chip grace">Grace</span></td><td>Sweep kitchen &amp; dining room floors, push in dining chairs<span class="task-note">Refill pet water &amp; food bowls</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
-      <tr><td>9:00</td><td><span class="chip addie">Addie</span></td><td>Load breakfast dishes into dishwasher, wipe countertops &amp; stovetop<span class="task-extra">⭐ Extra mile: wipe down appliance fronts</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>9:00</td><td><span class="chip addie">Addie</span></td><td>Load breakfast dishes into dishwasher, wipe countertops &amp; stovetop<span class="task-extra"><span style="color:#f5a623">★</span> Extra mile: wipe down appliance fronts</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
       <tr><td>9:00</td><td><span class="chip winnie">Winnie</span></td><td>Wipe dining room table &amp; high chair area</td><td class="done-col"><div class="checkbox"></div></td></tr>
       <tr><td>9:00</td><td><span class="chip jane">Jane</span></td><td>Clear her own place, carry items to the counter<span class="task-note">Make sure diapers and wipes are stocked/neat</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
       <tr><td>9:00</td><td><span class="chip liam">Liam</span></td><td>Carry his own plate to the counter (with help)</td><td class="done-col"><div class="checkbox"></div></td></tr>
@@ -111,11 +112,11 @@
       <tr><td>9:30</td><td><span class="chip liam">Liam</span></td><td>Play independently or assist Jane with toy sorting</td><td class="done-col"><div class="checkbox"></div></td></tr>
 
       <tr class="section-row"><td colspan="4">Zone Inspection — 10:30 AM</td></tr>
-      <tr><td>10:30</td><td><span class="chip grace">Grace</span></td><td>Final touch on bathrooms — toilet paper stocked, mirrors wiped<span class="task-note">Shift lead: quick check on Addie &amp; Winnie's areas too</span><span class="task-extra">⭐ Extra mile: scrub toilet &amp; shine mirror</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>10:30</td><td><span class="chip grace">Grace</span></td><td>Final touch on bathrooms — toilet paper stocked, mirrors wiped<span class="task-note">Shift lead: quick check on Addie &amp; Winnie's areas too</span><span class="task-extra"><span style="color:#f5a623">★</span> Extra mile: scrub toilet &amp; shine mirror</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
       <tr><td>10:30</td><td><span class="chip addie">Addie</span></td><td>Walk through own zone — "would a guest be comfortable here?"</td><td class="done-col"><div class="checkbox"></div></td></tr>
-      <tr><td>10:30</td><td><span class="chip winnie">Winnie</span></td><td>Straighten &amp; fluff all cushions and pillows<span class="task-extra">⭐ Extra mile: fold throw blankets in a neat stack</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
-      <tr><td>10:30</td><td><span class="chip jane">Jane</span></td><td><span class="task-extra">⭐ Extra mile: make her own bed all by herself</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
-      <tr><td>10:30</td><td><span class="chip liam">Liam</span></td><td><span class="task-extra">⭐ Extra mile: say "my pleasure!" to whoever checks his work</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>10:30</td><td><span class="chip winnie">Winnie</span></td><td>Straighten &amp; fluff all cushions and pillows<span class="task-extra"><span style="color:#f5a623">★</span> Extra mile: fold throw blankets in a neat stack</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>10:30</td><td><span class="chip jane">Jane</span></td><td><span class="task-extra"><span style="color:#f5a623">★</span> Extra mile: make her own bed all by herself</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>10:30</td><td><span class="chip liam">Liam</span></td><td><span class="task-extra"><span style="color:#f5a623">★</span> Extra mile: say "my pleasure!" to whoever checks his work</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
 
       <tr class="section-row"><td colspan="4">Learning / Free Time — 11:00 AM</td></tr>
       <tr><td>11:00</td><td><span class="chip all">All crew</span></td><td>Homeschool, reading, projects, or free play<span class="task-note">Crew is off-duty — zones are guest-ready</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
@@ -173,10 +174,10 @@
       <tr><td>4:00</td><td><span class="chip liam">Liam</span></td><td>Pick up his toys &amp; put in bin — Jane helps if needed</td><td class="done-col"><div class="checkbox"></div></td></tr>
 
       <tr class="section-row"><td colspan="4">Dinner Prep &amp; Table Setting — 5:00 PM</td></tr>
-      <tr><td>5:00</td><td><span class="chip grace">Grace</span></td><td>Set the table — placemats, plates, cups, utensils for everyone<span class="task-extra">⭐ Extra mile: add a small centerpiece or fold napkins neatly</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>5:00</td><td><span class="chip grace">Grace</span></td><td>Set the table — placemats, plates, cups, utensils for everyone<span class="task-extra"><span style="color:#f5a623">★</span> Extra mile: add a small centerpiece or fold napkins neatly</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
       <tr><td>5:00</td><td><span class="chip addie">Addie</span></td><td>Assist with dinner prep, unload dishwasher if clean<span class="task-note">Refill pet water bowl</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
       <tr><td>5:00</td><td><span class="chip winnie">Winnie</span></td><td>Sweep entryways, vacuum entry rugs<span class="task-note">Make sure entryways are tidy for when everyone's home</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
-      <tr><td>5:00</td><td><span class="chip jane">Jane</span></td><td>Help carry napkins or cups to the table<span class="task-extra">⭐ Extra mile: ask "What else can I do to help?"</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>5:00</td><td><span class="chip jane">Jane</span></td><td>Help carry napkins or cups to the table<span class="task-extra"><span style="color:#f5a623">★</span> Extra mile: ask "What else can I do to help?"</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
       <tr><td>5:00</td><td><span class="chip liam">Liam</span></td><td>Carry his cup to the table (with help)</td><td class="done-col"><div class="checkbox"></div></td></tr>
 
       <tr class="section-row"><td colspan="4">Dinner — 5:30 PM</td></tr>
