@@ -81,54 +81,55 @@
   .footer-right { font-size: 10px; letter-spacing: 0.1em; color: #888; text-transform: uppercase; }
 
   /* ── PAGE 2 – CREW CARDS ── */
-  .crew-grid-top { display: flex; gap: 16px; margin-bottom: 16px; }
-  .crew-grid-bottom { display: flex; gap: 16px; margin-bottom: 20px; }
-  .crew-card { flex: 1; border-radius: 8px; overflow: hidden; border: 1px solid #e0e0e0; }
-  .crew-card-header { padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; }
+  .crew-grid-top { display: flex; gap: 10px; margin-bottom: 10px; }
+  .crew-grid-bottom { display: flex; gap: 10px; margin-bottom: 12px; }
+  .crew-card { flex: 1; border-radius: 7px; overflow: hidden; border: 1px solid #e0e0e0; }
+  .crew-card-header { padding: 9px 13px; display: flex; align-items: flex-start; gap: 9px; }
   .crew-card.grace .crew-card-header { background: #e8f4e8; }
   .crew-card.addie .crew-card-header { background: #f5ede0; }
   .crew-card.winnie .crew-card-header { background: #ece8f5; }
   .crew-card.jane .crew-card-header { background: #fce8f0; }
   .crew-card.liam .crew-card-header { background: #e8eef8; }
   .crew-initials {
-    width: 38px; height: 38px; border-radius: 8px;
+    width: 34px; height: 34px; border-radius: 7px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;
+    font-size: 12px; font-weight: 700; color: #fff; flex-shrink: 0;
   }
   .crew-card.grace .crew-initials { background: #5a9e5a; }
   .crew-card.addie .crew-initials { background: #c8882a; }
   .crew-card.winnie .crew-initials { background: #7b60b8; }
   .crew-card.jane .crew-initials { background: #d05080; }
   .crew-card.liam .crew-initials { background: #4870c0; }
-  .crew-name { font-size: 17px; font-weight: 700; color: #222; }
-  .crew-age { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #666; }
-  .crew-tasks { padding: 14px 16px; background: #fff; }
+  .crew-name { font-size: 15px; font-weight: 700; color: #222; }
+  .crew-age { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #666; }
+  .crew-tasks { padding: 10px 13px; background: #fff; }
   .crew-tasks ul { list-style: none; padding: 0; }
   .crew-tasks ul li {
-    font-size: 12.5px; padding: 5px 0 5px 16px; position: relative;
-    border-bottom: 1px solid #f0f0f0; color: #333; line-height: 1.4;
+    font-size: 11.5px; padding: 4px 0 4px 15px; position: relative;
+    border-bottom: 1px solid #f0f0f0; color: #333; line-height: 1.35;
   }
   .crew-tasks ul li:last-child { border-bottom: none; }
-  .crew-tasks ul li::before { content: '✓'; position: absolute; left: 0; color: #c8102e; font-size: 11px; top: 6px; }
+  .crew-tasks ul li::before { content: '✓'; position: absolute; left: 0; color: #c8102e; font-size: 10px; top: 5px; }
   .extra-mile { color: #c8102e; font-style: italic; }
-  .extra-star { font-size: 14px; color: #f5a623; font-style: normal; }
+  .extra-star { font-size: 13px; color: #f5a623; font-style: normal; }
 
   /* ── ZONE ROTATION TABLE ── */
   .rotation-box {
-    background: #c8102e; border-radius: 6px; padding: 18px 22px; color: #fff; margin-bottom: 10px;
+    background: #c8102e; border-radius: 6px; padding: 14px 18px; color: #fff; margin-bottom: 10px;
+    page-break-inside: avoid;
   }
-  .rotation-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 12px; opacity: 0.85; }
+  .rotation-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; opacity: 0.85; }
   .rotation-table { width: 100%; border-collapse: collapse; }
   .rotation-table th {
-    font-size: 12px; font-weight: 600; text-align: left;
-    padding: 0 0 8px; color: rgba(255,255,255,0.9); border-bottom: 1px solid rgba(255,255,255,0.3);
+    font-size: 11.5px; font-weight: 600; text-align: left;
+    padding: 0 0 7px; color: rgba(255,255,255,0.9); border-bottom: 1px solid rgba(255,255,255,0.3);
   }
   .rotation-table td {
-    font-size: 12px; padding: 5px 0; color: rgba(255,255,255,0.85);
+    font-size: 11.5px; padding: 4px 0; color: rgba(255,255,255,0.85);
     border-bottom: 1px solid rgba(255,255,255,0.12); vertical-align: top;
   }
-  .rotation-table td:first-child { font-size: 11px; color: rgba(255,255,255,0.65); }
-  .rotation-note { font-size: 11px; color: rgba(255,255,255,0.7); font-style: italic; }
+  .rotation-table td:first-child { font-size: 10.5px; color: rgba(255,255,255,0.65); }
+  .rotation-note { font-size: 10.5px; color: rgba(255,255,255,0.7); font-style: italic; }
 
   /* ── PAGE 3 – CORE VALUES ── */
   .motto-box {
@@ -258,9 +259,9 @@
 <!-- ══════════════════════════════════════════
      PAGE 2 — CREW ASSIGNMENTS
 ══════════════════════════════════════════ -->
-<div class="page" style="padding-bottom: 80px;">
+<div class="page" style="padding-top: 0.4in; padding-bottom: 80px;">
   <div class="corner-accent"></div>
-  <div class="logo-row">
+  <div class="logo-row" style="margin-bottom: 12px;">
     <div class="logo-circle">S</div>
     <div class="logo-text">
       <div class="name">Sweetman</div>
@@ -268,9 +269,9 @@
     </div>
   </div>
   <div class="page-label">Operations Guide · Page 2 of 3</div>
-  <h1>Crew Assignments</h1>
-  <div class="title-line"></div>
-  <p class="intro">Each crew member owns their zone. Shift leads (Grace &amp; Addie) also do a final walk-through of their zone before calling it done. <span style="color:#f5a623">★</span> = going the extra mile.</p>
+  <h1 style="font-size:38px; margin-bottom:4px;">Crew Assignments</h1>
+  <div class="title-line" style="margin-bottom:12px;"></div>
+  <p class="intro" style="margin-bottom:14px; font-size:13px;">Each crew member owns their zone. Shift leads (Grace &amp; Addie) also do a final walk-through of their zone before calling it done. <span style="color:#f5a623">★</span> = going the extra mile.</p>
 
   <div class="crew-grid-top">
     <!-- Grace -->
