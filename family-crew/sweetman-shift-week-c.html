@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweetman Family Crew – Shift Schedule Week C</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #222; background: #f4f4f4; }
+  .page { width: 960px; margin: 0 auto 50px; background: #fff; padding: 40px 50px 80px; position: relative; }
+  @media print { .page { page-break-after: always; margin: 0; } }
+  .logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .logo-circle { width: 48px; height: 48px; border-radius: 50%; border: 2px solid #ddd; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; color: #c8102e; }
+  .logo-text .name { font-size: 18px; font-weight: 700; color: #c8102e; }
+  .logo-text .sub  { font-size: 10px; letter-spacing: 0.12em; color: #666; text-transform: uppercase; }
+  .shift-meta { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #555; margin: 12px 0 4px; }
+  h1 { font-size: 40px; font-weight: 800; color: #c8102e; margin-bottom: 6px; }
+  .title-line { width: 60px; height: 3px; background: #c8102e; margin-bottom: 16px; }
+  .week-badge { display: inline-block; background: #c8102e; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 4px; margin-bottom: 10px; }
+  .zone-summary { font-size: 12.5px; color: #555; margin-bottom: 14px; }
+  .crew-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #555; margin-bottom: 20px; flex-wrap: wrap; }
+  .chip { padding: 3px 10px; border-radius: 12px; font-size: 11.5px; font-weight: 600; }
+  .chip.grace  { background: #d4edda; color: #2e6b3a; }
+  .chip.addie  { background: #fde8c8; color: #7a4a10; }
+  .chip.winnie { background: #e8e0f5; color: #5a3e8a; }
+  .chip.jane   { background: #fce0ec; color: #8a2050; }
+  .chip.liam   { background: #dce8f8; color: #1a408a; }
+  .chip.all    { background: #f0f0f0; color: #333; }
+  .zone-pill { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 1px 7px; border-radius: 10px; margin-right: 4px; }
+  .zone-pill.z1 { background: #d4edda; color: #2e6b3a; }
+  .zone-pill.z2 { background: #e8e0f5; color: #5a3e8a; }
+  .zone-pill.z3 { background: #fde8c8; color: #7a4a10; }
+  .block-header { background: #c8102e; color: #fff; padding: 7px 14px; border-radius: 4px 4px 0 0; display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 18px; }
+  .block-header .shift-tag { background: rgba(255,255,255,0.25); padding: 2px 8px; border-radius: 3px; font-size: 10px; }
+  table { width: 100%; border-collapse: collapse; }
+  thead th { font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #888; padding: 8px 10px; border-bottom: 2px solid #e0e0e0; text-align: left; }
+  thead th.done-col { width: 50px; text-align: center; }
+  tbody tr { border-bottom: 1px solid #f0f0f0; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr.section-row td { background: #c8102e; color: #fff; font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 10px; }
+  tbody td { padding: 9px 10px; font-size: 13px; vertical-align: top; }
+  td.time-col { font-size: 13px; font-weight: 600; color: #222; width: 70px; }
+  .task-note { font-size: 11.5px; color: #888; font-style: italic; display: block; margin-top: 2px; }
+  .task-extra { font-size: 12px; color: #c8102e; font-style: italic; display: block; margin-top: 2px; }
+  td.done-col { text-align: center; width: 50px; }
+  .checkbox { width: 16px; height: 16px; border: 1.5px solid #bbb; border-radius: 3px; display: inline-block; }
+  .highlight-row td { background: #fff8f8; }
+  .closing-task { color: #c8102e; font-weight: 600; }
+  .reminders-row { display: flex; gap: 16px; margin-top: 24px; }
+  .reminder-box { flex: 1; background: #c8102e; color: #fff; border-radius: 6px; padding: 14px 16px; }
+  .reminder-title { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .reminder-box ul { list-style: none; padding: 0; }
+  .reminder-box ul li { font-size: 12px; padding: 4px 0 4px 14px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.2); opacity: 0.9; }
+  .reminder-box ul li:last-child { border-bottom: none; }
+  .reminder-box ul li::before { content: '●'; position: absolute; left: 0; top: 6px; font-size: 6px; }
+  .page-footer { position: absolute; bottom: 20px; left: 50px; right: 50px; display: flex; justify-content: space-between; border-top: 1px solid #e0e0e0; padding-top: 10px; }
+  .footer-left { font-size: 10px; letter-spacing: 0.14em; color: #c8102e; text-transform: uppercase; }
+  .footer-right { font-size: 10px; letter-spacing: 0.1em; color: #888; text-transform: uppercase; }
+  .corner-accent { position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: radial-gradient(circle at top right, #f8d0d8 0%, transparent 70%); border-radius: 0 0 0 100px; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════
+     WEEK C · DAY SHIFT
+     Grace=Zone3  Addie=Zone1  Winnie=Zone2
+════════════════════════ -->
+<div class="page">
+  <div class="corner-accent"></div>
+  <div class="logo-row">
+    <div class="logo-circle">S</div>
+    <div class="logo-text"><div class="name">Sweetman Family Crew</div><div class="sub">Daily Shift Schedule · Every Day</div></div>
+  </div>
+  <div class="shift-meta">Shift 1 of 2</div>
+  <h1>Day Shift</h1>
+  <div class="title-line"></div>
+  <div class="week-badge">Week C — Zone Rotation</div>
+  <div class="zone-summary">
+    <span class="zone-pill z3">Zone 3</span> <strong>Grace</strong> · Dining / Bathrooms / Entryways &nbsp;&nbsp;
+    <span class="zone-pill z1">Zone 1</span> <strong>Addie</strong> · Kitchen / Bedrooms / Hallway &nbsp;&nbsp;
+    <span class="zone-pill z2">Zone 2</span> <strong>Winnie</strong> · Living Room / Playroom
+  </div>
+  <div class="crew-row">CREW: <span class="chip grace">Grace</span> Age 13 <span class="chip addie">Addie</span> Age 11½ <span class="chip winnie">Winnie</span> Age 8 <span class="chip jane">Jane</span> Age 5 <span class="chip liam">Liam</span> Age 3½ <span class="chip all">All crew</span></div>
+
+  <div class="block-header"><span><span class="shift-tag">DAY SHIFT</span> &nbsp;Morning Operations</span><span>8:00 am – 12:30 pm</span></div>
+  <table>
+    <thead><tr><th style="width:70px">Time</th><th style="width:120px">Crew</th><th>Task</th><th class="done-col">Done</th></tr></thead>
+    <tbody>
+      <tr class="section-row"><td colspan="4">Opening — 8:00 AM</td></tr>
+      <tr><td>8:00</td><td><span class="chip all">All crew</span></td><td>Wake up, get dressed, personal hygiene complete<span class="task-note">Beds to be made before leaving the bedroom</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>8:15</td><td><span class="chip grace">Grace</span></td><td>Unload dishwasher from overnight cycle<span class="task-note">Shift lead: quick walk-through of hallway &amp; bedrooms &nbsp;·&nbsp; Stack dishes properly — no clanging</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>8:15</td><td><span class="chip addie">Addie</span></td><td>Check all bedroom beds are made</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>8:15</td><td><span class="chip winnie">Winnie</span></td><td>Fold any blankets in living room, pick up any overnight clutter</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>8:15</td><td><span class="chip jane">Jane</span></td><td>Put own shoes &amp; any items by door into right spots<span class="task-note">Help Liam with his shoes too</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>8:15</td><td><span class="chip liam">Liam</span></td><td>Put own toys from yesterday into the bin</td><td class="done-col"><div class="checkbox"></div></td></tr>
+
+      <tr class="section-row"><td colspan="4">Breakfast &amp; Kitchen Reset — 8:30 AM</td></tr>
+      <tr><td>8:30</td><td><span class="chip all">All crew</span></td><td>Breakfast together</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>9:00</td><td><span class="chip grace">Grace</span></td><td>Sweep kitchen &amp; dining room floors, push in dining chairs<span class="task-note">Refill pet water &amp; food bowls</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>9:00</td><td><span class="chip addie">Addie</span></td><td>Load breakfast dishes into dishwasher, wipe countertops &amp; stovetop<span class="task-extra">⭐ Extra mile: wipe down appliance fronts</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>9:00</td><td><span class="chip winnie">Winnie</span></td><td>Wipe dining room table &amp; high chair area</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>9:00</td><td><span class="chip jane">Jane</span></td><td>Clear her own place, carry items to the counter<span class="task-note">Make sure diapers and wipes are stocked/neat</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>9:00</td><td><span class="chip liam">Liam</span></td><td>Carry his own plate to the counter (with help)</td><td class="done-col"><div class="checkbox"></div></td></tr>
+
+      <tr class="section-row"><td colspan="4">Mid-Morning Zone Work — 9:30 AM</td></tr>
+      <tr><td>9:30</td><td><span class="chip grace">Grace</span></td><td><span class="zone-pill z3">Zone 3</span> Zone deep work: Guest Experience<span class="task-note">Both bathrooms cleaned, entryways vacuumed &amp; decluttered, give inspection and sign off</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>9:30</td><td><span class="chip addie">Addie</span></td><td><span class="zone-pill z1">Zone 1</span> Zone deep work: Back of House<span class="task-note">Bedroom declutter, hallway laundry away, drawers pushed in, under beds clear</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>9:30</td><td><span class="chip winnie">Winnie</span></td><td><span class="zone-pill z2">Zone 2</span> Zone deep work: Front of House<span class="task-note">Vacuum rug, wipe side tables, instruments away, declutter living room</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>9:30</td><td><span class="chip jane">Jane</span></td><td>Sort &amp; tidy playroom toys into correct bins</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>9:30</td><td><span class="chip liam">Liam</span></td><td>Play independently or assist Jane with toy sorting</td><td class="done-col"><div class="checkbox"></div></td></tr>
+
+      <tr class="section-row"><td colspan="4">Zone Inspection — 10:30 AM</td></tr>
+      <tr><td>10:30</td><td><span class="chip grace">Grace</span></td><td>Final touch on bathrooms — toilet paper stocked, mirrors wiped<span class="task-note">Shift lead: quick check on Addie &amp; Winnie's areas too</span><span class="task-extra">⭐ Extra mile: scrub toilet &amp; shine mirror</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>10:30</td><td><span class="chip addie">Addie</span></td><td>Walk through own zone — "would a guest be comfortable here?"</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>10:30</td><td><span class="chip winnie">Winnie</span></td><td>Straighten &amp; fluff all cushions and pillows<span class="task-extra">⭐ Extra mile: fold throw blankets in a neat stack</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>10:30</td><td><span class="chip jane">Jane</span></td><td><span class="task-extra">⭐ Extra mile: make her own bed all by herself</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>10:30</td><td><span class="chip liam">Liam</span></td><td><span class="task-extra">⭐ Extra mile: say "my pleasure!" to whoever checks his work</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+
+      <tr class="section-row"><td colspan="4">Learning / Free Time — 11:00 AM</td></tr>
+      <tr><td>11:00</td><td><span class="chip all">All crew</span></td><td>Homeschool, reading, projects, or free play<span class="task-note">Crew is off-duty — zones are guest-ready</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+
+      <tr class="section-row"><td colspan="4">Day Shift Close — 12:15 PM</td></tr>
+      <tr><td>12:15</td><td><span class="chip grace">Grace</span></td><td>Refill pet water bowl, confirm entryways are clear</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>12:15</td><td><span class="chip addie">Addie</span></td><td>Trash check — any trash cans need emptying before lunch?</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>12:15</td><td><span class="chip winnie">Winnie</span></td><td>Quick scan of living room — anything out of place?</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr class="highlight-row"><td>12:30</td><td><span class="chip all">All crew</span></td><td class="closing-task">Day Shift closes. Evening Shift begins after lunch.</td><td class="done-col"><div class="checkbox"></div></td></tr>
+    </tbody>
+  </table>
+  <div class="page-footer"><span class="footer-left">My Pleasure — Every Time, Every Task</span><span class="footer-right">Sweetman Family · Week C · Day Shift</span></div>
+</div>
+
+
+<!-- ════════════════════════
+     WEEK C · EVENING SHIFT
+════════════════════════ -->
+<div class="page">
+  <div class="corner-accent"></div>
+  <div class="logo-row">
+    <div class="logo-circle">S</div>
+    <div class="logo-text"><div class="name">Sweetman Family Crew</div><div class="sub">Daily Shift Schedule · Every Day</div></div>
+  </div>
+  <div class="shift-meta">Shift 2 of 2</div>
+  <h1>Evening Shift</h1>
+  <div class="title-line"></div>
+  <div class="week-badge">Week C — Zone Rotation</div>
+  <div class="zone-summary">
+    <span class="zone-pill z3">Zone 3</span> <strong>Grace</strong> · Dining / Bathrooms / Entryways &nbsp;&nbsp;
+    <span class="zone-pill z1">Zone 1</span> <strong>Addie</strong> · Kitchen / Bedrooms / Hallway &nbsp;&nbsp;
+    <span class="zone-pill z2">Zone 2</span> <strong>Winnie</strong> · Living Room / Playroom
+  </div>
+  <div class="crew-row">CREW: <span class="chip grace">Grace</span> Age 13 <span class="chip addie">Addie</span> Age 11½ <span class="chip winnie">Winnie</span> Age 8 <span class="chip jane">Jane</span> Age 5 <span class="chip liam">Liam</span> Age 3½ <span class="chip all">All crew</span></div>
+
+  <div class="block-header"><span><span class="shift-tag">EVENING SHIFT</span> &nbsp;Afternoon &amp; Close</span><span>12:30 pm – 7:00 pm</span></div>
+  <table>
+    <thead><tr><th style="width:70px">Time</th><th style="width:120px">Crew</th><th>Task</th><th class="done-col">Done</th></tr></thead>
+    <tbody>
+      <tr class="section-row"><td colspan="4">Lunch &amp; Kitchen Reset — 12:30 PM</td></tr>
+      <tr><td>12:30</td><td><span class="chip all">All crew</span></td><td>Lunch together</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>1:00</td><td><span class="chip grace">Grace</span></td><td>Load lunch dishes, run dishwasher if full, wipe countertops</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>1:00</td><td><span class="chip winnie">Winnie</span></td><td>Wipe dining table, push in chairs, sweep under table</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>1:00</td><td><span class="chip jane">Jane</span></td><td>Clear her place &amp; Liam's, carry items to the counter</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>1:00</td><td><span class="chip liam">Liam</span></td><td>Carry his cup to the counter (with help if needed)</td><td class="done-col"><div class="checkbox"></div></td></tr>
+
+      <tr class="section-row"><td colspan="4">Afternoon Free Time — 1:30 PM</td></tr>
+      <tr><td>1:30</td><td><span class="chip all">All crew</span></td><td>Free play, outside time, quiet reading, or activities<span class="task-note">Crew is off-duty. Zones should stay guest-ready during play.</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+
+      <tr class="section-row"><td colspan="4">Afternoon Reset — 4:00 PM</td></tr>
+      <tr><td>4:00</td><td><span class="chip grace">Grace</span></td><td>Bathroom touch-up — sink wiped, towels straight, floor clear</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>4:00</td><td><span class="chip addie">Addie</span></td><td>Quick bedroom walk-through — anything that drifted out of place?<span class="task-note">Clothes off the floor, drawers closed</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>4:00</td><td><span class="chip winnie">Winnie</span></td><td>Living room reset — blankets folded, clutter put away, instruments in place</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>4:00</td><td><span class="chip jane">Jane</span></td><td>Playroom toy sort — every toy back in its bin</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>4:00</td><td><span class="chip liam">Liam</span></td><td>Pick up his toys &amp; put in bin — Jane helps if needed</td><td class="done-col"><div class="checkbox"></div></td></tr>
+
+      <tr class="section-row"><td colspan="4">Dinner Prep &amp; Table Setting — 5:00 PM</td></tr>
+      <tr><td>5:00</td><td><span class="chip grace">Grace</span></td><td>Set the table — placemats, plates, cups, utensils for everyone<span class="task-extra">⭐ Extra mile: add a small centerpiece or fold napkins neatly</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>5:00</td><td><span class="chip addie">Addie</span></td><td>Assist with dinner prep, unload dishwasher if clean<span class="task-note">Refill pet water bowl</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>5:00</td><td><span class="chip winnie">Winnie</span></td><td>Sweep entryways, vacuum entry rugs<span class="task-note">Make sure entryways are tidy for when everyone's home</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>5:00</td><td><span class="chip jane">Jane</span></td><td>Help carry napkins or cups to the table<span class="task-extra">⭐ Extra mile: ask "What else can I do to help?"</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>5:00</td><td><span class="chip liam">Liam</span></td><td>Carry his cup to the table (with help)</td><td class="done-col"><div class="checkbox"></div></td></tr>
+
+      <tr class="section-row"><td colspan="4">Dinner — 5:30 PM</td></tr>
+      <tr><td>5:30</td><td><span class="chip all">All crew</span></td><td>Dinner together — crew shoutouts &amp; recognition happen here<span class="task-note">Who went the extra mile today? Who had an excellent spirit?</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+
+      <tr class="section-row"><td colspan="4">Evening Close — 6:15 PM</td></tr>
+      <tr><td>6:15</td><td><span class="chip addie">Addie</span></td><td>Load dinner dishes &amp; run dishwasher, wipe counters &amp; stovetop<span class="task-note">Empty kitchen trash if full</span></td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>6:15</td><td><span class="chip grace">Grace</span></td><td>Clear &amp; wipe dining table, push in chairs, sweep dining floor</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>6:15</td><td><span class="chip winnie">Winnie</span></td><td>Final living room close — blankets folded, lights off, instruments away</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>6:15</td><td><span class="chip jane">Jane</span></td><td>Pick up playroom, dirty clothes in hamper, shoes in place</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>6:15</td><td><span class="chip liam">Liam</span></td><td>Pass laundry items to helpers, put shoes away</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr><td>6:45</td><td><span class="chip all">All crew</span></td><td>Bedtime prep — baths, pajamas, brush teeth, get ready</td><td class="done-col"><div class="checkbox"></div></td></tr>
+      <tr class="highlight-row"><td>7:00</td><td><span class="chip all">All crew</span></td><td class="closing-task">Evening Shift closes. House is guest-ready. Well done, Sweetman Crew. 🏆</td><td class="done-col"><div class="checkbox"></div></td></tr>
+    </tbody>
+  </table>
+
+  <div class="reminders-row">
+    <div class="reminder-box">
+      <div class="reminder-title">Day Shift Reminders</div>
+      <ul>
+        <li>Zones must be complete before free time at 11:00 am</li>
+        <li>Shift leads (Grace &amp; Addie) sign off on all zones before 10:45 am</li>
+        <li>Happy spirit is non-negotiable — no grumbling during zone work</li>
+        <li>Second-mile tasks done with joy, not duty</li>
+      </ul>
+    </div>
+    <div class="reminder-box">
+      <div class="reminder-title">Evening Shift Reminders</div>
+      <ul>
+        <li>Dinner shoutouts keep the crew culture strong — don't skip them</li>
+        <li>House should be reset by 6:45 before bedtime prep begins</li>
+        <li>Dishwasher runs overnight — unload is first task tomorrow morning</li>
+        <li>Any crew member who finishes early asks "Who can I help?"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-footer"><span class="footer-left">My Pleasure — Every Time, Every Task</span><span class="footer-right">Sweetman Family · Week C · Evening Shift</span></div>
+</div>
+
+</body>
+</html>

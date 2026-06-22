@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweetman Family Crew – Operations Guide</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #222; background: #fff; }
+
+  /* ── PAGE WRAPPER ── */
+  .page {
+    width: 960px;
+    margin: 0 auto 60px;
+    padding: 48px 56px 40px;
+    background: #fff;
+    position: relative;
+  }
+
+  @media print {
+    .page { page-break-after: always; margin: 0; }
+  }
+
+  /* ── HEADER ── */
+  .logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .logo-circle {
+    width: 52px; height: 52px; border-radius: 50%;
+    border: 2px solid #ddd;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 700; color: #c8102e;
+    background: #fff;
+  }
+  .logo-text .name { font-size: 20px; font-weight: 700; color: #c8102e; line-height: 1.1; }
+  .logo-text .sub  { font-size: 11px; letter-spacing: 0.12em; color: #555; text-transform: uppercase; }
+  .page-label { font-size: 11px; letter-spacing: 0.15em; color: #444; text-transform: uppercase; margin-bottom: 10px; }
+  h1 { font-size: 44px; font-weight: 800; color: #c8102e; margin-bottom: 6px; }
+  .title-line { width: 60px; height: 3px; background: #c8102e; margin-bottom: 20px; }
+  .intro { font-size: 14px; color: #444; line-height: 1.6; margin-bottom: 28px; max-width: 680px; }
+
+  /* ── CORNER ACCENT ── */
+  .corner-accent {
+    position: absolute; top: 0; right: 0;
+    width: 120px; height: 120px;
+    background: radial-gradient(circle at top right, #f8d0d8 0%, transparent 70%);
+    border-radius: 0 0 0 120px;
+  }
+
+  /* ── ZONE CARDS ── */
+  .zones { display: flex; gap: 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-bottom: 24px; }
+  .zone-card { flex: 1; padding: 22px 20px 24px; border-right: 1px solid #ddd; }
+  .zone-card:last-child { border-right: none; }
+  .zone-card.z1 { background: #2a2a2a; color: #fff; }
+  .zone-card.z2 { background: #c8102e; color: #fff; }
+  .zone-card.z3 { background: #c8102e; color: #fff; }
+  .zone-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; opacity: 0.85; }
+  .zone-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .zone-sub { font-size: 11px; opacity: 0.75; margin-bottom: 16px; }
+  .zone-card ul { list-style: none; padding: 0; }
+  .zone-card ul li {
+    font-size: 13px; padding: 7px 0 7px 18px; position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+    line-height: 1.4;
+  }
+  .zone-card ul li:last-child { border-bottom: none; }
+  .zone-card ul li::before {
+    content: '●'; position: absolute; left: 0; top: 8px;
+    font-size: 7px; opacity: 0.8;
+  }
+
+  /* ── SECOND MILE BOX ── */
+  .second-mile {
+    background: #fdf6e3; border: 1px solid #f0d88a;
+    border-radius: 6px; padding: 16px 20px;
+    font-size: 13px; line-height: 1.6; color: #444;
+  }
+  .second-mile strong { color: #b8860b; }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    position: absolute; bottom: 20px; left: 56px; right: 56px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid #e0e0e0; padding-top: 10px;
+  }
+  .footer-left { font-size: 10px; letter-spacing: 0.14em; color: #c8102e; text-transform: uppercase; }
+  .footer-right { font-size: 10px; letter-spacing: 0.1em; color: #888; text-transform: uppercase; }
+
+  /* ── PAGE 2 – CREW CARDS ── */
+  .crew-grid-top { display: flex; gap: 16px; margin-bottom: 16px; }
+  .crew-grid-bottom { display: flex; gap: 16px; margin-bottom: 20px; }
+  .crew-card { flex: 1; border-radius: 8px; overflow: hidden; border: 1px solid #e0e0e0; }
+  .crew-card-header { padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; }
+  .crew-card.grace .crew-card-header { background: #e8f4e8; }
+  .crew-card.addie .crew-card-header { background: #f5ede0; }
+  .crew-card.winnie .crew-card-header { background: #ece8f5; }
+  .crew-card.jane .crew-card-header { background: #fce8f0; }
+  .crew-card.liam .crew-card-header { background: #e8eef8; }
+  .crew-initials {
+    width: 38px; height: 38px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;
+  }
+  .crew-card.grace .crew-initials { background: #5a9e5a; }
+  .crew-card.addie .crew-initials { background: #c8882a; }
+  .crew-card.winnie .crew-initials { background: #7b60b8; }
+  .crew-card.jane .crew-initials { background: #d05080; }
+  .crew-card.liam .crew-initials { background: #4870c0; }
+  .crew-name { font-size: 17px; font-weight: 700; color: #222; }
+  .crew-age { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #666; }
+  .crew-tasks { padding: 14px 16px; background: #fff; }
+  .crew-tasks ul { list-style: none; padding: 0; }
+  .crew-tasks ul li {
+    font-size: 12.5px; padding: 5px 0 5px 16px; position: relative;
+    border-bottom: 1px solid #f0f0f0; color: #333; line-height: 1.4;
+  }
+  .crew-tasks ul li:last-child { border-bottom: none; }
+  .crew-tasks ul li::before { content: '✓'; position: absolute; left: 0; color: #c8102e; font-size: 11px; top: 6px; }
+  .extra-mile { color: #c8102e; font-style: italic; }
+  .extra-star { font-size: 12px; }
+
+  /* ── ZONE ROTATION TABLE ── */
+  .rotation-box {
+    background: #c8102e; border-radius: 6px; padding: 18px 22px; color: #fff; margin-bottom: 10px;
+  }
+  .rotation-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 12px; opacity: 0.85; }
+  .rotation-table { width: 100%; border-collapse: collapse; }
+  .rotation-table th {
+    font-size: 12px; font-weight: 600; text-align: left;
+    padding: 0 0 8px; color: rgba(255,255,255,0.9); border-bottom: 1px solid rgba(255,255,255,0.3);
+  }
+  .rotation-table td {
+    font-size: 12px; padding: 5px 0; color: rgba(255,255,255,0.85);
+    border-bottom: 1px solid rgba(255,255,255,0.12); vertical-align: top;
+  }
+  .rotation-table td:first-child { font-size: 11px; color: rgba(255,255,255,0.65); }
+  .rotation-note { font-size: 11px; color: rgba(255,255,255,0.7); font-style: italic; }
+
+  /* ── PAGE 3 – CORE VALUES ── */
+  .motto-box {
+    background: #c8102e; color: #fff; border-radius: 8px;
+    text-align: center; padding: 28px 40px; margin-bottom: 28px;
+  }
+  .motto-quote { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .motto-sub { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.75; }
+
+  .values-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .value-card { border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; }
+  .value-header { background: #c8102e; color: #fff; padding: 10px 14px; font-size: 14px; font-weight: 600; }
+  .value-body { padding: 14px; font-size: 12.5px; color: #444; line-height: 1.6; }
+
+  .recognition-box {
+    background: #fdf6e3; border: 1px solid #f0d88a; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 24px;
+  }
+  .recognition-title { font-size: 14px; font-weight: 700; color: #b8860b; margin-bottom: 12px; }
+  .recognition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .rec-item { display: flex; gap: 10px; font-size: 12.5px; color: #444; align-items: flex-start; }
+  .rec-num {
+    width: 22px; height: 22px; border-radius: 50%; background: #c8102e; color: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 11px;
+    font-weight: 700; flex-shrink: 0;
+  }
+
+  .pledge-box {
+    border: 2px solid #c8102e; border-radius: 8px; padding: 20px 28px; text-align: center;
+  }
+  .pledge-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #888; margin-bottom: 10px; }
+  .pledge-text { font-size: 14px; font-style: italic; color: #333; line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PAGE 1 — ZONE MAP
+══════════════════════════════════════════ -->
+<div class="page" style="padding-bottom: 80px;">
+  <div class="corner-accent"></div>
+  <div class="logo-row">
+    <div class="logo-circle">S</div>
+    <div class="logo-text">
+      <div class="name">Sweetman</div>
+      <div class="sub">Family Crew</div>
+    </div>
+  </div>
+  <div class="page-label">Operations Guide · Page 1 of 3</div>
+  <h1>Zone Map</h1>
+  <div class="title-line"></div>
+  <p class="intro">Our home runs on three zones. Every crew member is responsible for their zone being guest-ready — clean, stocked, and done with excellence. Zones rotate weekly for Grace, Addie, and Winnie.</p>
+
+  <div class="zones">
+    <div class="zone-card z1">
+      <div class="zone-label">Zone 1</div>
+      <div class="zone-title">Back of House</div>
+      <div class="zone-sub">Kitchen · Bedrooms · Hallway</div>
+      <ul>
+        <li>Vacuum &amp; mop kitchen floors</li>
+        <li>Wipe all countertops</li>
+        <li>Unload &amp; reload dishwasher</li>
+        <li>Empty kitchen trash &amp; reline</li>
+        <li>Refill pet water bowl</li>
+        <li>Wipe coffee table</li>
+        <li>Check all beds</li>
+        <li>Vacuum &amp; mop hallway floors &amp; declutter</li>
+        <li>Clean up games</li>
+        <li>Push in all clothes drawers</li>
+      </ul>
+    </div>
+    <div class="zone-card z2">
+      <div class="zone-label">Zone 2</div>
+      <div class="zone-title">Front of House</div>
+      <div class="zone-sub">Living Room · Playroom</div>
+      <ul>
+        <li>Vacuum &amp; mop living room floors</li>
+        <li>Vacuum rug</li>
+        <li>Declutter &amp; wipe side tables</li>
+        <li>Fold all blankets neatly</li>
+        <li>Declutter whole room</li>
+        <li>Throw away any trash</li>
+        <li>Put away instruments</li>
+        <li>Declutter playroom</li>
+        <li>Restock diapers &amp; wipes</li>
+        <li>Declutter couches</li>
+        <li>Vacuum &amp; mop playroom floors</li>
+      </ul>
+    </div>
+    <div class="zone-card z3">
+      <div class="zone-label">Zone 3</div>
+      <div class="zone-title">Guest Experience</div>
+      <div class="zone-sub">Dining · Bathrooms · Entryways</div>
+      <ul>
+        <li>Vacuum &amp; mop entryway floors</li>
+        <li>Vacuum entry rugs</li>
+        <li>Declutter both entryways</li>
+        <li>Vacuum &amp; mop dining room floors</li>
+        <li>Push in all dining chairs &amp; wipe table</li>
+        <li>Declutter desk surface</li>
+        <li>Refill pet food &amp; water</li>
+        <li>Empty both bathroom trash cans</li>
+        <li>Wipe sink areas &amp; counters</li>
+        <li>Vacuum &amp; mop bathroom floors</li>
+        <li>Restock toilet paper</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="second-mile">
+    <strong>⭐ The second mile:</strong> Your zone is done when it's not just clean — it's guest-ready. Ask yourself: "Would I be proud to show this room to someone visiting for the first time?" If yes, you're done. If not, find the one thing that would make it excellent.
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-left">My Pleasure — Every Time, Every Task</span>
+    <span class="footer-right">Sweetman Family · Page 1</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 2 — CREW ASSIGNMENTS
+══════════════════════════════════════════ -->
+<div class="page" style="padding-bottom: 80px;">
+  <div class="corner-accent"></div>
+  <div class="logo-row">
+    <div class="logo-circle">S</div>
+    <div class="logo-text">
+      <div class="name">Sweetman</div>
+      <div class="sub">Family Crew</div>
+    </div>
+  </div>
+  <div class="page-label">Operations Guide · Page 2 of 3</div>
+  <h1>Crew Assignments</h1>
+  <div class="title-line"></div>
+  <p class="intro">Each crew member owns their zone. Shift leads (Grace &amp; Addie) also do a final walk-through of their zone before calling it done. ⭐ = going the extra mile.</p>
+
+  <div class="crew-grid-top">
+    <!-- Grace -->
+    <div class="crew-card grace">
+      <div class="crew-card-header">
+        <div class="crew-initials">GS</div>
+        <div>
+          <div class="crew-name">Grace</div>
+          <div class="crew-age">Age 13 · Shift Lead</div>
+        </div>
+      </div>
+      <div class="crew-tasks">
+        <ul>
+          <li>Deep clean kitchen counters &amp; floors</li>
+          <li>Run dishwasher &amp; unload completely</li>
+          <li>Empty trash &amp; reline bag</li>
+          <li>Hallway declutter &amp; laundry away</li>
+          <li>Give inspection and sign off</li>
+          <li class="extra-mile"><span class="extra-star">⭐</span> Wipe down kitchen appliances</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Addie -->
+    <div class="crew-card addie">
+      <div class="crew-card-header">
+        <div class="crew-initials">AS</div>
+        <div>
+          <div class="crew-name">Addie</div>
+          <div class="crew-age">Age 11½ · Shift Lead</div>
+        </div>
+      </div>
+      <div class="crew-tasks">
+        <ul>
+          <li>Vacuum entryways &amp; wipe surfaces</li>
+          <li>Clean &amp; restock both bathrooms</li>
+          <li>Push in chairs, wipe dining surfaces</li>
+          <li>Refill pet food &amp; water</li>
+          <li>Give inspection and sign off</li>
+          <li class="extra-mile"><span class="extra-star">⭐</span> Scrub toilet &amp; shine the mirror</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Winnie -->
+    <div class="crew-card winnie">
+      <div class="crew-card-header">
+        <div class="crew-initials">WS</div>
+        <div>
+          <div class="crew-name">Winnie</div>
+          <div class="crew-age">Age 8 · Front of House</div>
+        </div>
+      </div>
+      <div class="crew-tasks">
+        <ul>
+          <li>Vacuum living room rug</li>
+          <li>Fold all blankets neatly</li>
+          <li>Declutter &amp; wipe side tables</li>
+          <li>Throw away any trash</li>
+          <li>Put away instruments</li>
+          <li class="extra-mile"><span class="extra-star">⭐</span> Wipe down all light switches &amp; door handles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="crew-grid-bottom">
+    <!-- Jane -->
+    <div class="crew-card jane">
+      <div class="crew-card-header">
+        <div class="crew-initials">JS</div>
+        <div>
+          <div class="crew-name">Jane</div>
+          <div class="crew-age">Age 5 · Helper Crew</div>
+        </div>
+      </div>
+      <div class="crew-tasks">
+        <ul>
+          <li>Pick up &amp; sort toys in the playroom</li>
+          <li>Make sure diapers and wipes are stocked/neat</li>
+          <li>Put own shoes &amp; backpack in right spot</li>
+          <li>Help an older sibling carry laundry</li>
+          <li class="extra-mile"><span class="extra-star">⭐</span> Make own bed all by herself</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Liam -->
+    <div class="crew-card liam">
+      <div class="crew-card-header">
+        <div class="crew-initials">LS</div>
+        <div>
+          <div class="crew-name">Liam</div>
+          <div class="crew-age">Age 3½ · Junior Crew</div>
+        </div>
+      </div>
+      <div class="crew-tasks">
+        <ul>
+          <li>Put own toys into their bin</li>
+          <li>Carry small items to the trash</li>
+          <li>Pass laundry items to helpers</li>
+          <li>Put shoes in the right spot</li>
+          <li class="extra-mile"><span class="extra-star">⭐</span> Say "my pleasure!" with a smile</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Weekly Zone Rotation -->
+  <div class="rotation-box">
+    <div class="rotation-label">Weekly Zone Rotation</div>
+    <table class="rotation-table">
+      <thead>
+        <tr>
+          <th style="width:20%">Grace</th>
+          <th style="width:20%">Addie</th>
+          <th style="width:20%">Winnie</th>
+          <th style="width:20%">Jane</th>
+          <th style="width:20%">Liam</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Week 1 – Zone 1</td>
+          <td>Week 1 – Zone 2</td>
+          <td>Week 1 – Zone 3</td>
+          <td rowspan="4" style="vertical-align:top; padding-top:5px;">
+            Fixed: Playroom + Helper role<br><br>
+            <span class="rotation-note">Add one new skill every 4–6 weeks.</span>
+          </td>
+          <td rowspan="4" style="vertical-align:top; padding-top:5px;">
+            Fixed: Junior Helper role<br><br>
+            <span class="rotation-note">Focus on building the habit of helping cheerfully.</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Week 2 – Zone 2</td>
+          <td>Week 2 – Zone 3</td>
+          <td>Week 2 – Zone 1</td>
+        </tr>
+        <tr>
+          <td>Week 3 – Zone 3</td>
+          <td>Week 3 – Zone 1</td>
+          <td>Week 3 – Zone 2</td>
+        </tr>
+        <tr>
+          <td>Week 4 – Zone 1</td>
+          <td>Week 4 – Zone 2</td>
+          <td>Week 4 – Zone 3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-left">My Pleasure — Every Time, Every Task</span>
+    <span class="footer-right">Sweetman Family · Page 2</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 3 — CORE VALUES
+══════════════════════════════════════════ -->
+<div class="page" style="padding-bottom: 80px;">
+  <div class="corner-accent"></div>
+  <div class="logo-row">
+    <div class="logo-circle">S</div>
+    <div class="logo-text">
+      <div class="name">Sweetman</div>
+      <div class="sub">Family Crew</div>
+    </div>
+  </div>
+  <div class="page-label">Operations Guide · Page 3 of 3</div>
+  <h1>Core Values</h1>
+  <div class="title-line"></div>
+
+  <div class="motto-box">
+    <div class="motto-quote">"Every task done with excellence,<br>a smile, and a servant's heart."</div>
+    <div class="motto-sub">The Sweetman Family Motto</div>
+  </div>
+
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-header">🤝 Serve others first</div>
+      <div class="value-body">Do your zone so that someone else's day is a little easier. Notice what needs doing and do it without being asked. Our home should feel welcoming to everyone who walks through the door.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-header">🏆 Do it with excellence</div>
+      <div class="value-body">Not just done — done well. Wipe the whole counter, not just the middle. Make the bed so it looks great. Excellence means you'd be proud to show your zone to a guest.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-header">😊 Happy spirit</div>
+      <div class="value-body">How you do something matters as much as what you do. We don't grumble, sigh, or drag our feet. "My pleasure" is our family's response — and we mean it.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-header">🚀 Go the extra mile</div>
+      <div class="value-body">Every zone has a second-mile task — a small thing that shows you care beyond the minimum. Look for what wasn't asked and do it anyway. That's what sets our family apart.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-header">👨‍👩‍👧‍👦 Team before self</div>
+      <div class="value-body">Finish your zone, then ask "Who can I help?" Older crew members look out for younger ones. We win as a family or we don't win at all.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-header">🔄 Learn every station</div>
+      <div class="value-body">Zones rotate so every crew member learns every job. No one is above any task. Knowing how to do it all makes you a stronger person and a better teammate.</div>
+    </div>
+  </div>
+
+  <div class="recognition-box">
+    <div class="recognition-title">⭐ Crew Recognition</div>
+    <div class="recognition-grid">
+      <div class="rec-item"><div class="rec-num">1</div><span>Shout out a crew member at dinner who went the extra mile today</span></div>
+      <div class="rec-item"><div class="rec-num">2</div><span>"Crew Member of the Week" board — anyone can nominate anyone</span></div>
+      <div class="rec-item"><div class="rec-num">3</div><span>Zone excellence award when all three zones pass the guest-ready test</span></div>
+      <div class="rec-item"><div class="rec-num">4</div><span>Family celebration when every crew member hits their second-mile task</span></div>
+    </div>
+  </div>
+
+  <div class="pledge-box">
+    <div class="pledge-label">The Sweetman Crew Pledge</div>
+    <div class="pledge-text">"I will serve my family with a cheerful heart, do my zone with excellence, go the extra mile, and always — always — say 'my pleasure.'"</div>
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-left">My Pleasure — Every Time, Every Task</span>
+    <span class="footer-right">Sweetman Family · Page 3</span>
+  </div>
+</div>
+
+</body>
+</html>
