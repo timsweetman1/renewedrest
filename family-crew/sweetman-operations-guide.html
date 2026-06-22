@@ -46,25 +46,22 @@
   }
 
   /* ── ZONE CARDS ── */
-  .zones { display: flex; gap: 0; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-bottom: 24px; }
-  .zone-card { flex: 1; padding: 22px 20px 24px; border-right: 1px solid #ddd; }
-  .zone-card:last-child { border-right: none; }
-  .zone-card.z1 { background: #2a2a2a; color: #fff; }
-  .zone-card.z2 { background: #c8102e; color: #fff; }
-  .zone-card.z3 { background: #c8102e; color: #fff; }
+  .zones { display: flex; gap: 16px; margin-bottom: 24px; }
+  .zone-card { flex: 1; border-radius: 8px; overflow: hidden; border: 1px solid #e0e0e0; }
+  .zone-card-header { background: #c8102e; color: #fff; padding: 18px 18px 14px; }
   .zone-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; opacity: 0.85; }
   .zone-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-  .zone-sub { font-size: 11px; opacity: 0.75; margin-bottom: 16px; }
-  .zone-card ul { list-style: none; padding: 0; }
+  .zone-sub { font-size: 11px; opacity: 0.75; }
+  .zone-card ul { list-style: none; padding: 10px 18px 14px; background: #fff; }
   .zone-card ul li {
     font-size: 13px; padding: 7px 0 7px 18px; position: relative;
-    border-bottom: 1px solid rgba(255,255,255,0.18);
+    border-bottom: 1px solid #f0f0f0; color: #333;
     line-height: 1.4;
   }
   .zone-card ul li:last-child { border-bottom: none; }
   .zone-card ul li::before {
     content: '●'; position: absolute; left: 0; top: 8px;
-    font-size: 7px; opacity: 0.8;
+    font-size: 7px; color: #c8102e;
   }
 
   /* ── SECOND MILE BOX ── */
@@ -187,10 +184,12 @@
   <p class="intro">Our home runs on three zones. Every crew member is responsible for their zone being guest-ready — clean, stocked, and done with excellence. Zones rotate weekly for Grace, Addie, and Winnie.</p>
 
   <div class="zones">
-    <div class="zone-card z1">
-      <div class="zone-label">Zone 1</div>
-      <div class="zone-title">Back of House</div>
-      <div class="zone-sub">Kitchen · Bedrooms · Hallway</div>
+    <div class="zone-card">
+      <div class="zone-card-header">
+        <div class="zone-label">Zone 1</div>
+        <div class="zone-title">Back of House</div>
+        <div class="zone-sub">Kitchen · Bedrooms · Hallway</div>
+      </div>
       <ul>
         <li>Vacuum &amp; mop kitchen floors</li>
         <li>Wipe all countertops</li>
@@ -204,10 +203,12 @@
         <li>Push in all clothes drawers</li>
       </ul>
     </div>
-    <div class="zone-card z2">
-      <div class="zone-label">Zone 2</div>
-      <div class="zone-title">Front of House</div>
-      <div class="zone-sub">Living Room · Playroom</div>
+    <div class="zone-card">
+      <div class="zone-card-header">
+        <div class="zone-label">Zone 2</div>
+        <div class="zone-title">Front of House</div>
+        <div class="zone-sub">Living Room · Playroom</div>
+      </div>
       <ul>
         <li>Vacuum &amp; mop living room floors</li>
         <li>Vacuum rug</li>
@@ -222,10 +223,12 @@
         <li>Vacuum &amp; mop playroom floors</li>
       </ul>
     </div>
-    <div class="zone-card z3">
-      <div class="zone-label">Zone 3</div>
-      <div class="zone-title">Guest Experience</div>
-      <div class="zone-sub">Dining · Bathrooms · Entryways</div>
+    <div class="zone-card">
+      <div class="zone-card-header">
+        <div class="zone-label">Zone 3</div>
+        <div class="zone-title">Guest Experience</div>
+        <div class="zone-sub">Dining · Bathrooms · Entryways</div>
+      </div>
       <ul>
         <li>Vacuum &amp; mop entryway floors</li>
         <li>Vacuum entry rugs</li>
