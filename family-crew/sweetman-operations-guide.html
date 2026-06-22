@@ -115,21 +115,26 @@
 
   /* ── ZONE ROTATION TABLE ── */
   .rotation-box {
-    background: #c8102e; border-radius: 6px; padding: 14px 18px; color: #fff; margin-bottom: 10px;
-    page-break-inside: avoid;
+    background: #fff; border-radius: 8px; border: 1px solid #e0e0e0;
+    overflow: hidden; margin-bottom: 10px; page-break-inside: avoid;
   }
-  .rotation-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; opacity: 0.85; }
-  .rotation-table { width: 100%; border-collapse: collapse; }
+  .rotation-label {
+    background: #c8102e; color: #fff;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 8px 16px; font-weight: 700;
+  }
+  .rotation-table { width: 100%; border-collapse: collapse; margin: 0; padding: 0 16px; }
   .rotation-table th {
-    font-size: 11.5px; font-weight: 600; text-align: left;
-    padding: 0 0 7px; color: rgba(255,255,255,0.9); border-bottom: 1px solid rgba(255,255,255,0.3);
+    font-size: 12px; font-weight: 700; text-align: left; color: #c8102e;
+    padding: 10px 10px 6px;
+    border-bottom: 2px solid #c8102e;
   }
   .rotation-table td {
-    font-size: 11.5px; padding: 4px 0; color: rgba(255,255,255,0.85);
-    border-bottom: 1px solid rgba(255,255,255,0.12); vertical-align: top;
+    font-size: 11.5px; padding: 5px 10px; color: #444;
+    border-bottom: 1px solid #f0f0f0; vertical-align: top;
   }
-  .rotation-table td:first-child { font-size: 10.5px; color: rgba(255,255,255,0.65); }
-  .rotation-note { font-size: 10.5px; color: rgba(255,255,255,0.7); font-style: italic; }
+  .rotation-table tr:last-child td { border-bottom: none; }
+  .rotation-note { font-size: 10.5px; color: #777; font-style: italic; display: block; margin-top: 3px; }
 
   /* ── PAGE 3 – CORE VALUES ── */
   .motto-box {
