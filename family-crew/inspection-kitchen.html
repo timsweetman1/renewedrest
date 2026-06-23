@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Inspection Chart: Kitchen</title>
+<style>
+  @page { size: letter landscape; margin: 0.3in 0.35in; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #111; background: #fff; }
+
+  .header {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #E4002B; color: #fff;
+    padding: 10px 16px; border-radius: 6px 6px 0 0;
+  }
+  .header-left { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1; }
+  .cfa-logo {
+    width: 38px; height: 38px; background: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 900; color: #E4002B; letter-spacing: -1px;
+    flex-shrink: 0;
+  }
+  .header-title { font-size: 22px; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; white-space: nowrap; }
+  .header-sub { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.85; margin-top: 1px; }
+  .date-box {
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.15); border-radius: 4px; padding: 5px 10px;
+    flex-shrink: 0; margin-left: 12px;
+  }
+  .date-label { font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; }
+  .date-fields { display: flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 700; }
+  .date-slash { opacity: 0.5; }
+  .date-field { border-bottom: 2px solid rgba(255,255,255,0.6); min-width: 22px; text-align: center; }
+
+  .grid-wrapper { border: 2.5px solid #E4002B; border-top: none; border-radius: 0 0 6px 6px; overflow: hidden; }
+  table { width: 100%; border-collapse: collapse; }
+
+  thead tr.col-header th {
+    background: #fff; border-bottom: 2px solid #E4002B;
+    font-size: 7.5px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #E4002B; padding: 5px 1px;
+    text-align: center; border-right: 1px solid #e0e0e0;
+    width: 30px;
+  }
+  thead tr.col-header th.task-head {
+    text-align: left; padding-left: 8px; width: 155px; color: #222;
+    font-size: 9px; border-right: 2px solid #E4002B;
+  }
+
+  tbody td {
+    border-bottom: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    padding: 0; vertical-align: middle; text-align: center;
+    height: 32px;
+  }
+  tbody td.task-cell {
+    text-align: left; padding: 5px 8px;
+    font-size: 10.5px; font-weight: 500; color: #111;
+    border-right: 2px solid #E4002B; line-height: 1.3;
+    width: 155px;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) td { background: #fafafa; }
+  tbody tr:nth-child(even) td.task-cell { background: #fdf5f5; }
+
+  tbody tr.divider td {
+    background: #E4002B; color: #fff;
+    font-size: 8.5px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; padding: 4px 10px; height: auto;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    text-align: left;
+  }
+  tbody tr.divider td:first-child { border-right: 2px solid rgba(255,255,255,0.3); }
+
+  .footer {
+    display: flex; gap: 0; margin-top: 8px;
+    border: 2px solid #E4002B; border-radius: 6px; overflow: hidden;
+  }
+  .footer-section { flex: 1; padding: 8px 12px; border-right: 2px solid #E4002B; }
+  .footer-section:last-child { border-right: none; }
+  .footer-title {
+    font-size: 8px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #E4002B; margin-bottom: 5px;
+  }
+  .footer-section ul { list-style: none; padding: 0; }
+  .footer-section ul li {
+    font-size: 10px; padding: 1.5px 0 1.5px 12px; position: relative; color: #333;
+  }
+  .footer-section ul li::before {
+    content: '●'; position: absolute; left: 0; top: 3px;
+    font-size: 5px; color: #E4002B;
+  }
+
+  .legend { display: flex; flex-direction: column; gap: 3px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 10.5px; font-weight: 500; }
+  .legend-symbol { font-size: 14px; width: 20px; text-align: center; }
+
+  .feedback-box { flex: 2; background: #fff; }
+  .feedback-lines { display: flex; flex-direction: column; gap: 9px; margin-top: 4px; }
+  .feedback-line { border-bottom: 1px solid #ddd; height: 14px; }
+
+  .scoring { background: #E4002B; color: #fff; flex: 1.4; }
+  .scoring .footer-title { color: #fff; opacity: 0.8; }
+  .scoring ul li { color: rgba(255,255,255,0.92); }
+  .scoring ul li::before { color: #fff; }
+
+  .motto {
+    text-align: center; font-size: 9px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: #E4002B;
+    margin-top: 7px; opacity: 0.7;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="cfa-logo">C</div>
+    <div>
+      <div class="header-title">Inspection Chart: Kitchen</div>
+      <div class="header-sub">Sweetman Family Crew · My Pleasure Standard</div>
+    </div>
+  </div>
+  <div class="date-box">
+    <div class="date-label">Date</div>
+    <div class="date-fields">
+      <div class="date-field">&nbsp;&nbsp;</div>
+      <div class="date-slash">/</div>
+      <div class="date-field">&nbsp;&nbsp;</div>
+      <div class="date-slash">/</div>
+      <div style="font-size:13px; opacity:0.7;">26</div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-wrapper">
+<table>
+  <thead>
+    <tr class="col-header">
+      <th class="task-head">Task</th>
+      <th>M</th><th>T</th><th>W</th><th>Th</th><th>F</th><th>Sa</th><th>Su</th>
+      <th>M</th><th>T</th><th>W</th><th>Th</th><th>F</th><th>Sa</th><th>Su</th>
+      <th>M</th><th>T</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr class="divider"><td colspan="17">Counters &amp; Surfaces</td></tr>
+    <tr>
+      <td class="task-cell">Clear off counters</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td>
+    </tr>
+    <tr>
+      <td class="task-cell">Wipe down counters</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td>
+    </tr>
+    <tr>
+      <td class="task-cell">Clean off table</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td>
+    </tr>
+    <tr>
+      <td class="task-cell">Replenish paper towel roll (if needed)</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td>
+    </tr>
+
+    <tr class="divider"><td colspan="17">Dishes &amp; Sink</td></tr>
+    <tr>
+      <td class="task-cell">Unload &amp; load dishes</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td>
+    </tr>
+    <tr>
+      <td class="task-cell">Wipe down empty sink &amp; sponges</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td>
+    </tr>
+
+    <tr class="divider"><td colspan="17">Trash &amp; Floor</td></tr>
+    <tr>
+      <td class="task-cell">Take out trash &amp; reline trash bag</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td>
+    </tr>
+    <tr>
+      <td class="task-cell">Clean toys off floor</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td>
+    </tr>
+    <tr>
+      <td class="task-cell">Vacuum-mop floors</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td>
+    </tr>
+    <tr>
+      <td class="task-cell">Charge mop</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td>
+    </tr>
+
+    <tr class="divider"><td colspan="17">Pet Care</td></tr>
+    <tr>
+      <td class="task-cell">Refill dog water bowls</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+<div class="footer">
+  <div class="footer-section" style="flex:1.2;">
+    <div class="footer-title">Second Mile Service Ideas</div>
+    <ul>
+      <li>Wipe down appliances</li>
+      <li>Clean inside microwave</li>
+      <li>Wipe cabinet fronts</li>
+      <li>Refill dish soap</li>
+    </ul>
+  </div>
+
+  <div class="footer-section" style="flex:0.9;">
+    <div class="footer-title">Rating Key</div>
+    <div class="legend">
+      <div class="legend-item"><span class="legend-symbol" style="color:#f5a623;">★</span> Excellent</div>
+      <div class="legend-item"><span class="legend-symbol" style="color:#2e6b3a;">✔</span> Satisfactory</div>
+      <div class="legend-item"><span class="legend-symbol" style="color:#E4002B;">✘</span> Not Well Done</div>
+    </div>
+  </div>
+
+  <div class="footer-section feedback-box" style="flex:2;">
+    <div class="footer-title">Feedback</div>
+    <div class="feedback-lines">
+      <div class="feedback-line"></div>
+      <div class="feedback-line"></div>
+      <div class="feedback-line"></div>
+    </div>
+  </div>
+
+  <div class="footer-section scoring">
+    <div class="footer-title">Scoring Guide</div>
+    <ul>
+      <li>3 or more ★ in one day = a special reward</li>
+      <li>3 or more ✘ in one day = a consequence</li>
+      <li>All checks in one day = well done</li>
+      <li>All checks for whole chart = a big reward</li>
+    </ul>
+  </div>
+</div>
+
+<div class="motto">My Pleasure — Every Time, Every Task</div>
+
+</body>
+</html>
