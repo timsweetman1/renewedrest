@@ -6,8 +6,17 @@ window.addEventListener('scroll', () => {
 });
 
 // Mobile menu
-function openMenu()  { document.getElementById('drawer').classList.add('open'); }
-function closeMenu() { document.getElementById('drawer').classList.remove('open'); }
+function setMenuState(open) {
+  const drawer = document.getElementById('drawer');
+  const trigger = document.querySelector('.hamburger, .nav-hamburger');
+  if (!drawer) return;
+  drawer.classList.toggle('open', open);
+  drawer.setAttribute('aria-hidden', String(!open));
+  trigger?.setAttribute('aria-expanded', String(open));
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+function openMenu()  { setMenuState(true); }
+function closeMenu() { setMenuState(false); }
 function toggleMenu() {
   const drawer = document.getElementById('drawer');
   drawer.classList.contains('open') ? closeMenu() : openMenu();
@@ -32,6 +41,8 @@ function initCarousel(trackId, dotsId) {
     slides.forEach((_,i) => {
       const d = document.createElement('button');
       d.className = 'carousel-dot' + (i===0?' active':'');
+      d.type = 'button';
+      d.setAttribute('aria-label', `Show testimonial ${i + 1}`);
       d.onclick = () => go(i);
       dotsEl.appendChild(d);
     });
@@ -74,6 +85,26 @@ function initCalc() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const drawer = document.getElementById('drawer');
+  const trigger = document.querySelector('.hamburger, .nav-hamburger');
+  if (drawer) {
+    drawer.setAttribute('aria-hidden', 'true');
+    drawer.setAttribute('role', 'dialog');
+    drawer.setAttribute('aria-label', 'Site navigation');
+  }
+  if (trigger && drawer) {
+    trigger.setAttribute('aria-controls', drawer.id);
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-label', 'Toggle navigation menu');
+  }
+  document.querySelectorAll('.drawer-close').forEach((button) => button.setAttribute('aria-label', 'Close menu'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+  document.querySelectorAll('main img').forEach((img, index) => {
+    if (index > 0 && !img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+    img.setAttribute('decoding', 'async');
+  });
   initCarousel('tCarousel', 'tDots');
   initFAQ();
   initCalc();
