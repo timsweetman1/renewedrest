@@ -84,6 +84,25 @@ function initCalc() {
   cards.forEach(c => c.addEventListener('click', () => { c.classList.toggle('selected'); update(); }));
 }
 
+// Manual newsletter workflow: send the signup address to Emily so she can
+// maintain the current BCC list without implying an automated subscription.
+function handleNewsletterSignup(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const email = form.querySelector('input[type="email"]').value.trim();
+  const subject = 'Renewed Rest newsletter signup request';
+  const body = [
+    'Please add this address to the Renewed Rest newsletter BCC list:',
+    '',
+    email,
+  ].join('\n');
+
+  window.location.href = `mailto:emily@renewed.rest?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  const status = form.parentElement?.querySelector('.newsletter-status');
+  if (status) status.hidden = false;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const drawer = document.getElementById('drawer');
   const trigger = document.querySelector('.hamburger, .nav-hamburger');

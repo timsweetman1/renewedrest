@@ -15,4 +15,4 @@ Run `python -m http.server 8000`, then open `http://localhost:8000`.
 
 ## Forms
 
-The current newsletter controls open an email draft. Connect them to the chosen mailing-list provider before treating them as automated subscriptions.
+The newsletter controls open a pre-addressed email draft to `emily@renewed.rest`. Emily manually adds each submitted address to the newsletter BCC list.

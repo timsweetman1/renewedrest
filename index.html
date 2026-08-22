@@ -465,11 +465,11 @@
         <h4>Stay Connected</h4>
         <p style="font-size:0.85rem; color:rgba(255,255,255,0.5); margin-bottom:var(--sp3);">Sleep tips and gentle encouragement in your inbox.</p>
         <!-- REPLACE_ME: wire this form to your email provider (Mailchimp/Flodesk/ConvertKit) -->
-        <form class="footer-nl-form" onsubmit="handleNewsletterSignup(event)">
+        <form class="footer-nl-form" onsubmit="return handleNewsletterSignup(event)">
           <input type="email" placeholder="Email address" required>
           <button type="submit">Join</button>
         </form>
-        <p id="nlSuccess" style="display:none; font-size:0.8rem; color:rgba(255,255,255,0.7); margin-top:8px;">✓ You're on the list!</p>
+        <p class="newsletter-status" hidden style="font-size:0.8rem; color:rgba(255,255,255,0.7); margin-top:8px;">An email draft opened. Send it to request signup.</p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -487,18 +487,6 @@ function handleGuideSignup(e) {
   const email = document.getElementById('guideEmail').value;
   // Fallback: open mailto with the email pre-filled so Emily can send manually
   window.open('https://docs.google.com/document/d/16jQGLalBrXZeGGBBbjR7bicvU69K7KjQJz-8uvijiKw/edit?usp=drivesdk', '_blank');
-}
-// Newsletter signup
-function handleNewsletterSignup(e) {
-  e.preventDefault();
-  const email = e.target.querySelector("input[type=email]").value;
-  const btn = e.target.querySelector("button");
-  btn.textContent = "✓ Joining...";
-  setTimeout(() => {
-    window.location.href = "mailto:emily@renewed.rest?subject=Newsletter Signup&body=Please add me to your newsletter: " + encodeURIComponent(email);
-    document.getElementById("nlSuccess").style.display = "block";
-    e.target.style.display = "none";
-  }, 150);
 }
 </script>
 </body>
