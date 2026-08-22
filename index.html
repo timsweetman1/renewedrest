@@ -397,13 +397,13 @@
             <li>How to build a sleep-friendly environment in under 10 minutes</li>
             <li>The simple schedule shift that transforms naps and nights</li>
           </ul>
-          <!-- REPLACE_ME: Update the form action/mailto with your guide delivery method -->
           <form class="guide-form" onsubmit="handleGuideSignup(event)">
-            <input type="text" placeholder="First name" required>
+            <input type="text" name="firstName" placeholder="First name" autocomplete="given-name" required>
             <input type="email" placeholder="Email address" id="guideEmail" required>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px" value="">
             <button type="submit" class="btn btn-rose">Send Me the Guide →</button>
           </form>
-          <p class="guide-note">Your guide will be sent to your inbox. No spam, ever.</p>
+          <p class="guide-note" id="guideStatus" aria-live="polite">Enter your email for instant access. Emily will also receive your request.</p>
         </div>
       </div>
     </div>
@@ -481,12 +481,43 @@
 
 <script src="main.js"></script>
 <script>
-// Guide signup — REPLACE_ME: swap with your actual form handler / ConvertKit / Flodesk
-function handleGuideSignup(e) {
+async function handleGuideSignup(e) {
   e.preventDefault();
-  const email = document.getElementById('guideEmail').value;
-  // Fallback: open mailto with the email pre-filled so Emily can send manually
-  window.open('https://docs.google.com/document/d/16jQGLalBrXZeGGBBbjR7bicvU69K7KjQJz-8uvijiKw/edit?usp=drivesdk', '_blank');
+  const form = e.currentTarget;
+  const button = form.querySelector('button');
+  const status = document.getElementById('guideStatus');
+  const guideUrl = 'https://docs.google.com/document/d/16jQGLalBrXZeGGBBbjR7bicvU69K7KjQJz-8uvijiKw/edit?usp=drivesdk';
+  const guideWindow = window.open('', '_blank');
+  const payload = {
+    firstName: form.elements.firstName.value,
+    email: document.getElementById('guideEmail').value,
+    website: form.elements.website.value,
+  };
+
+  button.disabled = true;
+  button.textContent = 'Opening your guide…';
+
+  try {
+    const response = await fetch('/api/guide-signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    status.textContent = response.ok
+      ? 'Your guide is open, and Emily received your request.'
+      : 'Your guide is open. Email notification will be available soon.';
+  } catch {
+    status.textContent = 'Your guide is open. Email notification could not be sent.';
+  } finally {
+    if (guideWindow) {
+      guideWindow.opener = null;
+      guideWindow.location = guideUrl;
+    } else {
+      window.location.href = guideUrl;
+    }
+    button.disabled = false;
+    button.textContent = 'Send Me the Guide →';
+  }
 }
 </script>
 </body>

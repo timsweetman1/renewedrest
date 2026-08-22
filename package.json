@@ -1,0 +1,11 @@
+{
+  "name": "renewed-rest-site",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "nodemailer": "^9.0.5"
+  }
+}
