@@ -47,20 +47,28 @@ export default {
       auth: { user: smtpUser, pass: smtpPassword },
     });
 
-    await transport.sendMail({
-      from: `Renewed Rest Website <${smtpUser}>`,
-      to: notificationEmail,
-      replyTo: email,
-      subject: `Free guide signup: ${firstName}`,
-      text: [
-        "A visitor requested the Renewed Rest free guide.",
-        "",
-        `Name: ${firstName}`,
-        `Email: ${email}`,
-        "",
-        "Add this address to the newsletter BCC list when ready.",
-      ].join("\n"),
-    });
+    try {
+      await transport.sendMail({
+        from: `Renewed Rest Website <${smtpUser}>`,
+        to: notificationEmail,
+        replyTo: email,
+        subject: `Free guide signup: ${firstName}`,
+        text: [
+          "A visitor requested the Renewed Rest free guide.",
+          "",
+          `Name: ${firstName}`,
+          `Email: ${email}`,
+          "",
+          "Add this address to the newsletter BCC list when ready.",
+        ].join("\n"),
+      });
+    } catch (error) {
+      console.error("Guide signup notification failed", {
+        code: error?.code,
+        responseCode: error?.responseCode,
+      });
+      return json({ error: "Email notification could not be sent" }, 502);
+    }
 
     return json({ ok: true });
   },
