@@ -75,9 +75,10 @@ PAGE_STYLE = """
     .post-body p { font-size: 1rem; color: var(--text-mid); line-height: 1.8; margin-bottom: var(--sp5); }
     .post-body ul, .post-body ol { margin: 0 0 var(--sp5) var(--sp6); }
     .post-body li { color: var(--text-mid); line-height: 1.75; margin-bottom: var(--sp2); }
-    .post-cta { background: var(--teal-light); border-radius: var(--r16); padding: var(--sp8); text-align: center; margin-top: var(--sp10); }
-    .post-cta h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--navy); margin-bottom: var(--sp3); }
-    .post-cta p { color: var(--text-mid); margin-bottom: var(--sp5); }
+    .assessment-cta { background: var(--teal-light); border-radius: var(--r16); padding: var(--sp8); text-align: center; margin-top: var(--sp10); }
+    .assessment-cta h2 { font-family: var(--serif); font-size: 1.55rem; color: var(--navy); margin-bottom: var(--sp3); }
+    .assessment-cta p { color: var(--text-mid); max-width: 600px; margin: 0 auto var(--sp5); line-height: 1.7; }
+    .assessment-details { display: flex; justify-content: center; flex-wrap: wrap; gap: var(--sp3) var(--sp5); margin-bottom: var(--sp6); color: var(--teal-dark); font-size: .88rem; font-weight: 600; }
     .article-note { border-left: 4px solid var(--teal); background: var(--off-white); padding: var(--sp4) var(--sp5); margin-top: var(--sp8); color: var(--text-mid); font-size: .9rem; line-height: 1.6; }
     @media (max-width: 640px) { .post-hero-img img { height: 220px; } }
 """
@@ -94,24 +95,25 @@ def extract(source: str, post_id: str) -> str:
     body = match.group(1)
     body = re.sub(r'<div class="post-back"[^>]*>.*?</div>', '', body, count=1, flags=re.S)
     body = re.sub(r'<h1>.*?</h1>', '', body, count=1, flags=re.S)
+    body = re.sub(r'<div class="post-cta">.*?</div>', '', body, count=1, flags=re.S)
     return body.strip()
 
 
 def nav() -> str:
     return """<nav class="nav" id="mainNav"><div class="nav-inner">
   <a href="index.html" class="nav-logo" aria-label="Renewed Rest home"><img src="logo3-removebg-preview.png" alt="Renewed Rest" height="44"></a>
-  <div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="packages.html">Packages</a><a href="sleep-guide.html">Digital Guide</a><a href="blog.html">Blog</a><a href="why-not-sleep-training.html">Why Not Sleep Training?</a><a href="contact.html">Contact</a><a href="contact.html" class="nav-cta-btn">Schedule a Free Call</a></div>
+  <div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="packages.html">Packages</a><a href="sleep-guide.html">Digital Guide</a><a href="blog.html">Blog</a><a href="why-not-sleep-training.html">Why Not Sleep Training?</a><a href="contact.html">Contact</a><a href="contact.html" class="nav-cta-btn">Free Sleep Assessment</a></div>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
 </div></nav>
 <div class="mobile-drawer" id="drawer"><button class="drawer-close" onclick="closeMenu()" aria-label="Close menu">✕</button><a href="index.html">Home</a><a href="about.html">About</a><a href="packages.html">Packages</a><a href="sleep-guide.html">Digital Guide</a><a href="blog.html">Blog</a><a href="why-not-sleep-training.html">Why Not Sleep Training?</a><a href="contact.html">Contact</a></div>
-<div class="mobile-sticky-cta"><a href="contact.html">Schedule a Free Call →</a></div>"""
+<div class="mobile-sticky-cta"><a href="contact.html">Free Sleep Assessment →</a></div>"""
 
 
 def footer() -> str:
     return """<footer class="footer"><div class="wrap"><div class="footer-grid">
   <div><div class="footer-logo">Renewed Rest</div><p class="footer-tagline">Helping families find the rest they deserve.</p></div>
   <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Emily</a></li><li><a href="packages.html">Packages</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-  <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:emily@renewed.rest">emily@renewed.rest</a></li><li><a href="contact.html">Schedule a Free Call</a></li></ul></div>
+  <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:emily@renewed.rest">emily@renewed.rest</a></li><li><a href="contact.html">Get a Free Sleep Assessment</a></li></ul></div>
   <div class="footer-col"><h4>Credentials</h4><p class="footer-tagline">Emily Sweetman<br>IPSP® Certified Sleep Consultant<br>Mother of five</p></div>
 </div><div class="footer-bottom"><span>© 2026 Renewed Rest LLC.</span><div class="footer-badges"><span class="footer-badge">IPSP® Certified</span><span class="footer-badge">Mother of 5</span></div></div></div></footer>"""
 
@@ -154,6 +156,12 @@ for post_id, data in POSTS.items():
   <h1>{html.escape(data["title"])}</h1>
   <div class="author-line"><img src="emily-and-liam.jpg" alt="Emily Sweetman"><div><strong><a href="about.html">Emily Sweetman</a></strong><span>IPSP® Certified Sleep Consultant · Mother of five</span></div></div>
   {article}
+  <section class="assessment-cta" aria-labelledby="assessment-heading">
+    <h2 id="assessment-heading">Get clarity on your child's sleep—in 30 minutes.</h2>
+    <p>Tell Emily what is happening at bedtime, during naps, or overnight. She'll help you identify the likely obstacles, answer your biggest question, and recommend the most sensible next step for your family.</p>
+    <div class="assessment-details"><span>✓ One-on-one with Emily</span><span>✓ Video or phone</span><span>✓ No cost or obligation</span></div>
+    <a href="contact.html" class="btn btn-rose">Get My Free Sleep Assessment</a>
+  </section>
   <aside class="article-note"><strong>Educational note:</strong> This article provides general sleep education and is not medical advice. Ask your child's pediatrician about health, feeding, development, breathing, or safe-sleep concerns.</aside>
 </article></div></section></main>
 {footer()}
