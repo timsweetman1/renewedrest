@@ -68,7 +68,9 @@ export default {
 
     const smtpUser = process.env.SMTP_USER;
     const smtpPassword = process.env.SMTP_APP_PASSWORD;
-    const notificationEmail = process.env.SLEEP_SOS_NOTIFICATION_EMAIL || process.env.GUIDE_NOTIFICATION_EMAIL || smtpUser;
+    // Sleep SOS requests always go directly to Emily. Keep this explicit so a
+    // guide-signup override cannot accidentally reroute a paid-pilot intake.
+    const notificationEmail = "emily@renewed.rest";
     if (!smtpUser || !smtpPassword || !notificationEmail) {
       console.error("Sleep SOS intake email is not configured");
       return json({ error: "The intake notification is not configured." }, 503);
