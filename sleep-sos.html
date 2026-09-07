@@ -115,6 +115,8 @@
         <div class="section-header center"><div class="eyebrow">Private pilot</div><h2 class="section-title">Tell Emily where sleep feels stuck</h2><p class="section-body">This short fit check helps Emily understand your family's starting point. After it is emailed to Emily, you will continue automatically to Renewed Rest's secure $100 checkout.</p></div>
         <div class="intake-shell">
           <form id="sleepSosIntake">
+            <input type="hidden" name="leadSource" value="direct">
+            <input type="hidden" name="leadCampaign" value="">
             <div class="intake-grid">
               <div class="field"><label for="parentName">Parent or caregiver name</label><input id="parentName" name="parentName" autocomplete="name" required maxlength="100"></div>
               <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
@@ -185,8 +187,15 @@
   </div><div class="footer-bottom"><span>© 2026 Renewed Rest LLC.</span><div class="footer-badges"><span class="footer-badge">IPSP® Certified</span><span class="footer-badge">Mother of 5</span></div></div></div></footer>
   <script src="main.js"></script>
   <script>
-    document.getElementById('sleepSosIntake')?.addEventListener('submit', async (event) => {
-      const checkoutUrl = 'https://buy.stripe.com/eVqdR9c1q0mW4mqd0oejK0f';
+    const sleepSosForm = document.getElementById('sleepSosIntake');
+    const landingParams = new URLSearchParams(window.location.search);
+    if (sleepSosForm) {
+      sleepSosForm.elements.leadSource.value = landingParams.get('utm_source') || landingParams.get('source') || 'direct';
+      sleepSosForm.elements.leadCampaign.value = landingParams.get('utm_campaign') || landingParams.get('campaign') || '';
+    }
+
+    sleepSosForm?.addEventListener('submit', async (event) => {
+      const checkoutUrl = new URL('https://buy.stripe.com/eVqdR9c1q0mW4mqd0oejK0f');
       event.preventDefault();
       const form = event.currentTarget;
       const button = form.querySelector('button[type="submit"]');
@@ -215,11 +224,12 @@
         });
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || 'We could not submit your request.');
+        checkoutUrl.searchParams.set('prefilled_email', data.email);
         status.classList.add('success');
         status.textContent = 'Thank you. Your information was sent to Emily. Taking you to secure checkout…';
         panel.classList.add('ready');
         form.querySelectorAll('input, select, textarea, button').forEach((element) => { element.disabled = true; });
-        window.location.assign(checkoutUrl);
+        window.location.assign(checkoutUrl.toString());
       } catch (error) {
         status.classList.add('error');
         status.textContent = `${error.message} Please email emily@renewed.rest for help.`;
