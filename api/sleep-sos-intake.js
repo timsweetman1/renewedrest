@@ -44,6 +44,8 @@ export default {
       typicalPattern: multiLine(submission.typicalPattern, 2000),
       familyValues: multiLine(submission.familyValues, 1200),
       consultationWindow: singleLine(submission.consultationWindow, 200),
+      leadSource: singleLine(submission.leadSource, 80) || "direct",
+      leadCampaign: singleLine(submission.leadCampaign, 80),
       medicalConcern: singleLine(submission.medicalConcern, 10),
       consent: submission.consent === true,
     };
@@ -99,6 +101,8 @@ export default {
           `Child: ${intake.childFirstName}`,
           `Age: ${intake.childAge}`,
           `Consultation windows: ${intake.consultationWindow}`,
+          `Referral source: ${intake.leadSource}`,
+          `Campaign: ${intake.leadCampaign || "Not provided"}`,
           "",
           "Primary challenge:",
           intake.challenge,
