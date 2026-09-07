@@ -46,6 +46,10 @@
     .safety { border-left: 4px solid var(--teal); padding: var(--sp5); background: var(--off-white); color: var(--text-mid); border-radius: 0 var(--r8) var(--r8) 0; }
     .intake-shell { max-width: 820px; margin: 0 auto; background: var(--white); border-radius: var(--r24); box-shadow: var(--sh-card); padding: var(--sp10); }
     .intake-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp5); }
+    .intake-section { border: 0; padding: 0; margin: 0; }
+    .intake-section + .intake-section { border-top: 1px solid var(--border); margin-top: var(--sp8); padding-top: var(--sp8); }
+    .intake-section > legend { color: var(--navy); font-family: var(--serif); font-size: 1.35rem; font-weight: 700; padding: 0; margin-bottom: var(--sp2); }
+    .section-intro { color: var(--text-light); font-size: .86rem; margin-bottom: var(--sp5); }
     .field { display: flex; flex-direction: column; gap: 7px; }
     .field-wide { grid-column: 1 / -1; }
     .field label, .field legend { color: var(--navy); font-size: .9rem; font-weight: 700; }
@@ -55,6 +59,12 @@
     .field-help { color: var(--text-light); font-size: .8rem; line-height: 1.5; }
     .check-row { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; color: var(--text-mid); font-size: .88rem; }
     .check-row input { margin-top: 4px; }
+    .choice-field { border: 0; padding: 0; margin: 0; }
+    .choice-field legend { margin-bottom: var(--sp3); }
+    .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp3) var(--sp5); }
+    .terms-box { background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r8); padding: var(--sp4) var(--sp5); color: var(--text-mid); font-size: .82rem; line-height: 1.6; }
+    .terms-box summary { color: var(--navy); cursor: pointer; font-weight: 700; }
+    .terms-box p { margin-top: var(--sp3); }
     .form-status { border-radius: var(--r8); padding: var(--sp4); margin-top: var(--sp4); font-size: .9rem; }
     .form-status.error { background: #fff0f0; color: #7d2727; }
     .form-status.success { background: var(--teal-light); color: var(--teal-dark); }
@@ -63,7 +73,7 @@
     .checkout-panel p { margin: var(--sp3) auto var(--sp5); max-width: 600px; }
     .hp-field { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
     @media (max-width: 820px) {
-      .sos-grid, .fit-grid, .intake-grid { grid-template-columns: 1fr; }
+      .sos-grid, .fit-grid, .intake-grid, .check-grid { grid-template-columns: 1fr; }
       .field-wide { grid-column: auto; }
       .intake-shell { padding: var(--sp6); }
       .clarity-grid { grid-template-columns: 1fr; }
@@ -111,26 +121,105 @@
 
     <section class="section bg-teal-light" id="pilot-intake">
       <div class="wrap">
-        <div class="section-header center"><div class="eyebrow">Private pilot</div><h2 class="section-title">Tell Emily where sleep feels stuck</h2><p class="section-body">This short fit check helps Emily understand your family's starting point. After it is emailed to Emily, you will continue automatically to Renewed Rest's secure $100 checkout.</p></div>
+        <div class="section-header center"><div class="eyebrow">Private pilot</div><h2 class="section-title">Tell Emily what sleep looks like now</h2><p class="section-body">This focused intake uses the same core questions Emily reviews with her clients. After it is emailed to Emily, you will continue automatically to Renewed Rest's secure $100 checkout.</p></div>
         <div class="intake-shell">
           <form id="sleepSosIntake">
             <input type="hidden" name="leadSource" value="direct">
             <input type="hidden" name="leadCampaign" value="">
-            <div class="intake-grid">
-              <div class="field"><label for="parentName">Parent or caregiver name</label><input id="parentName" name="parentName" autocomplete="name" required maxlength="100"></div>
-              <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
-              <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="40"></div>
-              <div class="field"><label for="preferredContact">Preferred follow-up</label><select id="preferredContact" name="preferredContact" required><option value="">Choose one</option><option>Email</option><option>Text</option><option>Voice note</option></select></div>
-              <div class="field"><label for="childFirstName">Child's first name</label><input id="childFirstName" name="childFirstName" required maxlength="80"></div>
-              <div class="field"><label for="childAge">Child's age</label><input id="childAge" name="childAge" placeholder="For example: 8 months" required maxlength="80"></div>
-              <div class="field field-wide"><label for="challenge">What is the one sleep challenge you most want help understanding?</label><textarea id="challenge" name="challenge" required maxlength="1500"></textarea></div>
-              <div class="field field-wide"><label for="typicalPattern">Briefly describe the usual pattern</label><textarea id="typicalPattern" name="typicalPattern" placeholder="Include typical naps, bedtime, night waking, and morning wake time." required maxlength="2000"></textarea></div>
-              <div class="field field-wide"><label for="familyValues">What should Emily preserve about your family's approach?</label><textarea id="familyValues" name="familyValues" placeholder="Optional: routines, feeding choices, connection, or approaches you do not want to use." maxlength="1200"></textarea></div>
-              <div class="field"><label for="consultationWindow">Best consultation windows</label><input id="consultationWindow" name="consultationWindow" placeholder="Days, times, and time zone" required maxlength="200"></div>
-              <div class="field"><label for="medicalConcern">Current health or safety concern?</label><select id="medicalConcern" name="medicalConcern" required><option value="">Choose one</option><option value="no">No current concern</option><option value="yes">Yes or unsure</option></select><span class="field-help">Includes breathing, feeding, growth, pain, illness, development, or safe-sleep concerns.</span></div>
-              <div class="field hp-field" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
-              <div class="field field-wide"><label class="check-row"><input type="checkbox" name="consent" required><span>I understand that Renewed Rest provides sleep education and coaching—not medical diagnosis or treatment—and that Emily will contact me to arrange the consultation and support window.</span></label></div>
-            </div>
+            <fieldset class="intake-section">
+              <legend>1. Your family</legend>
+              <p class="section-intro">Contact details and the basics Emily needs to identify your intake and follow up.</p>
+              <div class="intake-grid">
+                <div class="field"><label for="parentName">Parent or caregiver name</label><input id="parentName" name="parentName" autocomplete="name" required maxlength="100"></div>
+                <div class="field"><label for="email">Email used for consultation and payment</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
+                <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="40"></div>
+                <div class="field"><label for="preferredContact">Preferred follow-up</label><select id="preferredContact" name="preferredContact" required><option value="">Choose one</option><option>Email</option><option>Text</option><option>Voice note</option></select></div>
+                <div class="field"><label for="childFirstName">Child's first name</label><input id="childFirstName" name="childFirstName" required maxlength="80"></div>
+                <div class="field"><label for="childAge">Child's age</label><input id="childAge" name="childAge" placeholder="For example: 8 months" required maxlength="80"></div>
+                <div class="field"><label for="childDob">Child's date of birth <span class="field-help">(optional)</span></label><input id="childDob" name="childDob" type="date"></div>
+                <div class="field"><label for="timeZone">Your time zone</label><input id="timeZone" name="timeZone" placeholder="For example: Central" required maxlength="80"></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="intake-section">
+              <legend>2. Sleep rhythm and environment</legend>
+              <p class="section-intro">Adapted from Emily's Child Sleep Intake Form. Estimates are completely fine.</p>
+              <div class="intake-grid">
+                <div class="field field-wide"><label for="challenge">What is the one sleep challenge you most want help understanding?</label><textarea id="challenge" name="challenge" required maxlength="1500"></textarea></div>
+                <div class="field field-wide"><label for="daytimeSchedule">What is your child's current daytime sleep schedule, if any?</label><textarea id="daytimeSchedule" name="daytimeSchedule" placeholder="Include wake time, nap timing and length." required maxlength="2000"></textarea></div>
+                <div class="field field-wide"><label for="bedtimeRoutine">What does your child's bedtime routine look like? <span class="field-help">(optional)</span></label><textarea id="bedtimeRoutine" name="bedtimeRoutine" maxlength="1500"></textarea></div>
+                <div class="field field-wide"><label for="typicalPattern">What typically happens overnight?</label><textarea id="typicalPattern" name="typicalPattern" placeholder="Include bedtime, night waking, feeding or resettling, and morning wake time." required maxlength="2000"></textarea></div>
+                <div class="field"><label for="sleepOutfit">Sleep outfit, swaddle, or sleep sack <span class="field-help">(optional)</span></label><input id="sleepOutfit" name="sleepOutfit" placeholder="Include type and brand if relevant" maxlength="300"></div>
+                <div class="field"><label for="totalSleep">Estimated sleep in 24 hours <span class="field-help">(optional)</span></label><input id="totalSleep" name="totalSleep" placeholder="Naps plus nighttime sleep" maxlength="120"></div>
+                <div class="field field-wide"><label for="sleepingArrangement">What does your child's sleeping arrangement look like?</label><textarea id="sleepingArrangement" name="sleepingArrangement" placeholder="Room, sleep surface, light, sound, and who is nearby." required maxlength="1500"></textarea></div>
+                <div class="field"><label for="pacifierUse">Does your child use a pacifier to sleep?</label><select id="pacifierUse" name="pacifierUse" required><option value="">Choose one</option><option>Yes, and I often have to reinsert it</option><option>Yes, but they do not mind when it falls out</option><option>No pacifier</option></select></div>
+                <div class="field"><label for="nighttimeFeedings">Does your child receive nighttime feedings?</label><select id="nighttimeFeedings" name="nighttimeFeedings" required><option value="">Choose one</option><option>Yes</option><option>No</option><option>Sometimes</option></select></div>
+                <fieldset class="field field-wide choice-field"><legend>What helps your child fall asleep or return to sleep? <span class="field-help">(select all that apply)</span></legend><div class="check-grid">
+                  <label class="check-row"><input type="checkbox" name="sleepProps" value="Nursing to sleep"><span>Nursing to sleep</span></label>
+                  <label class="check-row"><input type="checkbox" name="sleepProps" value="Bottle to sleep"><span>Bottle to sleep</span></label>
+                  <label class="check-row"><input type="checkbox" name="sleepProps" value="Rocking to sleep"><span>Rocking to sleep</span></label>
+                  <label class="check-row"><input type="checkbox" name="sleepProps" value="Bouncing, swaying, or movement"><span>Bouncing, swaying, or movement</span></label>
+                  <label class="check-row"><input type="checkbox" name="sleepProps" value="Lying with a parent"><span>Lying with a parent</span></label>
+                  <label class="check-row"><input type="checkbox" name="sleepProps" value="Pacifier reinserted"><span>Pacifier reinserted</span></label>
+                  <label class="check-row"><input type="checkbox" name="sleepProps" value="No sleep props"><span>No sleep props</span></label>
+                  <label class="check-row"><input type="checkbox" name="sleepProps" value="Other"><span>Other</span></label>
+                </div></fieldset>
+                <fieldset class="field field-wide choice-field"><legend>How is your child currently receiving nutrition? <span class="field-help">(select all that apply)</span></legend><div class="check-grid">
+                  <label class="check-row"><input type="checkbox" name="nutrition" value="Breastfeeding"><span>Breastfeeding</span></label>
+                  <label class="check-row"><input type="checkbox" name="nutrition" value="Formula"><span>Formula</span></label>
+                  <label class="check-row"><input type="checkbox" name="nutrition" value="Solids"><span>Solids</span></label>
+                  <label class="check-row"><input type="checkbox" name="nutrition" value="Table food"><span>Table food</span></label>
+                </div><span class="field-help">Feeding instructions should always come from your pediatrician or health professional.</span></fieldset>
+              </div>
+            </fieldset>
+
+            <fieldset class="intake-section">
+              <legend>3. Your child and your goals</legend>
+              <p class="section-intro">These questions help Emily shape a plan around your child and your family's comfort.</p>
+              <div class="intake-grid">
+                <fieldset class="field field-wide choice-field"><legend>Which descriptions fit your child? <span class="field-help">(select any)</span></legend><div class="check-grid">
+                  <label class="check-row"><input type="checkbox" name="personality" value="Quiet, mellow, laid back"><span>Quiet, mellow, laid back</span></label>
+                  <label class="check-row"><input type="checkbox" name="personality" value="Fussy or often uncomfortable"><span>Fussy or often uncomfortable</span></label>
+                  <label class="check-row"><input type="checkbox" name="personality" value="Clingy, anxious, separation-sensitive"><span>Clingy, anxious, separation-sensitive</span></label>
+                  <label class="check-row"><input type="checkbox" name="personality" value="Strong-willed or change-resistant"><span>Strong-willed or change-resistant</span></label>
+                  <label class="check-row"><input type="checkbox" name="personality" value="Happy and playful"><span>Happy and playful</span></label>
+                  <label class="check-row"><input type="checkbox" name="personality" value="Other"><span>Other</span></label>
+                </div></fieldset>
+                <div class="field field-wide"><label for="methodsTried">Have you tried other methods or programs? <span class="field-help">(optional)</span></label><textarea id="methodsTried" name="methodsTried" maxlength="1200"></textarea></div>
+                <fieldset class="field field-wide choice-field"><legend>Current developmental milestones <span class="field-help">(select any)</span></legend><div class="check-grid">
+                  <label class="check-row"><input type="checkbox" name="milestones" value="None yet"><span>None yet</span></label>
+                  <label class="check-row"><input type="checkbox" name="milestones" value="Holding head up"><span>Holding head up</span></label>
+                  <label class="check-row"><input type="checkbox" name="milestones" value="Rolling"><span>Rolling</span></label>
+                  <label class="check-row"><input type="checkbox" name="milestones" value="Sitting"><span>Sitting</span></label>
+                  <label class="check-row"><input type="checkbox" name="milestones" value="Crawling"><span>Crawling</span></label>
+                  <label class="check-row"><input type="checkbox" name="milestones" value="Standing"><span>Standing</span></label>
+                  <label class="check-row"><input type="checkbox" name="milestones" value="Walking"><span>Walking</span></label>
+                  <label class="check-row"><input type="checkbox" name="milestones" value="Other"><span>Other</span></label>
+                </div></fieldset>
+                <div class="field field-wide"><label for="cryingComfort">Which statement best describes how you feel about crying?</label><select id="cryingComfort" name="cryingComfort" required><option value="">Choose one</option><option>I do not mind hearing crying</option><option>I am comfortable with some crying</option><option>I cannot hear any crying at all</option><option>I would like to discuss this with Emily</option></select></div>
+                <div class="field field-wide"><label for="additionalInfo">What else would help Emily understand the sleep challenge? <span class="field-help">(optional)</span></label><textarea id="additionalInfo" name="additionalInfo" placeholder="Include specific questions or anything not covered above." maxlength="2500"></textarea></div>
+                <div class="field field-wide"><label for="goals">What do you hope to understand or accomplish through Sleep SOS?</label><textarea id="goals" name="goals" required maxlength="1500"></textarea></div>
+                <div class="field field-wide"><label for="familyValues">What should Emily preserve about your family's approach? <span class="field-help">(optional)</span></label><textarea id="familyValues" name="familyValues" placeholder="Routines, feeding choices, connection, or approaches you do not want to use." maxlength="1200"></textarea></div>
+                <div class="field"><label for="consultationWindow">Best consultation windows</label><input id="consultationWindow" name="consultationWindow" placeholder="Days and times" required maxlength="200"></div>
+                <div class="field"><label for="preferredStartDate">Preferred start date <span class="field-help">(optional)</span></label><input id="preferredStartDate" name="preferredStartDate" type="date"></div>
+                <div class="field"><label for="howHeard">How did you hear about Renewed Rest? <span class="field-help">(optional)</span></label><select id="howHeard" name="howHeard"><option value="">Choose one</option><option>A friend</option><option>Social media</option><option>Online search</option><option>Online advertisement</option><option>Word of mouth</option><option>Other</option></select></div>
+                <div class="field"><label for="referrerName">Referring friend's name <span class="field-help">(optional)</span></label><input id="referrerName" name="referrerName" maxlength="120"></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="intake-section">
+              <legend>4. Health, safety, and client acknowledgments</legend>
+              <p class="section-intro">Please complete these before continuing to payment.</p>
+              <div class="intake-grid">
+                <div class="field field-wide"><label for="medicalConcern">Is there a current health or safety concern?</label><select id="medicalConcern" name="medicalConcern" required><option value="">Choose one</option><option value="no">No current concern</option><option value="yes">Yes or unsure</option></select><span class="field-help">Includes breathing, feeding, growth, pain, illness, development, or safe-sleep concerns.</span></div>
+                <div class="field hp-field" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+                <div class="field field-wide"><details class="terms-box"><summary>Read the Renewed Rest client terms</summary><p><strong>Medical disclaimer:</strong> Renewed Rest provides sleep education and coaching, not medical diagnosis or treatment. Information is intended for healthy children with common sleep concerns and is not a substitute for professional medical advice.</p><p><strong>Pediatrician approval:</strong> Consult your child's pediatrician or health professional before following sleep recommendations, particularly for breathing, feeding, growth, illness, development, medication, or safety concerns.</p><p><strong>Client responsibility:</strong> Families decide whether and how to apply coaching recommendations. Reliance on coaching information is at the family's discretion and risk.</p><p><strong>Refunds:</strong> Because preparation is personalized, payments are not refundable after Emily begins reviewing the intake or preparing the plan.</p><p><strong>Copyright and confidentiality:</strong> Renewed Rest materials, plans, guides, notes, and consultation content may not be reproduced, republished, recorded, or distributed without written permission.</p></details></div>
+                <div class="field field-wide"><label class="check-row"><input type="checkbox" name="consent" required><span>I understand that Renewed Rest provides education and coaching—not medical diagnosis or treatment—and Emily will contact me to arrange the consultation and support window.</span></label></div>
+                <div class="field field-wide"><label class="check-row"><input type="checkbox" name="pediatricianApproval" required><span>I agree to consult my child's pediatrician or health professional and obtain appropriate approval before following sleep recommendations.</span></label></div>
+                <div class="field field-wide"><label class="check-row"><input type="checkbox" name="termsAccepted" required><span>I have read and agree to the Renewed Rest client terms shown above.</span></label></div>
+                <div class="field field-wide"><label for="signatureName">Type your full name to acknowledge the information above</label><input id="signatureName" name="signatureName" autocomplete="name" required maxlength="100"></div>
+              </div>
+            </fieldset>
             <button type="submit" class="btn btn-teal btn-lg" style="width:100%;margin-top:var(--sp6);">Submit and Continue to Checkout</button>
             <p class="field-help" style="margin-top:var(--sp3);">Please do not include diagnoses, medical records, or other sensitive medical details. If you selected “Yes or unsure,” contact your child's pediatrician before purchasing.</p>
             <div id="intakeStatus" class="form-status" hidden role="status" aria-live="polite"></div>
@@ -199,8 +288,14 @@
       const button = form.querySelector('button[type="submit"]');
       const status = document.getElementById('intakeStatus');
       const panel = document.getElementById('checkoutPanel');
-      const data = Object.fromEntries(new FormData(form).entries());
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      ['sleepProps', 'nutrition', 'personality', 'milestones'].forEach((name) => {
+        data[name] = formData.getAll(name);
+      });
       data.consent = form.elements.consent.checked;
+      data.pediatricianApproval = form.elements.pediatricianApproval.checked;
+      data.termsAccepted = form.elements.termsAccepted.checked;
 
       status.hidden = false;
       status.className = 'form-status';
