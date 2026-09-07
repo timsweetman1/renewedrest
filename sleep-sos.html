@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Sleep SOS: A Personal Plan for Tonight | Renewed Rest</title>
+  <meta name="description" content="Get a personal sleep review, a practical Tonight Plan, and two days of gentle support from pediatric sleep consultant Emily Sweetman.">
+  <link rel="canonical" href="https://www.renewed.rest/sleep-sos.html">
+  <link rel="stylesheet" href="brand.css">
+  <link rel="icon" href="favicon.ico">
+  <meta name="theme-color" content="#3E6B7E">
+  <style>
+    main { padding-top: var(--nav-h); }
+    .pilot-bar { background: #fff3cd; color: #5f4500; padding: 10px var(--sp6); text-align: center; font-size: .86rem; font-weight: 700; }
+    .sos-hero { background: linear-gradient(135deg, var(--off-white), var(--rose-light)); padding: 88px 0 76px; }
+    .sos-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: var(--sp16); align-items: center; }
+    .sos-hero h1 { font-size: clamp(2.55rem, 5vw, 4.4rem); margin-bottom: var(--sp5); max-width: 760px; }
+    .sos-hero h1 em { color: var(--teal); }
+    .sos-lead { font-size: 1.15rem; line-height: 1.75; max-width: 650px; margin-bottom: var(--sp6); }
+    .sos-actions { display: flex; flex-wrap: wrap; gap: var(--sp3); align-items: center; }
+    .sos-note { font-size: .84rem; color: var(--text-light); margin-top: var(--sp3); }
+    .offer-card { background: var(--white); padding: var(--sp8); border-radius: var(--r24); box-shadow: var(--sh-hover); border-top: 5px solid var(--rose); }
+    .offer-price { font-family: var(--serif); font-size: 3rem; color: var(--navy); line-height: 1; margin: var(--sp3) 0; }
+    .offer-price span { font-family: var(--sans); font-size: .85rem; color: var(--text-light); }
+    .offer-list { margin: var(--sp6) 0; display: grid; gap: var(--sp3); }
+    .offer-list li { display: grid; grid-template-columns: 22px 1fr; gap: var(--sp2); color: var(--text-mid); }
+    .offer-list li::before { content: "✓"; color: var(--teal); font-weight: 800; }
+    .clarity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp6); }
+    .clarity-card { padding: var(--sp8); border: 1px solid var(--border); border-radius: var(--r16); background: var(--white); }
+    .clarity-number { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: var(--teal-light); color: var(--teal-dark); font-weight: 800; margin-bottom: var(--sp4); }
+    .clarity-card h3 { margin-bottom: var(--sp3); }
+    .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp8); }
+    .fit-panel { border-radius: var(--r16); padding: var(--sp8); }
+    .fit-panel h3 { margin-bottom: var(--sp4); }
+    .fit-panel ul { display: grid; gap: var(--sp3); }
+    .fit-panel li { color: var(--text-mid); padding-left: 24px; position: relative; }
+    .fit-panel li::before { position: absolute; left: 0; font-weight: 800; }
+    .fit-yes { background: var(--teal-light); }
+    .fit-yes li::before { content: "✓"; color: var(--teal-dark); }
+    .fit-no { background: var(--off-white); }
+    .fit-no li::before { content: "→"; color: var(--rose-dark); }
+    .credit { background: var(--navy); border-radius: var(--r24); padding: var(--sp10); text-align: center; }
+    .credit h2, .credit p { color: var(--white); }
+    .credit p { opacity: .76; max-width: 650px; margin: var(--sp3) auto var(--sp6); }
+    .safety { border-left: 4px solid var(--teal); padding: var(--sp5); background: var(--off-white); color: var(--text-mid); border-radius: 0 var(--r8) var(--r8) 0; }
+    .intake-shell { max-width: 820px; margin: 0 auto; background: var(--white); border-radius: var(--r24); box-shadow: var(--sh-card); padding: var(--sp10); }
+    .intake-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp5); }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field-wide { grid-column: 1 / -1; }
+    .field label, .field legend { color: var(--navy); font-size: .9rem; font-weight: 700; }
+    .field input, .field select, .field textarea { width: 100%; border: 1.5px solid var(--border); border-radius: var(--r8); background: var(--off-white); color: var(--text); font: inherit; font-size: .95rem; padding: 12px 14px; }
+    .field input:focus, .field select:focus, .field textarea:focus { outline: 3px solid rgba(62,107,126,.14); border-color: var(--teal); background: var(--white); }
+    .field textarea { min-height: 112px; resize: vertical; }
+    .field-help { color: var(--text-light); font-size: .8rem; line-height: 1.5; }
+    .check-row { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; color: var(--text-mid); font-size: .88rem; }
+    .check-row input { margin-top: 4px; }
+    .form-status { border-radius: var(--r8); padding: var(--sp4); margin-top: var(--sp4); font-size: .9rem; }
+    .form-status.error { background: #fff0f0; color: #7d2727; }
+    .form-status.success { background: var(--teal-light); color: var(--teal-dark); }
+    .checkout-panel { display: none; text-align: center; background: var(--teal-light); border-radius: var(--r16); padding: var(--sp8); margin-top: var(--sp6); }
+    .checkout-panel.ready { display: block; }
+    .checkout-panel p { margin: var(--sp3) auto var(--sp5); max-width: 600px; }
+    .legacy-note { font-size: .78rem; color: var(--text-light); margin-top: var(--sp3); }
+    .hp-field { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+    @media (max-width: 820px) {
+      .sos-grid, .fit-grid, .intake-grid { grid-template-columns: 1fr; }
+      .field-wide { grid-column: auto; }
+      .intake-shell { padding: var(--sp6); }
+      .clarity-grid { grid-template-columns: 1fr; }
+      .sos-hero { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="mainNav"><div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Renewed Rest home"><img src="logo3-removebg-preview.png" alt="Renewed Rest" height="44"></a>
+    <div class="nav-links"><a href="about.html">About</a><a href="packages.html">Packages</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="contact.html" class="nav-cta-btn">Free Sleep Assessment</a></div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div></nav>
+  <div class="mobile-drawer" id="drawer"><button class="drawer-close" onclick="closeMenu()" aria-label="Close menu">✕</button><a href="index.html">Home</a><a href="about.html">About</a><a href="packages.html">Packages</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+
+  <main>
+    <div class="pilot-bar">PRIVATE PILOT · FIVE OPENINGS EACH WEEK</div>
+    <section class="sos-hero">
+      <div class="wrap sos-grid">
+        <div>
+          <div class="eyebrow">A clear next step for a hard night</div>
+          <h1>Stop guessing about sleep. Start with a plan for <em>tonight.</em></h1>
+          <p class="sos-lead">Sleep SOS gives you a focused look at what may be disrupting your child's sleep, a personalized plan from Emily, and two days of gentle support as you begin.</p>
+          <div class="sos-actions">
+            <a href="#pilot-intake" class="btn btn-rose btn-lg">Request My Sleep SOS</a>
+            <a href="contact.html" class="btn btn-outline btn-lg">Talk with Emily first</a>
+          </div>
+          <p class="sos-note">Five openings per week · Designed for children from newborn through age six</p>
+        </div>
+        <aside class="offer-card" aria-label="Sleep SOS package details">
+          <div class="eyebrow">48-hour sleep clarity intensive</div>
+          <h2>Renewed Rest Sleep SOS</h2>
+          <div class="offer-price">$100 <span>one-time</span></div>
+          <ul class="offer-list">
+            <li>Short intake and sleep log</li>
+            <li>Emily's proprietary Quick Check</li>
+            <li>A personalized one-page Tonight Plan</li>
+            <li>A private 30-minute consultation</li>
+            <li>Two days of text or voice-note support</li>
+          </ul>
+          <p><strong>Your $100 can be credited toward an Essentials or Silver package when you upgrade within seven days.</strong></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section bg-teal-light" id="pilot-intake">
+      <div class="wrap">
+        <div class="section-header center"><div class="eyebrow">Private pilot</div><h2 class="section-title">Tell Emily where sleep feels stuck</h2><p class="section-body">This short fit check helps Emily understand your family's starting point. After submitting it, you can continue to Renewed Rest's secure $100 checkout.</p></div>
+        <div class="intake-shell">
+          <form id="sleepSosIntake">
+            <div class="intake-grid">
+              <div class="field"><label for="parentName">Parent or caregiver name</label><input id="parentName" name="parentName" autocomplete="name" required maxlength="100"></div>
+              <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
+              <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="40"></div>
+              <div class="field"><label for="preferredContact">Preferred follow-up</label><select id="preferredContact" name="preferredContact" required><option value="">Choose one</option><option>Email</option><option>Text</option><option>Voice note</option></select></div>
+              <div class="field"><label for="childFirstName">Child's first name</label><input id="childFirstName" name="childFirstName" required maxlength="80"></div>
+              <div class="field"><label for="childAge">Child's age</label><input id="childAge" name="childAge" placeholder="For example: 8 months" required maxlength="80"></div>
+              <div class="field field-wide"><label for="challenge">What is the one sleep challenge you most want help understanding?</label><textarea id="challenge" name="challenge" required maxlength="1500"></textarea></div>
+              <div class="field field-wide"><label for="typicalPattern">Briefly describe the usual pattern</label><textarea id="typicalPattern" name="typicalPattern" placeholder="Include typical naps, bedtime, night waking, and morning wake time." required maxlength="2000"></textarea></div>
+              <div class="field field-wide"><label for="familyValues">What should Emily preserve about your family's approach?</label><textarea id="familyValues" name="familyValues" placeholder="Optional: routines, feeding choices, connection, or approaches you do not want to use." maxlength="1200"></textarea></div>
+              <div class="field"><label for="consultationWindow">Best consultation windows</label><input id="consultationWindow" name="consultationWindow" placeholder="Days, times, and time zone" required maxlength="200"></div>
+              <div class="field"><label for="medicalConcern">Current health or safety concern?</label><select id="medicalConcern" name="medicalConcern" required><option value="">Choose one</option><option value="no">No current concern</option><option value="yes">Yes or unsure</option></select><span class="field-help">Includes breathing, feeding, growth, pain, illness, development, or safe-sleep concerns.</span></div>
+              <div class="field hp-field" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+              <div class="field field-wide"><label class="check-row"><input type="checkbox" name="consent" required><span>I understand that Renewed Rest provides sleep education and coaching—not medical diagnosis or treatment—and that Emily will contact me to arrange the consultation and support window.</span></label></div>
+            </div>
+            <button type="submit" class="btn btn-teal btn-lg" style="width:100%;margin-top:var(--sp6);">Submit and Continue to Checkout</button>
+            <p class="field-help" style="margin-top:var(--sp3);">Please do not include diagnoses, medical records, or other sensitive medical details. If you selected “Yes or unsure,” contact your child's pediatrician before purchasing.</p>
+            <div id="intakeStatus" class="form-status" hidden role="status" aria-live="polite"></div>
+          </form>
+          <div id="checkoutPanel" class="checkout-panel">
+            <h3>Your pilot request is ready.</h3>
+            <p>Continue to Renewed Rest's secure Stripe checkout to reserve the $100 Sleep SOS intensive. Emily will personally follow up using the information you submitted.</p>
+            <a id="checkoutLink" href="https://buy.stripe.com/eVqdR9c1q0mW4mqd0oejK0f" class="btn btn-rose btn-lg" rel="noopener">Continue to Secure Checkout →</a>
+            <p class="legacy-note">During this pilot, Stripe displays the existing product name “Custom Sleep Plan + 2 Days Text Support.” It is the same $100 checkout being used for Sleep SOS.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-white">
+      <div class="wrap">
+        <div class="section-header center"><div class="eyebrow">Clarity, not a quick-fix promise</div><h2 class="section-title">What happens over 48 hours</h2></div>
+        <div class="clarity-grid">
+          <article class="clarity-card"><div class="clarity-number">1</div><h3>Tell Emily what is happening</h3><p>Complete a focused intake and share the pattern around bedtime, naps, night waking, and your family's priorities.</p></article>
+          <article class="clarity-card"><div class="clarity-number">2</div><h3>Receive your Tonight Plan</h3><p>Emily reviews the whole picture, talks it through with you, and gives you a practical first plan tailored to your child.</p></article>
+          <article class="clarity-card"><div class="clarity-number">3</div><h3>Make adjustments together</h3><p>For the next two days, ask questions and share what you notice so Emily can help you understand the response.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-off-white">
+      <div class="wrap">
+        <div class="section-header center"><div class="eyebrow">Is this the right fit?</div><h2 class="section-title">A focused starting point—not full coaching</h2></div>
+        <div class="fit-grid">
+          <article class="fit-panel fit-yes"><h3>Sleep SOS may fit if you…</h3><ul><li>feel overwhelmed by conflicting sleep advice</li><li>want a gentle, connection-based next step</li><li>have one primary sleep challenge to untangle</li><li>want to meet Emily before choosing longer support</li></ul></article>
+          <article class="fit-panel fit-no"><h3>Start with a free assessment if…</h3><ul><li>you are unsure whether the concern is medical</li><li>you need ongoing or highly complex support</li><li>you have multiple children or several major transitions</li><li>you are not sure which Renewed Rest option fits</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-white">
+      <div class="wrap">
+        <div class="credit">
+          <h2>Need more support after the first 48 hours?</h2>
+          <p>Apply the full $100 you paid toward an Essentials or Silver package when you upgrade within seven days. You can begin with clarity without paying twice for the same starting work.</p>
+          <a href="#pilot-intake" class="btn btn-rose btn-lg">Request My Sleep SOS</a>
+        </div>
+        <p class="safety" style="margin-top:var(--sp8);"><strong>A note about health and safety:</strong> Renewed Rest provides sleep education and coaching, not medical diagnosis or treatment. Questions involving breathing, feeding, growth, illness, development, or safe-sleep concerns should be discussed with your child's pediatrician.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap"><div class="footer-grid">
+    <div><div class="footer-logo">Renewed Rest</div><p class="footer-tagline">Gentle sleep skill building for the whole family.</p></div>
+    <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Emily</a></li><li><a href="packages.html">Packages</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:emily@renewed.rest">emily@renewed.rest</a></li><li><a href="contact.html">Free Sleep Assessment</a></li></ul></div>
+    <div class="footer-col"><h4>Credentials</h4><p class="footer-tagline">Emily Sweetman<br>IPSP® Certified Sleep Consultant<br>Mother of five</p></div>
+  </div><div class="footer-bottom"><span>© 2026 Renewed Rest LLC.</span><div class="footer-badges"><span class="footer-badge">IPSP® Certified</span><span class="footer-badge">Mother of 5</span></div></div></div></footer>
+  <script src="main.js"></script>
+  <script>
+    document.getElementById('sleepSosIntake')?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const button = form.querySelector('button[type="submit"]');
+      const status = document.getElementById('intakeStatus');
+      const panel = document.getElementById('checkoutPanel');
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.consent = form.elements.consent.checked;
+
+      status.hidden = false;
+      status.className = 'form-status';
+      panel.classList.remove('ready');
+
+      if (data.medicalConcern !== 'no') {
+        status.classList.add('error');
+        status.innerHTML = 'Please contact your child\'s pediatrician about the concern before purchasing. You may also <a href="contact.html" style="text-decoration:underline;">book a free assessment</a> after receiving appropriate medical guidance.';
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = 'Submitting…';
+      try {
+        const response = await fetch('/api/sleep-sos-intake', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || 'We could not submit your request.');
+        status.classList.add('success');
+        status.textContent = 'Thank you. Your information was sent to Emily. Complete checkout below to reserve your pilot spot.';
+        panel.classList.add('ready');
+        form.querySelectorAll('input, select, textarea, button').forEach((element) => { element.disabled = true; });
+        panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (error) {
+        status.classList.add('error');
+        status.textContent = `${error.message} Please email emily@renewed.rest for help.`;
+        button.disabled = false;
+        button.textContent = 'Submit and Continue to Checkout';
+      }
+    });
+  </script>
+</body>
+</html>
