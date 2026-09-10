@@ -6,6 +6,6 @@
     "node": ">=22"
   },
   "dependencies": {
-    "nodemailer": "^9.0.5"
+    "nodemailer": "^9.1.1"
   }
 }
